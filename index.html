@@ -344,14 +344,30 @@ btn.innerHTML = "📋 Sao chép";
 btn.classList.remove("success");
 }, 2000);
 
-}
-</script>
 
+</script>
+<script>
+function copyRepo(){
+
+const text =
+document.getElementById("repo").innerText;
 
 navigator.clipboard.writeText(text);
 
-alert("Đã sao chép Repo!");
+const btn =
+document.querySelector(".copy");
+
+btn.innerHTML = "✅ Đã sao chép!";
+btn.classList.add("success");
+
+setTimeout(() => {
+btn.innerHTML = "📋 Sao chép";
+btn.classList.remove("success");
+}, 2000);
+
 }
+</script>
+
 </script>
 
 </body>
