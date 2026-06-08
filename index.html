@@ -1,9 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Little306 Repo</title>
+<title>BVN Repo</title>
 
 <style>
 *{
@@ -15,295 +16,170 @@ font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 
 body{
 background:linear-gradient(135deg,#00c8ff,#001b44);
-padding:20px;
-display:flex;
-justify-content:center;
+min-height:100vh;
+padding:15px;
 }
 
 .container{
-width:100%;
 max-width:500px;
-background:#061a35;
-border-radius:35px;
-padding:20px;
-border:1px solid rgba(0,200,255,.25);
-box-shadow:
-0 0 30px rgba(0,150,255,.2),
-0 0 80px rgba(0,150,255,.15);
-}
-
-.header{
-display:flex;
-gap:15px;
-align-items:center;
+margin:auto;
+background:rgba(5,15,35,.55);
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:28px;
+padding:18px;
+box-shadow:0 0 30px rgba(0,180,255,.15);
 }
 
 .logo{
-width:100px;
-height:100px;
-border-radius:24px;
-background:linear-gradient(135deg,#007cff,#0048ff);
-font-size:56px;
-font-weight:700;
+text-align:center;
+font-size:42px;
+font-weight:900;
 color:#fff;
-display:flex;
-justify-content:center;
-align-items:center;
-box-shadow:0 0 25px rgba(0,120,255,.45);
+text-shadow:
+0 0 10px #00c8ff,
+0 0 20px #00c8ff,
+0 0 35px #00c8ff;
 }
-.title h1{
-color:white;
-font-size:35px;
+
+.subtitle{
+text-align:center;
+color:#d9e4f2;
+font-size:15px;
+margin-top:8px;
+}
+
+.desc{
+text-align:center;
+color:#28d8ff;
+font-size:12px;
 letter-spacing:3px;
+margin-top:8px;
+margin-bottom:15px;
 }
 
-.title p{
-color:#c6d0df;
-font-size:18px;
-}
-
-.status{
-margin-top:15px;
-display:inline-flex;
+.dark{
+height:40px;
+display:flex;
 align-items:center;
-gap:10px;
-padding:12px 18px;
-border-radius:30px;
-background:#163761;
+justify-content:center;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:12px;
 color:white;
-border:1px solid rgba(255,255,255,.15);
+margin-bottom:15px;
 }
 
-.dot{
-width:12px;
-height:12px;
-background:#00ff55;
-border-radius:50%;
-box-shadow:0 0 20px #00ff55;
-animation:blink 1s infinite;
-}
-
-@keyframes blink{
-50%{opacity:.2}
-}
-
-.dark-status{
-margin-top:15px;
-padding:12px 20px;
-background:#09152f;
-color:#fff;
-border-radius:30px;
-display:inline-block;
-cursor:pointer;
-border:1px solid rgba(255,255,255,.15);
-transition:.3s;
-}
-
-.dark-status:hover{
-transform:scale(1.05);
-box-shadow:0 0 20px #00c8ff;
-}
-
-body.light{
-background:linear-gradient(135deg,#ffffff,#d8e8ff);
-}
-
-body.light .container{
-background:#ffffff;
-}
-
-body.light .title h1,
-body.light .title p,
-body.light .section,
-body.light .repo-link,
-body.light .card,
-body.light .info,
-body.light .footer{
-color:#111;
-}
-
-body.light .repo-box,
-body.light .card,
-body.light .info{
-background:#edf4ff;
-}
-
-body.light .status{
-background:#dbeafe;
-color:#111;
-}
 .section{
-margin-top:30px;
-color:white;
+margin-top:18px;
+margin-bottom:8px;
+color:#28d8ff;
 font-size:14px;
-letter-spacing:4px;
-font-weight:bold;
+font-weight:700;
 }
-
 
 .repo-box{
 display:flex;
-justify-content:space-between;
-align-items:center;
-background:#0a2146;
-border:1px solid rgba(0,180,255,.12);
-border-radius:12px;
-padding:6px 10px;
-margin-top:8px;
-min-height:40px;
+gap:8px;
 }
 
-.repo-link{
+.repo-box input{
+flex:1;
+height:40px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:12px;
+padding:0 12px;
 color:white;
-font-size:13px;
-font-weight:500;
+outline:none;
 }
 
 .copy{
-height:28px;
-padding:0 8px;
+height:40px;
+padding:0 12px;
 border:none;
-border-radius:8px;
-background:#1fd4ff;
+border-radius:12px;
+background:rgba(0,180,255,.25);
 color:white;
-font-size:12px;
-font-weight:600;
 cursor:pointer;
 }
+
 .btn{
+width:100%;
+height:40px;
 display:flex;
 align-items:center;
 justify-content:space-between;
-width:100%;
-height:40px;
-padding:0 16px;
-margin-top:10px;
-background:#0a2146;
-border:1px solid rgba(0,180,255,.18);
-border-radius:16px;
-color:#fff;
+padding:0 14px;
+margin-top:8px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:12px;
+color:white;
 text-decoration:none;
-font-size:16px;
+font-size:14px;
 font-weight:600;
-transition:.25s;
-}
-
-.btn:hover{
-transform:translateY(-1px);
-box-shadow:0 0 12px rgba(0,180,255,.25);
-}
-
-.btn::after{
-content:"❯";
-font-size:18px;
-opacity:.8;
 }
 
 .sileo{
-background:linear-gradient(90deg,#0a7fff,#5b4cff);
+background:linear-gradient(
+90deg,
+rgba(0,180,255,.4),
+rgba(103,76,255,.4)
+);
 }
 
-.btn:hover{
-transform:translateY(-2px);
-box-shadow:0 0 25px rgba(0,200,255,.4);
-}
-
-.btn::after{
-content:"›";
-font-size:34px;
-opacity:.8;
-}
-
-.sileo{
-background:linear-gradient(90deg,#008cff,#5c4cff);
-}
-.btn:hover{
-transform:translateY(-2px);
-box-shadow:0 0 25px rgba(0,200,255,.4);
-}
-
-.btn::after{
-content:"›";
-font-size:34px;
-opacity:.8;
-}
-
-.sileo{
-background:linear-gradient(90deg,#008cff,#5c4cff);
-}
-.sileo{
-background:linear-gradient(90deg,#2dd8ff,#6d63ff);
-}
-
-.card{
-margin-top:15px;
-background:linear-gradient(135deg,#1a3157,#11294a);
-padding:20px;
-border-radius:25px;
+.contact,
+.donate-box{
+margin-top:10px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:12px;
+padding:14px;
 color:white;
 line-height:1.8;
+font-size:14px;
 }
 
-.info{
-margin-top:15px;
-padding:18px;
-background:#1a3157;
-border-radius:18px;
+.copy-stk{
+margin-left:8px;
+padding:4px 8px;
+border:none;
+border-radius:8px;
+background:#28d8ff;
 color:white;
+cursor:pointer;
 }
 
 .footer{
-margin-top:25px;
+margin-top:15px;
 text-align:center;
-color:#b7c0d0;
-font-size:14px;
+color:#d0d9e6;
+font-size:13px;
 }
 </style>
 </head>
-
-
 
 <body>
 
 <div class="container">
 
-<div class="header">
-.logo-wrap{
-text-align:center;
-margin-bottom:20px;
-}
-    <img src="IMG_0206.png" class="logo-img">
+<div class="logo">
+BVN REPO
 </div>
 
-</div>
-<div class="title">
-<h1>Little306</h1>
-<p>Kho tweak & IPA</p>
-
-<div class="status">
-<div class="dot"></div>
-ĐANG HOẠT ĐỘNG
+<div class="subtitle">
+Kho tweak Crack – Việt Hoá
 </div>
 
-<div class="dark-status" onclick="toggleMode()">
-    🌙 Đang dùng Dark Mode
+<div class="desc">
+JAILBREAK • CÔNG NGHỆ
 </div>
 
-<script>
-function toggleMode(){
-    document.body.classList.toggle("light");
-
-    const status = document.querySelector(".dark-status");
-
-    if(document.body.classList.contains("light")){
-        status.innerHTML = "☀️ Đang dùng Light Mode";
-    }else{
-        status.innerHTML = "🌙 Đang dùng Dark Mode";
-    }
-}
-</script>
-
-</div>
+<div class="dark">
+🌙 Đang dùng Dark Mode
 </div>
 
 <div class="section">
@@ -311,78 +187,81 @@ function toggleMode(){
 </div>
 
 <div class="repo-box">
-<div class="repo-link" id="repo">
-https://little3306.github.io
+<input id="repo" value="https://bvnrepo.xyz" readonly>
+<button class="copy" onclick="copyRepo()">📋</button>
 </div>
 
-<button class="copy" onclick="copyRepo()">
-📋 Sao chép
-</button>
-</div>
-
-<a class="btn" href="#">📦 Thêm vào Cydia</a>
-
-<a class="btn sileo" href="#">
-🌀 Thêm vào Sileo
+<a href="#" class="btn">
+<span>🗂️ Thêm vào Cydia</span>
+<span>❯</span>
 </a>
 
-<a class="btn" href="#">🦓 Thêm vào Zebra</a>
+<a href="#" class="btn sileo">
+<span>🌀 Thêm vào Sileo</span>
+<span>❯</span>
+</a>
 
-<a class="btn" href="#">🛡️ Repo Roothide</a>
+<a href="#" class="btn">
+<span>🦓 Thêm vào Zebra</span>
+<span>❯</span>
+</a>
 
-<a class="btn" href="#">📱 Kho IPA</a>
+<a href="#" class="btn">
+<span>📦 Repo Roothide</span>
+<span>❯</span>
+</a>
 
-<a class="btn" href="#">📦 File TrollStore</a>
+<a href="#" class="btn">
+<span>📲 Kho IPA</span>
+<span>❯</span>
+</a>
+
+<a href="#" class="btn">
+<span>🧪 File Tiêm – TrollFools</span>
+<span>❯</span>
+</a>
 
 <div class="section">
 THÔNG TIN LIÊN HỆ
 </div>
 
-<div class="card">
-<b>Repo phát triển bởi:</b> Little306 🇻🇳<br><br>
-
-Kho lưu trữ tweak, IPA và công cụ Jailbreak.<br><br>
-
-<b>Hỗ trợ:</b> Báo lỗi, góp ý, yêu cầu tính năng.<br><br>
-
-<b>Email:</b> little306@gmail.com<br>
-<b>Telegram:</b> @little306
+<div class="contact">
+Repo được phát triển bởi: BVN 🇻🇳<br>
+Kho lưu trữ các Tweak Việt hoá cho cộng đồng Jailbreak.<br>
+Hỗ trợ: Bug, góp ý, yêu cầu tính năng mới.<br>
+Tình trạng: Đang cập nhật tweak cho iOS 15–16 (rootless).<br>
+Email: bvnrepo@gmail.com<br>
+Telegram: Nhóm hỗ trợ
 </div>
 
 <div class="section">
 ỦNG HỘ (DONATE)
 </div>
 
-<div class="info">
-STK: <b>123456789</b>
-</div>
-
-<div class="info">
-Ngân hàng: <b>MBBank</b>
-</div>
-
-<div class="info">
-Chủ TK: <b>LITTLE306</b>
+<div class="donate-box">
+STK: <b>900959999</b>
+<button class="copy-stk" onclick="copySTK()">📋</button>
+<br><br>
+Ngân hàng: <b>MBBank</b><br>
+Chủ TK: <b>BIEN VAN NHAT</b>
 </div>
 
 <div class="footer">
-❤️ Cảm ơn bạn đã ủng hộ ❤️
+❤️ Ủng hộ giúp Repo phát triển ❤️
 <br><br>
-© 2026 Little306 Repo
+© 2026 BVN Repo
 </div>
 
 </div>
 
 <script>
 function copyRepo(){
-const text =
-document.getElementById('repo').innerText;
+navigator.clipboard.writeText("https://bvnrepo.xyz");
+}
 
-navigator.clipboard.writeText(text);
-
-alert("Đã sao chép Repo!");
+function copySTK(){
+navigator.clipboard.writeText("900959999");
 }
 </script>
 
 </body>
-</html>
