@@ -186,9 +186,23 @@ font-size:14px;
 ĐANG HOẠT ĐỘNG
 </div>
 
-<div class="dark">
-🌙 Đang dùng Dark Mode
+<div class="dark-status" onclick="toggleMode()">
+    🌙 Đang dùng Dark Mode
 </div>
+
+<script>
+function toggleMode(){
+    document.body.classList.toggle("light");
+
+    const status = document.querySelector(".dark-status");
+
+    if(document.body.classList.contains("light")){
+        status.innerHTML = "☀️ Đang dùng Light Mode";
+    }else{
+        status.innerHTML = "🌙 Đang dùng Dark Mode";
+    }
+}
+</script>
 
 </div>
 </div>
