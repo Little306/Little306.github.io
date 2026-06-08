@@ -84,15 +84,51 @@ animation:blink 1s infinite;
 50%{opacity:.2}
 }
 
-.dark{
+.dark-status{
 margin-top:15px;
-padding:12px;
-border-radius:30px;
+padding:12px 20px;
 background:#09152f;
-color:#d4d9e2;
-text-align:center;
+color:#fff;
+border-radius:30px;
+display:inline-block;
+cursor:pointer;
+border:1px solid rgba(255,255,255,.15);
+transition:.3s;
 }
 
+.dark-status:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #00c8ff;
+}
+
+body.light{
+background:linear-gradient(135deg,#ffffff,#d8e8ff);
+}
+
+body.light .container{
+background:#ffffff;
+}
+
+body.light .title h1,
+body.light .title p,
+body.light .section,
+body.light .repo-link,
+body.light .card,
+body.light .info,
+body.light .footer{
+color:#111;
+}
+
+body.light .repo-box,
+body.light .card,
+body.light .info{
+background:#edf4ff;
+}
+
+body.light .status{
+background:#dbeafe;
+color:#111;
+}
 .section{
 margin-top:30px;
 color:white;
