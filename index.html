@@ -1,85 +1,446 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>BVN Repo</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
-body{background:linear-gradient(135deg,#00c8ff,#001b44);min-height:100vh;padding:15px;transition:.3s}
-body.light{background:linear-gradient(135deg,#fff,#dceeff)}
-.container{max-width:500px;margin:auto;background:rgba(5,15,35,.55);backdrop-filter:blur(25px);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:18px;box-shadow:0 0 30px rgba(0,180,255,.15)}
-.logo{text-align:center;font-size:42px;font-weight:900;color:#fff;text-shadow:0 0 10px #00c8ff,0 0 20px #00c8ff}
-.subtitle{text-align:center;color:#d9e4f2;margin-top:8px}
-.desc{display:flex;align-items:center;justify-content:center;gap:10px;width:max-content;margin:12px auto;padding:8px 16px;background:rgba(255,255,255,.05);backdrop-filter:blur(15px);border-radius:30px;color:#28d8ff}
-.blink{width:10px;height:10px;background:#00ff66;border-radius:50%;box-shadow:0 0 5px #00ff66,0 0 20px #00ff66;animation:blink 1s infinite}
-@keyframes blink{50%{opacity:.2}}
-.darkbtn,.btn,.repo-box,.donate-row{background:rgba(255,255,255,.05);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,.08)}
-.darkbtn{height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer}
-.section{margin:18px 0 8px;color:#28d8ff;font-weight:700}
-.repo-box{border-radius:12px;padding:6px;display:flex;gap:8px}
-.repo-link{flex:1;height:40px;display:flex;align-items:center;padding:0 12px;color:#fff}
-.copy,.copy-stk{height:40px;padding:0 14px;border:none;border-radius:10px;background:rgba(0,180,255,.25);color:#fff;cursor:pointer}
-.btn{height:40px;border-radius:12px;padding:0 14px;margin-top:8px;display:flex;align-items:center;justify-content:space-between;color:#fff;text-decoration:none}
-.sileo{background:linear-gradient(90deg,rgba(0,180,255,.45),rgba(103,76,255,.45))}
-.contact,.donate-box{margin-top:10px;background:rgba(255,255,255,.05);backdrop-filter:blur(15px);border-radius:12px;padding:14px;color:#fff;line-height:1.8}
-.donate-row{border-radius:10px;padding:6px;display:flex;justify-content:space-between;align-items:center}
-.footer{text-align:center;color:#d0d9e6;margin-top:15px}
-body.light .logo,body.light .contact,body.light .donate-box,body.light .repo-link,body.light .btn,body.light .darkbtn,.light .footer{color:#111}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#00c8ff,#001b44);
+min-height:100vh;
+padding:15px;
+transition:.3s;
+}
+
+body.light{
+background:linear-gradient(135deg,#eef8ff,#d7ebff);
+}
+
+.container{
+max-width:500px;
+margin:auto;
+
+background:rgba(5,15,35,.65);
+
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+
+border:3px solid rgba(0,200,255,.6);
+
+border-radius:30px;
+
+padding:20px;
+
+box-shadow:
+0 0 20px rgba(0,200,255,.4),
+0 0 50px rgba(0,120,255,.25);
+}
+
+.logo{
+text-align:center;
+font-size:46px;
+font-weight:900;
+color:#fff;
+
+text-shadow:
+0 0 10px #00c8ff,
+0 0 25px #00c8ff;
+}
+
+.subtitle{
+text-align:center;
+color:#d9e4f2;
+margin-top:6px;
+font-size:18px;
+}
+
+.desc{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+
+width:max-content;
+
+margin:14px auto;
+
+padding:10px 20px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:30px;
+
+color:#28d8ff;
+font-weight:700;
+}
+
+.blink{
+width:12px;
+height:12px;
+border-radius:50%;
+
+background:#00ff66;
+
+box-shadow:
+0 0 8px #00ff66,
+0 0 25px #00ff66;
+
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:.2;
+}
+}
+
+.darkbtn{
+height:42px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:14px;
+
+color:white;
+
+cursor:pointer;
+}
+
+.section{
+margin:18px 0 10px;
+
+font-size:18px;
+font-weight:800;
+
+color:#28d8ff;
+}
+
+.repo-box{
+display:flex;
+gap:8px;
+
+padding:6px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:14px;
+}
+
+.repo-link{
+flex:1;
+
+height:40px;
+
+display:flex;
+align-items:center;
+
+padding:0 12px;
+
+color:white;
+
+overflow:hidden;
+}
+
+.copy,
+.copy-stk{
+height:40px;
+
+padding:0 15px;
+
+border:none;
+
+border-radius:10px;
+
+background:rgba(0,180,255,.25);
+
+color:white;
+
+font-weight:700;
+
+cursor:pointer;
+}
+
+.btn{
+height:40px;
+
+margin-top:8px;
+
+padding:0 14px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+text-decoration:none;
+
+color:white;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:14px;
+
+transition:.25s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+.sileo{
+background:linear-gradient(
+90deg,
+rgba(0,180,255,.45),
+rgba(103,76,255,.45)
+);
+}
+
+.contact,
+.donate-box{
+margin-top:10px;
+
+padding:15px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:14px;
+
+color:white;
+
+line-height:1.9;
+}
+
+.donate-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:6px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:12px;
+}
+
+.glass-row{
+margin-top:10px;
+
+padding:12px 15px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:12px;
+
+color:white;
+}
+
+.footer{
+text-align:center;
+margin-top:18px;
+color:#d0d9e6;
+line-height:1.8;
+}
+
+body.light .logo,
+body.light .subtitle,
+body.light .contact,
+body.light .donate-box,
+body.light .glass-row,
+body.light .repo-link,
+body.light .btn,
+body.light .darkbtn,
+body.light .footer{
+color:#111;
+}
+
+body.light .contact,
+body.light .donate-box,
+body.light .glass-row,
+body.light .repo-box,
+body.light .btn,
+body.light .darkbtn{
+background:rgba(255,255,255,.75);
+}
 </style>
 </head>
+
 <body>
+
 <div class="container">
+
 <div class="logo">BVN REPO</div>
-<div class="subtitle">Kho tweak Crack – Việt Hoá</div>
-<div class="desc"><div class="blink"></div>JAILBREAK • CÔNG NGHỆ</div>
 
-<div class="darkbtn" onclick="toggleMode()" id="mode">🌙 Đang dùng Dark Mode</div>
-
-<div class="section">ĐƯỜNG DẪN REPO</div>
-<div class="repo-box">
-<div class="repo-link">https://bvnrepo.xyz</div>
-<button class="copy" onclick="copyRepo()">📋 Sao chép</button>
+<div class="subtitle">
+Kho tweak Crack – Việt Hoá
 </div>
 
-<a href="#" class="btn">🗂️ Thêm vào Cydia <span>❯</span></a>
-<a href="#" class="btn sileo">🌀 Thêm vào Sileo <span>❯</span></a>
-<a href="#" class="btn">🦓 Thêm vào Zebra <span>❯</span></a>
-<a href="#" class="btn">📦 Repo Roothide <span>❯</span></a>
-<a href="#" class="btn">📲 Kho IPA <span>❯</span></a>
-<a href="#" class="btn">🧪 File Tiêm – TrollFools <span>❯</span></a>
+<div class="desc">
+<div class="blink"></div>
+JAILBREAK • CÔNG NGHỆ
+</div>
 
-<div class="section">THÔNG TIN LIÊN HỆ</div>
+<div class="darkbtn" onclick="toggleMode()" id="mode">
+🌙 Đang dùng Dark Mode
+</div>
+
+<div class="section">
+ĐƯỜNG DẪN REPO
+</div>
+
+<div class="repo-box">
+
+<div class="repo-link">
+https://bvnrepo.xyz
+</div>
+
+<button class="copy" onclick="copyRepo()">
+📋 Sao chép
+</button>
+
+</div>
+
+<a href="#" class="btn">
+🗂️ Thêm vào Cydia
+<span>❯</span>
+</a>
+
+<a href="#" class="btn sileo">
+🌀 Thêm vào Sileo
+<span>❯</span>
+</a>
+
+<a href="#" class="btn">
+🦓 Thêm vào Zebra
+<span>❯</span>
+</a>
+
+<a href="#" class="btn">
+📦 Repo Roothide
+<span>❯</span>
+</a>
+
+<a href="#" class="btn">
+📲 Kho IPA
+<span>❯</span>
+</a>
+
+<a href="#" class="btn">
+🧪 File Tiêm – TrollFools
+<span>❯</span>
+</a>
+
+<div class="section">
+THÔNG TIN LIÊN HỆ
+</div>
+
 <div class="contact">
 Repo được phát triển bởi: BVN 🇻🇳<br>
 Kho lưu trữ các Tweak Việt hoá cho cộng đồng Jailbreak.<br>
+Hỗ trợ: Bug, góp ý, yêu cầu tính năng mới.<br>
+Tình trạng: Đang cập nhật tweak cho iOS 15–16 (rootless).<br>
 Email: bvnrepo@gmail.com<br>
 Telegram: Nhóm hỗ trợ
 </div>
 
-<div class="section">ỦNG HỘ (DONATE)</div>
-<div class="donate-box">
-<div class="donate-row">
-<div>STK: <b>900959999</b></div>
-<button class="copy-stk" onclick="copySTK()">📋 Sao chép</button>
+<div class="section">
+ỦNG HỘ (DONATE)
 </div>
-<br>Ngân hàng: <b>MBBank</b><br>
-Chủ TK: <b>BIEN VAN NHAT</b>
+
+<div class="donate-box">
+
+<div class="donate-row">
+
+<div>
+STK: <b>900959999</b>
+</div>
+
+<button class="copy-stk" onclick="copySTK()">
+📋 Sao chép
+</button>
+
+</div>
+
+<div class="glass-row">
+🏦 Ngân hàng: <b>MBBank</b>
+</div>
+
+<div class="glass-row">
+👤 Chủ TK: <b>BIEN VAN NHAT</b>
+</div>
+
 </div>
 
 <div class="footer">
-❤️ Ủng hộ giúp Repo phát triển ❤️<br><br>
+❤️ Ủng hộ giúp Repo phát triển ❤️
+<br><br>
 © 2026 BVN Repo
 </div>
+
 </div>
 
 <script>
-function copyRepo(){navigator.clipboard.writeText("https://bvnrepo.xyz");alert("Đã sao chép Repo");}
-function copySTK(){navigator.clipboard.writeText("900959999");alert("Đã sao chép STK");}
+function copyRepo(){
+navigator.clipboard.writeText("https://bvnrepo.xyz");
+alert("Đã sao chép Repo");
+}
+
+function copySTK(){
+navigator.clipboard.writeText("900959999");
+alert("Đã sao chép STK");
+}
+
 function toggleMode(){
+
 document.body.classList.toggle("light");
-document.getElementById("mode").innerHTML=document.body.classList.contains("light")?"☀️ Đang dùng Light Mode":"🌙 Đang dùng Dark Mode";
+
+document.getElementById("mode").innerHTML=
+document.body.classList.contains("light")
+? "☀️ Đang dùng Light Mode"
+: "🌙 Đang dùng Dark Mode";
+
 }
 </script>
+
 </body>
 </html>
+```
