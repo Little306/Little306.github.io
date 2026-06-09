@@ -1,11 +1,23 @@
-```css
-/* THAY CÁC ĐOẠN CSS NÀY */
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NVH REPO</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+}
 
 body{
 background:linear-gradient(
 135deg,
-#009dff,
-#00102e,
+#00aaff,
+#00152f,
 #000814
 );
 min-height:100vh;
@@ -13,15 +25,24 @@ padding:15px;
 transition:.3s;
 }
 
+body.light{
+background:linear-gradient(
+135deg,
+#eef8ff,
+#cfe7ff
+);
+}
+
 .container{
 max-width:500px;
 margin:auto;
 
-background:rgba(3,10,25,.82);
+background:rgba(3,10,25,.85);
 
 backdrop-filter:blur(30px);
+-webkit-backdrop-filter:blur(30px);
 
-border:3px solid rgba(0,220,255,.75);
+border:3px solid rgba(0,220,255,.7);
 
 border-radius:30px;
 
@@ -31,6 +52,98 @@ box-shadow:
 0 0 20px rgba(0,220,255,.5),
 0 0 60px rgba(0,120,255,.35),
 0 0 100px rgba(0,120,255,.15);
+}
+
+.logo{
+text-align:center;
+font-size:48px;
+font-weight:900;
+color:#fff;
+
+text-shadow:
+0 0 10px #00c8ff,
+0 0 25px #00c8ff,
+0 0 40px #00c8ff;
+}
+
+.subtitle{
+text-align:center;
+color:#d9e4f2;
+margin-top:8px;
+font-size:18px;
+}
+
+.desc{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+
+width:max-content;
+margin:15px auto;
+
+padding:10px 18px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:30px;
+
+color:#28d8ff;
+font-weight:700;
+}
+
+.blink{
+width:12px;
+height:12px;
+
+background:#00ff66;
+
+border-radius:50%;
+
+box-shadow:
+0 0 10px #00ff66,
+0 0 25px #00ff66;
+
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:.2;
+}
+}
+
+.darkbtn{
+height:42px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:15px;
+
+color:white;
+
+cursor:pointer;
+}
+
+.section{
+margin:18px 0 10px;
+
+font-size:18px;
+font-weight:800;
+
+color:#28d8ff;
 }
 
 .repo-box{
@@ -48,9 +161,22 @@ border:1px solid rgba(255,255,255,.15);
 border-radius:16px;
 }
 
+.repo-link{
+flex:1;
+
+height:40px;
+
+display:flex;
+align-items:center;
+
+padding:0 12px;
+
+color:white;
+overflow:hidden;
+}
+
 .copy,
 .copy-stk{
-
 height:40px;
 
 padding:0 16px;
@@ -83,6 +209,35 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 
+text-decoration:none;
+
+color:white;
+
+font-weight:700;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:16px;
+}
+
+.sileo{
+background:linear-gradient(
+90deg,
+rgba(0,180,255,.45),
+rgba(103,76,255,.45)
+);
+}
+
+.contact,
+.donate-box{
+margin-top:10px;
+
+padding:16px;
+
 background:rgba(255,255,255,.08);
 
 backdrop-filter:blur(20px);
@@ -93,13 +248,15 @@ border-radius:16px;
 
 color:white;
 
-font-weight:700;
-
-text-decoration:none;
+line-height:1.9;
 }
 
-.contact,
-.donate-box{
+.donate-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:8px;
 
 background:rgba(255,255,255,.08);
 
@@ -107,13 +264,10 @@ backdrop-filter:blur(20px);
 
 border:1px solid rgba(255,255,255,.15);
 
-border-radius:16px;
-
-padding:16px;
+border-radius:14px;
 }
 
 .glass-row{
-
 margin-top:10px;
 
 padding:14px 16px;
@@ -125,42 +279,172 @@ backdrop-filter:blur(20px);
 border:1px solid rgba(255,255,255,.15);
 
 border-radius:14px;
+
+color:white;
 }
-```
 
-```javascript
-/* THAY TOÀN BỘ SCRIPT */
+.footer{
+text-align:center;
+margin-top:18px;
+color:#d0d9e6;
+line-height:1.8;
+}
 
+body.light .logo,
+body.light .subtitle,
+body.light .repo-link,
+body.light .contact,
+body.light .donate-box,
+body.light .glass-row,
+body.light .btn,
+body.light .darkbtn,
+body.light .footer{
+color:#111;
+}
+
+body.light .repo-box,
+body.light .contact,
+body.light .donate-box,
+body.light .glass-row,
+body.light .btn,
+body.light .darkbtn{
+background:rgba(255,255,255,.75);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">NVH REPO</div>
+
+<div class="subtitle">
+Kho tweak Crack – Việt Hoá
+</div>
+
+<div class="desc">
+<div class="blink"></div>
+JAILBREAK • CÔNG NGHỆ
+</div>
+
+<div class="darkbtn" onclick="toggleMode()" id="mode">
+🌙 Đang dùng Dark Mode
+</div>
+
+<div class="section">
+ĐƯỜNG DẪN REPO
+</div>
+
+<div class="repo-box">
+
+<div class="repo-link">
+https://bvnrepo.xyz
+</div>
+
+<button class="copy" onclick="copyRepo()">
+📋 Sao chép
+</button>
+
+</div>
+
+<a href="#" class="btn">
+🗂️ Thêm vào Cydia
+<span>❯</span>
+</a>
+
+<a href="#" class="btn sileo">
+🌀 Thêm vào Sileo
+<span>❯</span>
+</a>
+
+<a href="#" class="btn">
+🦓 Thêm vào Zebra
+<span>❯</span>
+</a>
+
+<a href="#" class="btn">
+📦 Repo Roothide
+<span>❯</span>
+</a>
+
+<a href="#" class="btn">
+📲 Kho IPA
+<span>❯</span>
+</a>
+
+<a href="#" class="btn">
+🧪 File Tiêm – TrollFools
+<span>❯</span>
+</a>
+
+<div class="section">
+THÔNG TIN LIÊN HỆ
+</div>
+
+<div class="contact">
+Repo được phát triển bởi: BVN 🇻🇳<br>
+Kho lưu trữ các Tweak Việt hoá cho cộng đồng Jailbreak.<br>
+Hỗ trợ: Bug, góp ý, yêu cầu tính năng mới.<br>
+Tình trạng: Đang cập nhật tweak cho iOS 15–16 (rootless).<br>
+Email: bvnrepo@gmail.com<br>
+Telegram: Nhóm hỗ trợ
+</div>
+
+<div class="section">
+ỦNG HỘ (DONATE)
+</div>
+
+<div class="donate-box">
+
+<div class="donate-row">
+<div>
+STK: <b>900959999</b>
+</div>
+
+<button class="copy-stk" onclick="copySTK()">
+📋 Sao chép
+</button>
+</div>
+
+<div class="glass-row">
+🏦 Ngân hàng: <b>MBBank</b>
+</div>
+
+<div class="glass-row">
+👤 Chủ TK: <b>BIEN VAN NHAT</b>
+</div>
+
+</div>
+
+<div class="footer">
+❤️ Ủng hộ giúp Repo phát triển ❤️
+<br><br>
+© 2026 NVH REPO
+</div>
+
+</div>
+
+<script>
 function copyRepo(){
-navigator.clipboard.writeText(
-"https://bvnrepo.xyz"
-);
-
+navigator.clipboard.writeText("https://bvnrepo.xyz");
 alert("✅ Đã sao chép Repo");
 }
 
 function copySTK(){
-navigator.clipboard.writeText(
-"900959999"
-);
-
+navigator.clipboard.writeText("900959999");
 alert("✅ Đã sao chép STK");
 }
 
 function toggleMode(){
-
 document.body.classList.toggle("light");
 
-const mode =
-document.getElementById("mode");
-
-if(document.body.classList.contains("light")){
-mode.innerHTML =
-"☀️ Đang dùng Light Mode";
-}else{
-mode.innerHTML =
-"🌙 Đang dùng Dark Mode";
+document.getElementById("mode").innerHTML =
+document.body.classList.contains("light")
+? "☀️ Đang dùng Light Mode"
+: "🌙 Đang dùng Dark Mode";
 }
+</script>
 
-}
-```
+</body>
+</html>
