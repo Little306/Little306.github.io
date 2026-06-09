@@ -13,20 +13,31 @@ box-sizing:border-box;
 font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 }
 
-
+html{
+height:100%;
+background:#000814;
+}
 
 body{
-background:linear-gradient(135deg,#00aaff,#00152f,#000814);
+min-height:100vh;
 min-height:100dvh;
+
+background:linear-gradient(135deg,#00aaff,#00152f,#000814);
+
+padding:15px;
+margin:0;
+
 overscroll-behavior:none;
 }
+
+
 
 body.light{
 background:linear-gradient(135deg,#eef8ff,#cfe7ff);
 }
 
 .container{
-max-width:420px;
+max-width:450px;
 width:92%;
 margin:20px auto;
 padding:20px;
