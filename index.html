@@ -4,56 +4,266 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NVH REPO</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
 body{
 background:linear-gradient(135deg,#00aaff,#00152f,#000814);
-min-height:100vh;padding:15px;transition:.3s;
+min-height:100vh;
+padding:15px;
+transition:.3s;
 }
-body.light{background:linear-gradient(135deg,#eef8ff,#cfe7ff)}
-.container{
-max-width:500px;margin:auto;padding:20px;border-radius:30px;
-background:rgba(3,10,25,.85);
-backdrop-filter:blur(30px);
-border:3px solid rgba(0,220,255,.7);
-box-shadow:0 0 20px rgba(0,220,255,.5),0 0 60px rgba(0,120,255,.35);
-}
-.logo{text-align:center;font-size:48px;font-weight:900;color:#fff;text-shadow:0 0 10px #00c8ff,0 0 25px #00c8ff,0 0 40px #00c8ff}
-.subtitle{text-align:center;color:#d9e4f2;margin-top:8px}
-.desc{display:flex;align-items:center;justify-content:center;gap:10px;width:max-content;margin:15px auto;padding:10px 18px;background:rgba(255,255,255,.08);border-radius:30px;color:#28d8ff;font-weight:700}
-.blink{width:12px;height:12px;background:#00ff66;border-radius:50%;box-shadow:0 0 10px #00ff66;animation:blink 1s infinite}
-@keyframes blink{50%{opacity:.2}}
-.darkbtn,.btn,.repo-box,.contact,.donate-box,.glass-row{
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,.15);
-}
-.darkbtn{
-height:42px;display:flex;align-items:center;justify-content:center;
-border-radius:15px;color:#fff;cursor:pointer
-}
-.section{margin:18px 0 10px;font-size:18px;font-weight:800;color:#28d8ff}
-.repo-box{display:flex;gap:8px;padding:8px;border-radius:16px}
-.repo-link{flex:1;padding:10px;color:#fff;overflow:hidden}
-.copy,.copy-stk{
-height:40px;padding:0 16px;border-radius:12px;
-background:rgba(0,200,255,.35);
-border:1px solid rgba(0,220,255,.4);
-color:#fff;cursor:pointer
-}
-.btn{
-height:44px;margin-top:10px;padding:0 16px;
-display:flex;align-items:center;justify-content:space-between;
-text-decoration:none;color:#fff;border-radius:16px
-}
-.sileo{background:linear-gradient(90deg,rgba(0,180,255,.45),rgba(103,76,255,.45))}
-.contact,.donate-box,.glass-row{padding:16px;border-radius:16px;color:#fff;margin-top:10px;line-height:1.8}
-.donate-row{display:flex;justify-content:space-between;align-items:center}
-.footer{text-align:center;margin-top:18px;color:#d0d9e6;line-height:1.8}
 
-/* Light Mode */
-body.light .container{background:rgba(255,255,255,.95);border-color:#42cfff}
-body.light .logo{color:#000}
+body.light{
+background:linear-gradient(135deg,#eef8ff,#cfe7ff);
+}
+
+.container{
+max-width:500px;
+margin:auto;
+padding:20px;
+border-radius:30px;
+
+background:rgba(3,10,25,.88);
+
+backdrop-filter:blur(30px);
+-webkit-backdrop-filter:blur(30px);
+
+border:2px solid rgba(0,220,255,.6);
+
+box-shadow:
+0 0 25px rgba(0,220,255,.4),
+0 0 60px rgba(0,120,255,.25);
+}
+
+.logo{
+text-align:center;
+font-size:48px;
+font-weight:900;
+color:#fff;
+
+text-shadow:
+0 0 10px #00c8ff,
+0 0 25px #00c8ff,
+0 0 40px #00c8ff;
+}
+
+.subtitle{
+text-align:center;
+color:#d9e4f2;
+margin-top:8px;
+font-size:17px;
+}
+
+.desc{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+
+width:max-content;
+margin:15px auto;
+
+padding:10px 18px;
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:30px;
+
+color:#28d8ff;
+font-weight:700;
+}
+
+.blink{
+width:12px;
+height:12px;
+background:#00ff66;
+border-radius:50%;
+
+box-shadow:
+0 0 10px #00ff66,
+0 0 25px #00ff66;
+
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+50%{opacity:.2;}
+}
+
+.darkbtn{
+height:44px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:16px;
+
+color:white;
+cursor:pointer;
+}
+
+.section{
+margin:18px 0 10px;
+font-size:18px;
+font-weight:800;
+color:#28d8ff;
+}
+
+.repo-box{
+display:flex;
+gap:8px;
+
+padding:8px;
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:16px;
+}
+
+.repo-link{
+flex:1;
+display:flex;
+align-items:center;
+padding:0 12px;
+color:white;
+overflow:hidden;
+}
+
+.copy,
+.copy-stk{
+height:40px;
+padding:0 16px;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(25px);
+
+border:1px solid rgba(255,255,255,.25);
+
+border-radius:12px;
+
+color:#28d8ff;
+font-weight:700;
+
+cursor:pointer;
+
+box-shadow:
+inset 0 1px 1px rgba(255,255,255,.25),
+0 0 15px rgba(0,200,255,.25);
+
+transition:.3s;
+}
+
+.copy:hover,
+.copy-stk:hover{
+transform:translateY(-2px);
+}
+
+.btn{
+height:46px;
+margin-top:10px;
+padding:0 16px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+text-decoration:none;
+
+color:white;
+font-weight:700;
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:16px;
+}
+
+.sileo{
+background:linear-gradient(
+90deg,
+rgba(0,180,255,.4),
+rgba(103,76,255,.4)
+);
+}
+
+.contact,
+.donate-box{
+margin-top:10px;
+padding:16px;
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:16px;
+
+color:white;
+line-height:1.9;
+}
+
+.donate-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:8px;
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:14px;
+}
+
+.glass-row{
+margin-top:10px;
+padding:14px 16px;
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:14px;
+
+color:white;
+}
+
+.footer{
+text-align:center;
+margin-top:18px;
+color:#d0d9e6;
+line-height:1.8;
+}
+
+/* LIGHT MODE */
+
+body.light .container{
+background:rgba(255,255,255,.95);
+border:2px solid #42cfff;
+}
+
+body.light .logo{
+color:#000;
+}
+
 body.light .subtitle,
 body.light .repo-link,
 body.light .contact,
@@ -61,85 +271,185 @@ body.light .donate-box,
 body.light .glass-row,
 body.light .btn,
 body.light .darkbtn,
-body.light .footer{color:#111}
+body.light .footer{
+color:#111;
+}
+
 body.light .repo-box,
 body.light .contact,
 body.light .donate-box,
 body.light .glass-row,
 body.light .btn,
-body.light .darkbtn{background:rgba(255,255,255,.85)}
-body.light .section{color:#00a8ff}
-body.light .desc{background:rgba(0,170,255,.08);color:#0099ff}
+body.light .darkbtn{
+background:rgba(255,255,255,.85);
+}
+
+body.light .section{
+color:#00a8ff;
+}
+
+body.light .desc{
+background:rgba(0,170,255,.08);
+color:#0099ff;
+}
+
 body.light .copy,
-body.light .copy-stk{background:linear-gradient(135deg,#3ecfff,#64b5ff)}
+body.light .copy-stk{
+background:linear-gradient(135deg,#3ecfff,#64b5ff);
+color:white;
+}
 </style>
 </head>
+
 <body>
+
 <div class="container">
+
 <div class="logo">NVH REPO</div>
-<div class="subtitle">Kho tweak Crack – Việt Hoá</div>
+
+<div class="subtitle">
+Kho tweak Crack – Việt Hoá
+</div>
 
 <div class="desc">
 <div class="blink"></div>
 JAILBREAK • CÔNG NGHỆ
 </div>
 
-<div class="darkbtn" onclick="toggleMode()" id="mode">🌙 Đang dùng Dark Mode</div>
-
-<div class="section">ĐƯỜNG DẪN REPO</div>
-
-<div class="repo-box">
-<div class="repo-link">https://bvnrepo.xyz</div>
-<button class="copy" onclick="copyRepo()">📋 Sao chép</button>
+<div class="darkbtn" onclick="toggleMode()" id="mode">
+🌙 Đang dùng Dark Mode
 </div>
 
-<a href="#" class="btn">🗂️ Thêm vào Cydia <span>❯</span></a>
-<a href="#" class="btn sileo">🌀 Thêm vào Sileo <span>❯</span></a>
-<a href="#" class="btn">🦓 Thêm vào Zebra <span>❯</span></a>
-<a href="#" class="btn">📦 Repo Roothide <span>❯</span></a>
-<a href="#" class="btn">📲 Kho IPA <span>❯</span></a>
-<a href="#" class="btn">🧪 File Tiêm – TrollFools <span>❯</span></a>
+<div class="section">
+ĐƯỜNG DẪN REPO
+</div>
 
-<div class="section">THÔNG TIN LIÊN HỆ</div>
+<div class="repo-box">
+
+<div class="repo-link">
+https://bvnrepo.xyz
+</div>
+
+<button class="copy" onclick="copyRepo(this)">
+📋 Sao chép
+</button>
+
+</div>
+
+<a href="#" class="btn">
+🗂️ Thêm vào Cydia
+<span>❯</span>
+</a>
+
+<a href="#" class="btn sileo">
+🌀 Thêm vào Sileo
+<span>❯</span>
+</a>
+
+<a href="#" class="btn">
+🦓 Thêm vào Zebra
+<span>❯</span>
+</a>
+
+<a href="#" class="btn">
+📦 Repo Roothide
+<span>❯</span>
+</a>
+
+<a href="#" class="btn">
+📲 Kho IPA
+<span>❯</span>
+</a>
+
+<a href="#" class="btn">
+🧪 File Tiêm – TrollFools
+<span>❯</span>
+</a>
+
+<div class="section">
+THÔNG TIN LIÊN HỆ
+</div>
+
 <div class="contact">
 Repo được phát triển bởi: NVH 🇻🇳<br>
 Kho lưu trữ các Tweak Việt hoá cho cộng đồng Jailbreak.<br>
+Hỗ trợ: Bug, góp ý, yêu cầu tính năng mới.<br>
 Email: huanketamin2@gmail.com<br>
 Telegram: xyz
 </div>
 
-<div class="section">ỦNG HỘ (DONATE)</div>
-<div class="donate-box">
-<div class="donate-row">
-<div>STK: <b>034308161144</b></div>
-<button class="copy-stk" onclick="copySTK()">📋 Sao chép</button>
+<div class="section">
+ỦNG HỘ (DONATE)
 </div>
-<div class="glass-row">🏦 Ngân hàng: <b>MBBank</b></div>
-<div class="glass-row">👤 Chủ TK: <b>NUNG VAN HUAN</b></div>
+
+<div class="donate-box">
+
+<div class="donate-row">
+
+<div>
+STK: <b>034308161144</b>
+</div>
+
+<button class="copy-stk" onclick="copySTK(this)">
+📋 Sao chép
+</button>
+
+</div>
+
+<div class="glass-row">
+🏦 Ngân hàng: <b>MBBank</b>
+</div>
+
+<div class="glass-row">
+👤 Chủ TK: <b>NUNG VAN HUAN</b>
+</div>
+
 </div>
 
 <div class="footer">
-❤️ Ủng hộ giúp Repo phát triển ❤️<br><br>
+❤️ Ủng hộ giúp Repo phát triển ❤️
+<br><br>
 © 2026 NVH REPO
 </div>
+
 </div>
 
 <script>
-function copyRepo(){
+function copyRepo(btn){
+
 navigator.clipboard.writeText("https://bvnrepo.xyz");
-alert("✅ Đã sao chép Repo");
+
+btn.innerHTML="✅ Đã sao chép";
+
+setTimeout(()=>{
+btn.innerHTML="📋 Sao chép";
+},2000);
+
 }
-function copySTK(){
+
+function copySTK(btn){
+
 navigator.clipboard.writeText("034308161144");
-alert("✅ Đã sao chép STK");
+
+btn.innerHTML="✅ Đã sao chép";
+
+setTimeout(()=>{
+btn.innerHTML="📋 Sao chép";
+},2000);
+
 }
+
 function toggleMode(){
+
 document.body.classList.toggle("light");
-document.getElementById("mode").innerHTML =
+
+document.getElementById("mode").innerHTML=
 document.body.classList.contains("light")
 ? "☀️ Đang dùng Light Mode"
 : "🌙 Đang dùng Dark Mode";
+
 }
 </script>
+
 </body>
 </html>
