@@ -1,389 +1,379 @@
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Little306</title>
+
+<title>Little306 Repo</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* RESET */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins', sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
-html{
-    height:100%;
-    background:#000814;
+html,body{
+    min-height:100%;
 }
 
 body{
-    min-height:100vh;
-    min-height:100dvh;
     padding:15px;
-    margin:0;
 
     background:
     radial-gradient(circle at top,#00d4ff33,transparent 45%),
     linear-gradient(135deg,#000814,#00152f,#000);
 
-    overscroll-behavior:none;
+    transition:.35s;
 }
-
-/* LIGHT MODE */
-body.light{
-    background:linear-gradient(135deg,#eef8ff,#cfe7ff);
-}
-</style>
-</head>
 
 .container{
-max-width:400px;
-width:95%;
-margin:5px auto;
-padding:20px;
+    width:95%;
+    max-width:420px;
 
-min-height:900px;
-background:rgba(8,15,30,.75);
-backdrop-filter:blur(25px);
--webkit-backdrop-filter:blur(25px);
+    margin:auto;
 
-border:1px solid rgba(255,255,255,.12);
-border-radius:28px;
+    padding:20px;
 
-box-shadow:
-0 10px 40px rgba(0,0,0,.35),
-0 0 25px rgba(0,180,255,.15);
-}
-.logo{
-text-align:center;
-font-size:40px;
-font-weight:900;
-color:#e8f8ff;
+    border-radius:28px;
 
-text-shadow:
-0 0 5px rgba(0,180,255,.3);
+    background:rgba(8,15,30,.78);
+
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.35),
+    0 0 25px rgba(0,180,255,.15);
+
+    animation:show .7s ease;
 }
 
+@keyframes show{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
 .logo-wrap{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:15px;
-margin-top:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
 }
-
-
 
 .logo-box{
-width:48px;
-height:48px;
+    width:60px;
+    height:60px;
 
-display:flex;
-align-items:center;
-justify-content:center;
+    border-radius:20px;
 
-padding:3px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-border-radius:30px;
+    background:rgba(255,255,255,.08);
 
-background:linear-gradient(
-135deg,
-rgba(0,200,255,.10),
-rgba(0,180,255,.15)
-);
-
-border:1px solid rgba(0,200,225,.10);
-
-box-shadow:
-0 0 8px rgba(0,200,255,.2),
-0 0 25px rgba(0,180,255,.3);
-
-backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.15);
 }
+
 .logo-img{
-width:57px;
-height:57px;
-object-fit:cover;
-border-radius:14px;
-
-background:linear-gradient(135deg,#00ffd5,#00aaff);
-
-padding:4px;
-
-box-shadow:
-0 0 10px rgba(0,255,213,.5);
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:16px;
 }
+
+.logo{
+    font-size:38px;
+    font-weight:900;
+    color:white;
+}
+
 .subtitle{
-text-align:center;
-color:#d9e4f2;
-margin-top:8px;
-font-size:17px;
+    text-align:center;
+    color:#d9e4f2;
+    margin-top:10px;
 }
 
 .desc{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
 
-width:max-content;
-margin:12px auto;
+    width:max-content;
 
-padding:6px 12px;
+    margin:14px auto;
 
-font-size:12px;
-font-weight:700;
+    padding:8px 14px;
 
-color:#00e5ff;
+    border-radius:999px;
 
-background:rgba(0,0,0,.35);
+    background:rgba(255,255,255,.08);
 
-border:1px solid rgba(0,229,255,.25);
-border-radius:999px;
+    border:1px solid rgba(255,255,255,.12);
 
-backdrop-filter:blur(15px);
+    color:#00e5ff;
 
-box-shadow:0 0 10px rgba(0,229,255,.15);
+    font-size:13px;
+    font-weight:700;
 }
+
 .blink{
-width:12px;
-height:12px;
-background:#00ff66;
-border-radius:50%;
+    width:10px;
+    height:10px;
 
-box-shadow:
-0 0 10px #00ff66,
-0 0 25px #00ff66;
+    background:#00ff66;
+    border-radius:50%;
 
-animation:blink 1s infinite;
+    animation:blink 1s infinite;
 }
 
 @keyframes blink{
-50%{opacity:.2;}
+    50%{
+        opacity:.2;
+    }
 }
 
 .darkbtn{
-height:30px;
+    margin-top:10px;
 
-display:flex;
-align-items:center;
-justify-content:center;
+    height:42px;
 
-background:rgba(255,255,255,.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-border:1px solid rgba(255,255,255,.15);
+    border-radius:16px;
 
-border-radius:16px;
+    color:white;
 
-color:white;
-cursor:pointer;
+    cursor:pointer;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
 }
 
 .section{
-margin:18px 0 10px;
-font-size:18px;
-font-weight:800;
-color:#28d8ff;
+    margin-top:22px;
+    margin-bottom:10px;
+
+    color:#28d8ff;
+
+    font-size:18px;
+    font-weight:800;
 }
 
 .repo-box{
-display:flex;
-gap:8px;
+    display:flex;
+    gap:10px;
 
-padding:8px;
+    padding:8px;
 
-background:rgba(255,255,255,.08);
+    border-radius:16px;
 
-border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.08);
 
-border-radius:16px;
+    border:1px solid rgba(255,255,255,.15);
 }
 
 .repo-link{
-flex:1;
-display:flex;
-align-items:center;
-padding:0 12px;
-color:white;
-overflow:hidden;
+    flex:1;
+
+    display:flex;
+    align-items:center;
+
+    padding-left:10px;
+
+    color:white;
 }
 
 .copy,
 .copy-stk{
-height:40px;
-padding:0 16px;
 
-background:rgba(255,255,255,.12);
+    border:none;
 
-backdrop-filter:blur(25px);
+    height:40px;
 
-border:1px solid rgba(255,255,255,.25);
+    padding:0 16px;
 
-border-radius:12px;
+    border-radius:12px;
 
-color:#28d8ff;
-font-weight:700;
+    cursor:pointer;
 
-cursor:pointer;
+    color:#00d4ff;
 
-box-shadow:
-inset 0 1px 1px rgba(255,255,255,.25),
-0 0 15px rgba(0,200,255,.25);
+    font-weight:700;
 
-transition:.3s;
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    transition:.3s;
 }
 
 .copy:hover,
 .copy-stk:hover{
-transform:translateY(-2px);
+    transform:translateY(-2px);
 }
 
 .btn{
-height:46px;
-margin-top:10px;
-padding:0 16px;
+    height:50px;
 
-display:flex;
-align-items:center;
-justify-content:space-between;
+    margin-top:10px;
 
-text-decoration:none;
+    padding:0 16px;
 
-color:white;
-font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-background:rgba(255,255,255,.08);
+    text-decoration:none;
 
-border:1px solid rgba(255,255,255,.15);
+    color:white;
 
-border-radius:16px;
+    font-weight:700;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
 }
 
 .sileo{
-background:linear-gradient(
-90deg,
-rgba(0,180,255,.4),
-rgba(103,76,255,.4)
-);
+    background:
+    linear-gradient(
+    90deg,
+    rgba(0,180,255,.35),
+    rgba(103,76,255,.35)
+    );
 }
 
 .contact,
 .donate-box{
-margin-top:10px;
-padding:16px;
+    margin-top:10px;
 
-background:rgba(255,255,255,.08);
+    padding:16px;
 
-border:1px solid rgba(255,255,255,.15);
+    border-radius:16px;
 
-border-radius:16px;
+    color:white;
 
-color:white;
-line-height:1.9;
+    line-height:1.8;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
 }
 
 .donate-row{
-display:flex;
-justify-content:space-between;
-align-items:center;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-padding:8px;
+    padding:10px;
 
-background:rgba(255,255,255,.08);
+    border-radius:14px;
 
-border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.08);
 
-border-radius:14px;
+    border:1px solid rgba(255,255,255,.15);
 }
 
 .glass-row{
-margin-top:10px;
-padding:14px 16px;
+    margin-top:10px;
 
-background:rgba(255,255,255,.08);
+    padding:12px;
 
-border:1px solid rgba(255,255,255,.15);
+    border-radius:14px;
 
-border-radius:14px;
+    color:white;
 
-color:white;
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
 }
 
 .footer{
-text-align:center;
-margin-top:18px;
-color:#d0d9e6;
-line-height:1.8;
+    text-align:center;
+
+    margin-top:20px;
+
+    color:#d0d9e6;
+
+    line-height:1.8;
 }
 
 /* LIGHT MODE */
 
+body.light{
+    background:
+    linear-gradient(
+    135deg,
+    #eef8ff,
+    #d8ebff
+    );
+}
+
 body.light .container{
-background:rgba(255,255,255,.95);
-border:2px solid #42cfff;
+    background:rgba(255,255,255,.95);
 }
 
-body.light .logo{
-color:#000;
-}
-
-body.light .subtitle,
+body.light .logo,
 body.light .repo-link,
-body.light .contact,
-body.light .donate-box,
-body.light .glass-row,
 body.light .btn,
-body.light .darkbtn,
-body.light .footer{
-color:#111;
-}
-
-body.light .repo-box,
 body.light .contact,
-body.light .donate-box,
 body.light .glass-row,
-body.light .btn,
+body.light .donate-box,
+body.light .footer,
 body.light .darkbtn{
-background:rgba(255,255,255,.85);
-}
-
-body.light .section{
-color:#00a8ff;
-}
-
-body.light .desc{
-background:rgba(0,170,255,.08);
-color:#0099ff;
+    color:#111;
 }
 
 body.light .copy,
 body.light .copy-stk{
-background:linear-gradient(135deg,#3ecfff,#64b5ff);
-color:white;
+    color:white;
+    background:linear-gradient(135deg,#3ecfff,#65a8ff);
 }
+
 </style>
 </head>
-
 <body>
 
 <div class="container">
 
 <div class="logo-wrap">
 
-    <div class="logo-box">
-        <img src="bf599148-fac9-4632-ba72-167b064eab95.png" class="logo-img">
-    </div>
+<div class="logo-box">
+<img src="logo.png" class="logo-img">
+</div>
 
-    <div class="logo">Little306</div>
+<div class="logo">Little306</div>
 
 </div>
+
 <div class="subtitle">
-Kho tweak Crack – Việt Hoá
+Kho Tweak Crack – Việt Hoá
 </div>
 
 <div class="desc">
@@ -411,32 +401,32 @@ https://bvnrepo.xyz
 
 </div>
 
-<a href="#" class="btn">
+<a class="btn" href="#">
 🗂️ Thêm vào Cydia
 <span>❯</span>
 </a>
 
-<a href="#" class="btn sileo">
+<a class="btn sileo" href="#">
 🌀 Thêm vào Sileo
 <span>❯</span>
 </a>
 
-<a href="#" class="btn">
+<a class="btn" href="#">
 🦓 Thêm vào Zebra
 <span>❯</span>
 </a>
 
-<a href="#" class="btn">
+<a class="btn" href="#">
 📦 Repo Roothide
 <span>❯</span>
 </a>
 
-<a href="#" class="btn">
+<a class="btn" href="#">
 📲 Kho IPA
 <span>❯</span>
 </a>
 
-<a href="#" class="btn">
+<a class="btn" href="#">
 🧪 File Tiêm – TrollFools
 <span>❯</span>
 </a>
@@ -447,10 +437,9 @@ THÔNG TIN LIÊN HỆ
 
 <div class="contact">
 Repo được phát triển bởi: NVH 🇻🇳<br>
-Kho lưu trữ các Tweak Việt hoá cho cộng đồng Jailbreak.<br>
-Hỗ trợ: Bug, góp ý, yêu cầu tính năng mới.<br>
-Email: huanketamin2@gmail.com<br>
-Telegram: xyz
+Kho lưu trữ các Tweak Việt Hoá cho cộng đồng Jailbreak.<br>
+Hỗ trợ bug, góp ý và yêu cầu tính năng mới.<br>
+Email: huanketamin2@gmail.com
 </div>
 
 <div class="section">
@@ -484,33 +473,44 @@ STK: <b>034308161144</b>
 <div class="footer">
 ❤️ Ủng hộ giúp Repo phát triển ❤️
 <br><br>
-© 2026 NVH REPO
+© 2026 Little306 Repo
 </div>
 
 </div>
 
 <script>
-function copyRepo(btn){
 
-navigator.clipboard.writeText("https://bvnrepo.xyz");
+async function copyRepo(btn){
+
+try{
+await navigator.clipboard.writeText("https://bvnrepo.xyz");
 
 btn.innerHTML="✅ Đã sao chép";
 
 setTimeout(()=>{
 btn.innerHTML="📋 Sao chép";
 },2000);
+
+}catch{
+alert("Không thể sao chép");
+}
 
 }
 
-function copySTK(btn){
+async function copySTK(btn){
 
-navigator.clipboard.writeText("034308161144");
+try{
+await navigator.clipboard.writeText("034308161144");
 
 btn.innerHTML="✅ Đã sao chép";
 
 setTimeout(()=>{
 btn.innerHTML="📋 Sao chép";
 },2000);
+
+}catch{
+alert("Không thể sao chép");
+}
 
 }
 
@@ -524,6 +524,7 @@ document.body.classList.contains("light")
 : "🌙 Đang dùng Dark Mode";
 
 }
+
 </script>
 
 </body>
