@@ -7,42 +7,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+/* RESET */
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins', sans-serif;
-}
-html{
-height:100%;
-background:#000814;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
 }
 
 html{
-height:100%;
-background:#000814;
+    height:100%;
+    background:#000814;
 }
 
 body{
-min-height:100vh;
-min-height:100dvh;
+    min-height:100vh;
+    min-height:100dvh;
+    padding:15px;
+    margin:0;
 
-padding:15px;
-margin:0;
+    background:
+    radial-gradient(circle at top,#00d4ff33,transparent 45%),
+    linear-gradient(135deg,#000814,#00152f,#000);
 
-background:
-radial-gradient(circle at top,#00d4ff33,transparent 45%),
-linear-gradient(135deg,#000814,#00152f,#000);
-
-overscroll-behavior:none;
+    overscroll-behavior:none;
 }
 
-
-
-
+/* LIGHT MODE */
 body.light{
-background:linear-gradient(135deg,#eef8ff,#cfe7ff);
+    background:linear-gradient(135deg,#eef8ff,#cfe7ff);
 }
+</style>
+</head>
 
 .container{
 max-width:400px;
