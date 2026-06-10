@@ -324,8 +324,15 @@ line-height:1.8;
 /* LIGHT MODE */
 
 body.light .container{
-background:rgba(255,255,255,.95);
-border:2px solid #42cfff;
+background:rgba(255,255,255,.45);
+
+border:1px solid rgba(255,255,255,.8);
+
+backdrop-filter:blur(30px);
+-webkit-backdrop-filter:blur(30px);
+
+box-shadow:
+0 15px 40px rgba(0,120,255,.12);
 }
 
 body.light .logo{
@@ -349,7 +356,16 @@ body.light .donate-box,
 body.light .glass-row,
 body.light .btn,
 body.light .darkbtn{
-background:rgba(255,255,255,.85);
+background:rgba(255,255,255,.55);
+
+border:1px solid rgba(255,255,255,.8);
+
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+
+box-shadow:
+0 8px 25px rgba(0,140,255,.08),
+inset 0 1px 1px rgba(255,255,255,.6);
 }
 
 body.light .section{
