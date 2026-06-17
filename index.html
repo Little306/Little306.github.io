@@ -57,6 +57,15 @@
             border-color: #b0c4d8;
         }
 
+        body.light-mode .badge-mode {
+            cursor: pointer;
+        }
+
+        body.light-mode .badge-mode:hover {
+            background: #d0dcee;
+            transform: scale(1.05);
+        }
+
         body.light-mode .section-label {
             color: #4a6a8a;
         }
@@ -74,6 +83,16 @@
             background: #e8edf5;
             color: #1a3a6a;
             border-color: #b0c4d8;
+        }
+
+        body.light-mode .copy-btn:hover {
+            background: #dce4ef;
+        }
+
+        body.light-mode .copy-btn.copied {
+            background: #2a8a4a;
+            color: white;
+            border-color: #3aaa5a;
         }
 
         body.light-mode .action-btn {
@@ -121,17 +140,24 @@
         }
 
         body.light-mode .donate-box {
-            border-color: #ffccd5;
+            background: rgba(255, 255, 255, 0.5) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
         }
 
         body.light-mode .donate-heart {
             color: #e74c6f;
         }
 
-        body.light-mode .theme-toggle {
-            background: #e8edf5;
-            color: #1a3a6a;
-            border-color: #b0c4d8;
+        body.light-mode .status .dot {
+            background: #2a8a4a !important;
+            box-shadow: 0 0 10px #2a8a4a66 !important;
+        }
+
+        body.light-mode .footer-copy {
+            color: #4a6a8a;
         }
 
         .repo-card {
@@ -143,31 +169,6 @@
             box-shadow: 0 16px 48px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.04);
             transition: background 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-        }
-
-        /* ===== NÚT SÁNG/TỐI ===== */
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #1f3147;
-            border: 1px solid #2e405b;
-            color: #b6ccf0;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: 0.2s;
-            font-size: 1.1rem;
-            z-index: 10;
-        }
-
-        .theme-toggle:hover {
-            background: #2a405e;
-            transform: scale(1.05);
         }
 
         /* ===== HEADER ===== */
@@ -259,6 +260,22 @@
             border-color: #354a68;
         }
 
+        /* ===== BADGE DARK MODE CÓ THỂ BẤM ===== */
+        .badge-mode {
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s ease;
+        }
+
+        .badge-mode:hover {
+            background: #2a405e;
+            transform: scale(1.05);
+        }
+
+        body.light-mode .badge-mode:hover {
+            background: #d0dcee;
+        }
+
         /* ===== ĐƯỜNG DẪN REPO ===== */
         .section-label {
             font-size: 0.8rem;
@@ -327,13 +344,13 @@
             color: #8ddfa8;
         }
 
+        .copy-btn.copied i {
+            transform: scale(1.1);
+        }
+
         .copy-btn i {
             font-size: 0.75rem;
             transition: all 0.3s ease;
-        }
-
-        .copy-btn.copied i {
-            transform: scale(1.1);
         }
 
         /* ===== CÁC NÚT ===== */
@@ -466,14 +483,87 @@
             color: #8ddfa8;
         }
 
+        .info-block .value .copy-small.copied i {
+            color: #8ddfa8;
+        }
+
         .info-block .value .copy-small i {
             font-size: 0.55rem;
             color: #5f9bff;
             transition: all 0.3s ease;
         }
 
-        .info-block .value .copy-small.copied i {
+        /* ===== DONATE BOX - KHUNG KÍNH ===== */
+        .donate-box {
+            background: rgba(255, 255, 255, 0.05) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .donate-box .donate-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #d6e5ff;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .donate-box .donate-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 4px;
+        }
+
+        .donate-box .donate-item .label-donate {
+            color: #7e96b9;
+            font-size: 0.8rem;
+            min-width: 60px;
+        }
+
+        .donate-box .donate-item .value-donate {
+            color: #d6e5ff;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .donate-box .donate-item .copy-small {
+            background: #1f3147;
+            border: 1px solid #314a68;
+            border-radius: 40px;
+            padding: 2px 12px;
+            font-size: 0.65rem;
+            color: #b6ccf0;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .donate-box .donate-item .copy-small:hover {
+            background: #2a405e;
+            transform: scale(1.02);
+        }
+
+        .donate-box .donate-item .copy-small.copied {
+            background: #1a6b3a;
+            border-color: #2a8a4a;
             color: #8ddfa8;
+        }
+
+        .donate-box .donate-item .copy-small.copied i {
+            color: #8ddfa8;
+        }
+
+        .donate-box .donate-item .copy-small i {
+            font-size: 0.55rem;
+            color: #5f9bff;
+            transition: all 0.3s ease;
         }
 
         .donate-heart {
@@ -488,10 +578,6 @@
 
         .donate-heart i {
             color: #ff4757;
-        }
-
-        .donate-box {
-            border-color: #2a405e;
         }
 
         /* ===== FOOTER ===== */
@@ -538,12 +624,23 @@
             background: #32d68a;
             border-radius: 50%;
             box-shadow: 0 0 10px #32d68a66;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
         }
 
-        body.light-mode .repo-footer .status .dot {
-            background: #2a8a4a;
-            box-shadow: 0 0 10px #2a8a4a66;
+        /* ===== FOOTER COPYRIGHT MỚI ===== */
+        .footer-copyright {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid #1f3045;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #5a7a9a;
+            transition: all 0.3s ease;
+            line-height: 1.6;
+        }
+
+        .footer-copyright .heart-icon {
+            color: #ff4757;
         }
 
         /* ===== RESPONSIVE ===== */
@@ -569,12 +666,9 @@
             .info-block {
                 padding: 12px 14px;
             }
-            .theme-toggle {
-                top: 14px;
-                right: 14px;
-                width: 34px;
-                height: 34px;
-                font-size: 0.9rem;
+            .donate-box .donate-item .label-donate {
+                min-width: 50px;
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -582,11 +676,6 @@
 <body>
 
     <div class="repo-card" id="app">
-
-        <!-- ===== NÚT CHUYỂN SÁNG/TỐI ===== -->
-        <button class="theme-toggle" id="themeToggle" title="Chuyển chế độ sáng/tối">
-            <i class="fas fa-moon" id="themeIcon"></i>
-        </button>
 
         <!-- ===== HEADER ===== -->
         <div class="repo-header">
@@ -601,7 +690,9 @@
             </span>
             <span class="badge-group">
                 <span class="badge"><i class="fas fa-bolt"></i> JAILBREAK • CÔNG NGHỆ</span>
-                <span class="badge badge-dark"><i class="fas fa-moon"></i> Dark mode</span>
+                <span class="badge badge-dark badge-mode" id="themeToggle">
+                    <i class="fas fa-moon" id="themeIcon"></i> <span id="themeText">Dark mode</span>
+                </span>
             </span>
         </div>
 
@@ -630,12 +721,6 @@
         <!-- ===== PHẦN THÔNG TIN LIÊN HỆ ===== -->
         <div class="info-section">
 
-            <!-- File Tiêm – TrollFools -->
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-                <i class="fas fa-file-code" style="color: #4c8bff; font-size: 1.1rem;"></i>
-                <span style="font-size: 1.05rem; font-weight: 600; color: #d6e5ff;">File Tiêm – TrollFools</span>
-            </div>
-
             <!-- THÔNG TIN LIÊN HỆ -->
             <div class="info-block">
                 <span class="label"><i class="fas fa-user" style="margin-right: 4px;"></i> Repo được phát triển bởi:</span>
@@ -659,26 +744,30 @@
                 </div>
             </div>
 
-            <!-- DONATE -->
+            <!-- DONATE - KHUNG KÍNH (theo ảnh mới) -->
             <div class="info-block donate-box">
-                <span class="label" style="color: #ff6b8a;"><i class="fas fa-heart" style="color: #ff4757; margin-right: 4px;"></i> ỨNG HỘ (DONATE)</span>
+                <span class="donate-title">ỨNG HỘ (DONATE)</span>
 
-                <div style="margin-top: 8px;">
-                    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-                        <span style="color: #d6e5ff; font-weight: 600; font-size: 0.95rem;">STK: 900959999</span>
-                        <button class="copy-small" id="copyBankAccount" data-copy="900959999">
-                            <i class="fas fa-copy"></i> <span id="copyBankText">Sao chép</span>
-                        </button>
-                    </div>
-                    <div style="margin-top: 4px; color: #7e96b9; font-size: 0.8rem;">
-                        Ngân hàng: <span style="color: #b0c4e5;">MBBank</span>
-                    </div>
-                    <div style="margin-top: 2px; color: #7e96b9; font-size: 0.8rem;">
-                        Chủ TK: <span style="color: #b0c4e5;">BIEN VAN NHAT</span>
-                    </div>
-                    <div class="donate-heart">
-                        <i class="fas fa-heart"></i> Ứng hộ giúp Repo phát triển <i class="fas fa-heart" style="color: #ff4757;"></i>
-                    </div>
+                <div class="donate-item">
+                    <span class="label-donate">STK:</span>
+                    <span class="value-donate">900959999</span>
+                    <button class="copy-small" id="copyBankAccount" data-copy="900959999">
+                        <i class="fas fa-copy"></i> <span id="copyBankText">Sao chép</span>
+                    </button>
+                </div>
+
+                <div class="donate-item">
+                    <span class="label-donate">Ngân hàng:</span>
+                    <span class="value-donate">MBBank</span>
+                </div>
+
+                <div class="donate-item">
+                    <span class="label-donate">Chủ TK:</span>
+                    <span class="value-donate">BIEN VAN NHAT</span>
+                </div>
+
+                <div class="donate-heart">
+                    <i class="fas fa-heart"></i> Ứng hộ giúp Repo phát triển <i class="fas fa-heart" style="color: #ff4757;"></i>
                 </div>
             </div>
 
@@ -697,6 +786,12 @@
             </div>
         </div>
 
+        <!-- ===== FOOTER COPYRIGHT MỚI ===== -->
+        <div class="footer-copyright">
+            © 2026 BVN Repo<br />
+            Made for <span class="heart-icon">❤️</span> Jailbreak Community
+        </div>
+
     </div>
 
     <script>
@@ -710,7 +805,6 @@
                 e.stopPropagation();
                 const textToCopy = this.dataset.copy || '';
 
-                // Sao chép vào clipboard
                 if (navigator.clipboard && navigator.clipboard.writeText) {
                     navigator.clipboard.writeText(textToCopy).then(() => {
                         showCopied(this, textSpan, defaultText, copiedText);
@@ -744,13 +838,11 @@
             btn.classList.add('copied');
             textSpan.textContent = copiedText;
 
-            // Đổi icon thành check
             const icon = btn.querySelector('i');
             if (icon) {
                 icon.className = 'fas fa-check';
             }
 
-            // Reset sau 2 giây
             setTimeout(() => {
                 btn.classList.remove('copied');
                 textSpan.textContent = defaultText;
@@ -764,27 +856,28 @@
         setupCopy('copyRepoUrl', 'copyRepoText', 'Sao chép', 'Đã sao chép!');
         setupCopy('copyBankAccount', 'copyBankText', 'Sao chép', 'Đã sao chép!');
 
-        // ===== CHỨC NĂNG SÁNG/TỐI =====
+        // ===== CHỨC NĂNG SÁNG/TỐI BẤM VÀO BADGE DARK MODE =====
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
         const body = document.body;
 
-        // Kiểm tra localStorage
         let isDark = localStorage.getItem('bvnTheme') !== 'light';
 
         function applyTheme(dark) {
             if (dark) {
                 body.classList.remove('light-mode');
                 themeIcon.className = 'fas fa-moon';
+                themeText.textContent = 'Dark mode';
                 localStorage.setItem('bvnTheme', 'dark');
             } else {
                 body.classList.add('light-mode');
                 themeIcon.className = 'fas fa-sun';
+                themeText.textContent = 'Light mode';
                 localStorage.setItem('bvnTheme', 'light');
             }
         }
 
-        // Áp dụng theme khi tải
         applyTheme(isDark);
 
         themeToggle.addEventListener('click', function() {
