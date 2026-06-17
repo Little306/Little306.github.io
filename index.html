@@ -1,12 +1,27 @@
-MmM<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Little306 Repo</titlehhuan 
+<title>Little306 Repo PRO</title>
 
 <style>
+:root{
+  --bg1:#00c6ff;
+  --bg2:#001533;
+  --card:rgba(255,255,255,0.08);
+  --text:#fff;
+  --btn:#00c8ff;
+}
+
+body.light{
+  --bg1:#eaf7ff;
+  --bg2:#ffffff;
+  --card:rgba(0,0,0,0.05);
+  --text:#111;
+  --btn:#0077ff;
+}
+
 *{
 margin:0;
 padding:0;
@@ -15,377 +30,221 @@ font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 }
 
 body{
-background:
-radial-gradient(circle at top right,#23408f 0%,transparent 35%),
-linear-gradient(135deg,#01081f,#05143f,#01081f);
 min-height:100vh;
-padding:20px;
-display:flex;
-justify-content:center;
-align-items:center;
-color:white;
+background:linear-gradient(135deg,var(--bg1),var(--bg2));
+color:var(--text);
+overflow-x:hidden;
 }
 
-.container{
-width:100%;
-max-width:1200px;
-background:rgba(5,12,40,.95);
-border-radius:35px;
-padding:35px;
-border:1px solid rgba(255,255,255,.08);
-box-shadow:0 0 50px rgba(0,120,255,.15);
-backdrop-filter:blur(10px);
+/* ANIMATION LOAD */
+body{
+animation:fadeIn .6s ease;
+}
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(10px);}
+to{opacity:1;transform:translateY(0);}
 }
 
-.header{
+header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:30px;
-}
-
-.left-header{
-display:flex;
-align-items:centerM;
-gap:18px;
+padding:15px;
 }
 
 .logo{
-width:78px;
-height:78px;
-border-radius:22px;
-overflow:hidden;
-border:4px solid #9ab1ff;
-background:#08112d;
-box-shadow:0 0 20px rgba(123,140,255,.4);
-}
-
-.logo img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.logo-text small{
-color:#8fa4ff;
-font-size:13px;
-letter-spacing:1px;
-display:block;
-margin-bottom:6px;
-}
-
-.logo-text h1{
-font-size:42px;
-font-weight:700;
-}
-
-.logo-text h3{
-font-size:18px;
-color:#cfd8ff;
-margin-top:4px;
-}
-
-.status{
-background:#10255a;
-padding:10px 18px;
-border-radius:999px;
-font-size:14px;
 display:flex;
 align-items:center;
-gap:8px;
-}
-
-.status::before{
-content:"";
-width:10px;
-height:10px;
-border-radius:50%;
-background:#37ff83;
-box-shadow:0 0 15px #37ff83;
-}
-
-.main{
-display:grid;
-grid-template-columns:1.2fr .9fr;
-gap:25px;
-}
-
-.left{
-background:rgba(255,255,255,.02);
-padding:25px;
-border-radius:25px;
-}
-
-.left p{
-line-height:1.9;
-font-size:18px;
-color:#d9e0ff;
-margin-bottom:15px;
-}
-
-.left b{
-color:#ffffff;
-}
-
-.source-box{
-background:#020b2a;
-border:1px solid rgba(255,255,255,.05);
-border-radius:20px;
-padding:20px;
-margin-top:20px;
-}
-
-.source-title{
-font-size:18px;
-font-weight:600;
-margin-bottom:12px;
-}
-
-.source-link{
-display:inline-block;
-padding:12px 18px;
-background:#08163d;
-border-radius:999px;
-font-weight:600;
-}
-
-.buttons{
-display:flex;
-flex-wrap:wrap;
-gap:12px;
-margin-top:20px;
-}
-
-.btn{
-padding:14px 22px;
-border:none;
-border-radius:999px;
-cursor:pointer;
-font-size:15px;
-font-weight:600;
-transition:.3s;
-color:white;
-}
-
-.btn:hover{
-transform:translateY(-2px);
-}
-
-.btn-sileo{
-background:linear-gradient(90deg,#7589ff,#9560ff);
-box-shadow:0 0 25px rgba(117,137,255,.3);
-}
-
-.btn-zebra{
-background:#0f1f53;
-}
-
-.btn-copy{
-background:#050d28;
-}
-
-.right{
-padding:25px;
-border-radius:25px;
-background:
-linear-gradient(135deg,
-rgba(10,18,53,.95),
-rgba(60,20,70,.9));
-border:1px solid rgba(255,255,255,.08);
-}
-
-.right-top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:18px;
-}
-
-.right-top h3{
-font-size:26px;
-}
-
-.badge{
-background:#09163f;
-padding:8px 14px;
-border-radius:999px;
-font-size:14px;
-}
-
-.right ol{
-padding-left:22px;
-line-height:2;
-font-size:17px;
-}
-
-.note{
-margin-top:18px;
-color:#c9d2ff;
-font-size:14px;
-line-height:1.6;
-}
-
-.footer{
-margin-top:25px;
-padding-top:18px;
-border-top:1px solid rgba(255,255,255,.08);
-display:flex;
-justify-content:space-between;
-color:#9da7d6;
-font-size:14px;
-}
-
-a{
-text-decoration:none;
-}
-
-@media(max-width:900px){
-
-.main{
-grid-template-columns:1fr;
-}
-
-.header{
-flex-direction:column;
-align-items:flex-start;
-gap:15px;
-}
-
-.logo-text h1{
-font-size:30px;
-}
-
-.left p{
-font-size:16px;
-}
-
-.footer{
-flex-direction:column;
 gap:10px;
 }
+
+.logo-box{
+width:44px;
+height:44px;
+border-radius:14px;
+background:linear-gradient(135deg,#00c8ff,#0066ff);
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+box-shadow:0 0 18px #00c8ff;
+}
+
+.toggle{
+padding:8px 12px;
+border:none;
+border-radius:10px;
+background:var(--btn);
+color:white;
+font-size:12px;
+}
+
+.banner{
+margin:10px;
+padding:18px;
+border-radius:18px;
+background:var(--card);
+backdrop-filter:blur(15px);
+text-align:center;
+box-shadow:0 0 25px rgba(0,0,0,0.2);
+}
+
+.search{
+display:flex;
+gap:8px;
+padding:10px;
+}
+
+.search input{
+flex:1;
+padding:12px;
+border-radius:12px;
+border:none;
+outline:none;
+}
+
+.search button{
+padding:12px;
+border:none;
+border-radius:12px;
+background:var(--btn);
+color:white;
+font-weight:600;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:1fr;
+gap:12px;
+padding:10px;
+}
+
+.card{
+background:var(--card);
+backdrop-filter:blur(15px);
+border-radius:18px;
+padding:15px;
+border:1px solid rgba(255,255,255,0.1);
+text-align:center;
+position:relative;
+overflow:hidden;
+transition:.2s;
+}
+
+.card:hover{
+transform:scale(1.02);
+box-shadow:0 0 20px var(--btn);
+}
+
+.card button{
+margin-top:10px;
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+background:var(--btn);
+color:white;
+font-weight:700;
+cursor:pointer;
+transition:.2s;
+}
+
+/* RIPPLE EFFECT */
+.card button:active{
+transform:scale(0.96);
+}
+
+/* FOOTER */
+.footer{
+text-align:center;
+padding:20px;
+font-size:12px;
+opacity:0.7;
 }
 </style>
 </head>
+
 <body>
 
-<div class="container">
-
-<div class="header">
-
-<div class="left-header">
-
+<header>
 <div class="logo">
-<img src="logo.png" alt="Logo">
+<div class="logo-box">L306</div>
+<h3>Little306 Repo PRO</h3>
 </div>
 
-<div class="logo-text">
-<small>JAILBREAK REPO • ROOTLESS</small>
-<h1>Little306 Repo</h1>
-<h3>Repo VN</h3>
-</div>
-
-</div>
-
-<div class="status">
-Hoạt động
-</div>
-
-</div>
-
-<div class="main">
-
-<div class="left">
-
-<p>
-Kho tweak dành cho môi trường Rootless, Dopamine,
-Serotonin và các thiết bị jailbreak hiện đại.
-</p>
-
-<p>
-Bạn có thể thêm nguồn này vào <b>Sileo</b>,
-<b>Zebra</b>, <b>Installer</b> như một repo APT
-thông thường để cài đặt tweak.
-</p>
-
-<p>
-Đây là nguồn được đóng gói và tối ưu cho người dùng
-Việt Nam với tốc độ tải nhanh và giao diện hiện đại.
-</p>
-
-<div class="source-box">
-
-<div class="source-title">
-Nguồn:
-</div>
-
-<div class="source-link" id="repo">
-https://little306.github.io/repo
-</div>
-
-</div>
-
-<div class="buttons">
-
-<a href="sileo://source/https://little306.github.io/repo">
-<button class="btn btn-sileo">
-Thêm vào Sileo
+<button class="toggle" onclick="document.body.classList.toggle('light')">
+Mode
 </button>
-</a>
+</header>
 
-<a href="zbra://sources/add/https://little306.github.io/repo">
-<button class="btn btn-zebra">
-Thêm vào Zebra / Cydia
-</button>
-</a>
-
-<button class="btn btn-copy" onclick="copyRepo()">
-Sao chép nguồn
-</button>
-
+<div class="banner">
+<h2>🔥 Little306 Repo</h2>
+<p>Kho IPA • Cài nhanh • Giao diện PRO</p>
 </div>
 
+<div class="search">
+<input placeholder="Tìm ứng dụng...">
+<button>Tìm</button>
 </div>
 
-<div class="right">
+<div class="grid">
 
-<div class="right-top">
-<h3>Hướng dẫn nhanh</h3>
-<div class="badge">
-Rootless • iOS 15+
-</div>
+<div class="card">
+<h3>📦 Thêm Repo</h3>
+<button onclick="copyRepo()">Copy Repo</button>
 </div>
 
-<ol>
-<li>Mở trình quản lý gói (Sileo, Zebra...).</li>
-<li>Vào mục Sources / Nguồn.</li>
-<li>Chọn Add / Thêm nguồn mới.</li>
-<li>Dán địa chỉ repo bên dưới.</li>
-<li>Đợi repo tải xong.</li>
-<li>Tìm tweak và cài đặt.</li>
-</ol>
-
-<div class="note">
-Lưu ý: Đây là repo APT chuẩn, không phải file
-.deb. Thiết bị cần jailbreak để sử dụng.
+<div class="card">
+<h3>📱 Kho IPA</h3>
+<button>Xem</button>
 </div>
 
+<div class="card">
+<h3>🚀 TrollStore</h3>
+<button>Tải</button>
+</div>
+
+<div class="card">
+<h3>✍️ ESign</h3>
+<button>Tải</button>
+</div>
+
+<div class="card">
+<h3>🔥 Scarlet</h3>
+<button>Tải</button>
+</div>
+
+<div class="card">
+<h3>🛠 Roothide</h3>
+<button>Xem</button>
+</div>
+
+<div class="card">
+<h3>📚 Hướng dẫn</h3>
+<button>Đọc</button>
+</div>
+
+<div class="card">
+<h3>💬 Telegram</h3>
+<button>Mở</button>
+</div>
+
+<div class="card">
+<h3>❤️ Donate</h3>
+<button>Ủng hộ</button>
 </div>
 
 </div>
 
 <div class="footer">
-<div>© 2026 Little306 Repo</div>
-<div>Liên hệ hỗ trợ: @Little306</div>
-</div>
-
+Little306 Repo PRO © 2026
 </div>
 
 <script>
 function copyRepo(){
-navigator.clipboard.writeText(
-"https://little306.github.io/repo"
-);
-alert("Đã sao chép nguồn!");
+navigator.clipboard.writeText("https://little306.github.io/repo");
+alert("Đã copy link repo!");
 }
 </script>
 
