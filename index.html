@@ -14,25 +14,51 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: #0a0e16;
-            color: #eef2f7;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 12px;
-            transition: background 0.3s ease, color 0.3s ease;
+            background: #0a0e16;
+            position: relative;
+            overflow-x: hidden;
+            transition: background 0.3s ease;
+        }
+
+        /* ===== NỀN GIỐNG WEB BVN ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(43, 127, 255, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(26, 92, 219, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(43, 127, 255, 0.04) 0%, transparent 50%);
+            z-index: 0;
+            pointer-events: none;
+            transition: background 0.3s ease;
         }
 
         /* ===== CHẾ ĐỘ SÁNG ===== */
         body.light-mode {
             background: #f0f4f8;
-            color: #0b1a2e;
+        }
+
+        body.light-mode::before {
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(43, 127, 255, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(26, 92, 219, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(43, 127, 255, 0.03) 0%, transparent 50%);
         }
 
         body.light-mode .repo-card {
-            background: #ffffff;
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.3);
         }
 
         body.light-mode .repo-title {
@@ -47,14 +73,14 @@
         }
 
         body.light-mode .badge {
-            background: #e8edf5;
+            background: rgba(232, 237, 245, 0.8);
             color: #1a3a6a;
-            border-color: #c0d0e5;
+            border-color: rgba(192, 208, 229, 0.5);
         }
 
         body.light-mode .badge-dark {
-            background: #dce4ef;
-            border-color: #b0c4d8;
+            background: rgba(220, 228, 239, 0.8);
+            border-color: rgba(176, 196, 216, 0.5);
         }
 
         body.light-mode .badge-mode {
@@ -62,7 +88,7 @@
         }
 
         body.light-mode .badge-mode:hover {
-            background: #d0dcee;
+            background: rgba(208, 220, 238, 0.9);
             transform: scale(1.05);
         }
 
@@ -71,8 +97,8 @@
         }
 
         body.light-mode .repo-url-box {
-            background: #f0f4f8;
-            border-color: #c0d0e5;
+            background: rgba(240, 244, 248, 0.8);
+            border-color: rgba(192, 208, 229, 0.5);
         }
 
         body.light-mode .repo-url-box .url {
@@ -80,13 +106,13 @@
         }
 
         body.light-mode .copy-btn {
-            background: #e8edf5;
+            background: rgba(232, 237, 245, 0.8);
             color: #1a3a6a;
-            border-color: #b0c4d8;
+            border-color: rgba(176, 196, 216, 0.5);
         }
 
         body.light-mode .copy-btn:hover {
-            background: #dce4ef;
+            background: rgba(220, 228, 239, 0.9);
         }
 
         body.light-mode .copy-btn.copied {
@@ -96,8 +122,8 @@
         }
 
         body.light-mode .action-btn {
-            background: #f0f4f8;
-            border-color: #c0d0e5;
+            background: rgba(240, 244, 248, 0.8);
+            border-color: rgba(192, 208, 229, 0.5);
             color: #1a3a6a;
         }
 
@@ -106,7 +132,7 @@
         }
 
         body.light-mode .repo-footer {
-            border-top-color: #c0d0e5;
+            border-top-color: rgba(192, 208, 229, 0.5);
             color: #4a6a8a;
         }
 
@@ -115,8 +141,8 @@
         }
 
         body.light-mode .info-block {
-            background: #f0f4f8;
-            border-color: #c0d0e5;
+            background: rgba(240, 244, 248, 0.8);
+            border-color: rgba(192, 208, 229, 0.5);
         }
 
         body.light-mode .info-block p {
@@ -136,15 +162,15 @@
         }
 
         body.light-mode .divider {
-            border-top-color: #c0d0e5;
+            border-top-color: rgba(192, 208, 229, 0.5);
         }
 
         body.light-mode .donate-box {
-            background: rgba(255, 255, 255, 0.5) !important;
+            background: rgba(255, 255, 255, 0.6) !important;
             backdrop-filter: blur(20px) !important;
             -webkit-backdrop-filter: blur(20px) !important;
             border-color: rgba(255, 255, 255, 0.3) !important;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06) !important;
         }
 
         body.light-mode .donate-heart {
@@ -156,19 +182,52 @@
             box-shadow: 0 0 10px #2a8a4a66 !important;
         }
 
-        body.light-mode .footer-copy {
+        body.light-mode .footer-copyright {
             color: #4a6a8a;
+            border-top-color: rgba(192, 208, 229, 0.5);
+        }
+
+        body.light-mode .donate-box .donate-item .label-donate {
+            color: #4a6a8a;
+        }
+
+        body.light-mode .donate-box .donate-item .value-donate {
+            color: #0b1a2e;
+        }
+
+        body.light-mode .donate-box .donate-item .copy-small {
+            background: rgba(232, 237, 245, 0.8);
+            color: #1a3a6a;
+            border-color: rgba(176, 196, 216, 0.5);
+        }
+
+        body.light-mode .donate-box .donate-item .copy-small:hover {
+            background: rgba(220, 228, 239, 0.9);
+        }
+
+        body.light-mode .donate-box .donate-item .copy-small.copied {
+            background: #2a8a4a;
+            color: white;
+            border-color: #3aaa5a;
+        }
+
+        body.light-mode .donate-box .donate-item .copy-small.copied i {
+            color: white;
         }
 
         .repo-card {
             max-width: 420px;
             width: 100%;
-            background: #121a26;
+            background: rgba(18, 26, 38, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-radius: 36px;
             padding: 24px 22px 20px;
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.04);
-            transition: background 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.04);
+            transition: all 0.3s ease;
             position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.04);
         }
 
         /* ===== HEADER ===== */
@@ -236,14 +295,14 @@
         }
 
         .badge {
-            background: #1f3147;
+            background: rgba(31, 49, 71, 0.8);
             padding: 2px 12px;
             border-radius: 40px;
             font-size: 0.65rem;
             font-weight: 600;
             color: #b6ccf0;
             letter-spacing: 0.2px;
-            border: 1px solid #2e405b;
+            border: 1px solid rgba(46, 64, 91, 0.6);
             display: inline-flex;
             align-items: center;
             gap: 4px;
@@ -256,8 +315,8 @@
         }
 
         .badge-dark {
-            background: #1a2638;
-            border-color: #354a68;
+            background: rgba(26, 38, 56, 0.8);
+            border-color: rgba(53, 74, 104, 0.6);
         }
 
         /* ===== BADGE DARK MODE CÓ THỂ BẤM ===== */
@@ -268,12 +327,8 @@
         }
 
         .badge-mode:hover {
-            background: #2a405e;
+            background: rgba(42, 64, 94, 0.9);
             transform: scale(1.05);
-        }
-
-        body.light-mode .badge-mode:hover {
-            background: #d0dcee;
         }
 
         /* ===== ĐƯỜNG DẪN REPO ===== */
@@ -287,14 +342,14 @@
         }
 
         .repo-url-box {
-            background: #0d131e;
+            background: rgba(13, 19, 30, 0.8);
             border-radius: 60px;
             padding: 10px 14px 10px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 8px;
-            border: 1px solid #29384f;
+            border: 1px solid rgba(41, 56, 79, 0.6);
             transition: all 0.3s ease;
         }
 
@@ -316,7 +371,7 @@
         }
 
         .copy-btn {
-            background: #1f3147;
+            background: rgba(31, 49, 71, 0.8);
             border: none;
             color: #d6e5ff;
             padding: 6px 16px;
@@ -326,7 +381,7 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            border: 1px solid #314a68;
+            border: 1px solid rgba(49, 74, 104, 0.6);
             white-space: nowrap;
             flex-shrink: 0;
             cursor: pointer;
@@ -334,7 +389,7 @@
         }
 
         .copy-btn:hover {
-            background: #2a405e;
+            background: rgba(42, 64, 94, 0.9);
             transform: scale(1.02);
         }
 
@@ -362,8 +417,8 @@
         }
 
         .action-btn {
-            background: #1a2332;
-            border: 1px solid #2c405a;
+            background: rgba(26, 35, 50, 0.8);
+            border: 1px solid rgba(44, 64, 90, 0.6);
             border-radius: 40px;
             padding: 10px 16px;
             font-weight: 500;
@@ -385,32 +440,17 @@
         /* ===== DIVIDER ===== */
         .divider {
             border: none;
-            border-top: 1px solid #1f3045;
+            border-top: 1px solid rgba(31, 48, 69, 0.6);
             margin: 16px 0 18px 0;
             transition: border-color 0.3s ease;
         }
 
         /* ===== THÔNG TIN LIÊN HỆ ===== */
-        .info-section .section-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #b6d0ff;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .info-section .section-title i {
-            color: #4c8bff;
-            font-size: 0.9rem;
-        }
-
         .info-block {
-            background: #0d131e;
+            background: rgba(13, 19, 30, 0.8);
             border-radius: 20px;
             padding: 16px 18px;
-            border: 1px solid #1f3045;
+            border: 1px solid rgba(31, 48, 69, 0.6);
             margin-bottom: 14px;
             transition: all 0.3s ease;
         }
@@ -458,49 +498,13 @@
             transition: color 0.3s ease;
         }
 
-        .info-block .value .copy-small {
-            background: #1f3147;
-            border: 1px solid #314a68;
-            border-radius: 40px;
-            padding: 2px 12px;
-            font-size: 0.65rem;
-            color: #b6ccf0;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .info-block .value .copy-small:hover {
-            background: #2a405e;
-            transform: scale(1.02);
-        }
-
-        .info-block .value .copy-small.copied {
-            background: #1a6b3a;
-            border-color: #2a8a4a;
-            color: #8ddfa8;
-        }
-
-        .info-block .value .copy-small.copied i {
-            color: #8ddfa8;
-        }
-
-        .info-block .value .copy-small i {
-            font-size: 0.55rem;
-            color: #5f9bff;
-            transition: all 0.3s ease;
-        }
-
         /* ===== DONATE BOX - KHUNG KÍNH ===== */
         .donate-box {
-            background: rgba(255, 255, 255, 0.05) !important;
+            background: rgba(255, 255, 255, 0.04) !important;
             backdrop-filter: blur(20px) !important;
             -webkit-backdrop-filter: blur(20px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
-            border-color: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.06) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
         }
 
         .donate-box .donate-title {
@@ -517,6 +521,7 @@
             gap: 8px;
             flex-wrap: wrap;
             margin-bottom: 4px;
+            padding: 2px 0;
         }
 
         .donate-box .donate-item .label-donate {
@@ -532,8 +537,8 @@
         }
 
         .donate-box .donate-item .copy-small {
-            background: #1f3147;
-            border: 1px solid #314a68;
+            background: rgba(31, 49, 71, 0.8);
+            border: 1px solid rgba(49, 74, 104, 0.6);
             border-radius: 40px;
             padding: 2px 12px;
             font-size: 0.65rem;
@@ -546,7 +551,7 @@
         }
 
         .donate-box .donate-item .copy-small:hover {
-            background: #2a405e;
+            background: rgba(42, 64, 94, 0.9);
             transform: scale(1.02);
         }
 
@@ -588,7 +593,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 6px;
-            border-top: 1px solid #1f3045;
+            border-top: 1px solid rgba(31, 48, 69, 0.6);
             padding-top: 14px;
             font-size: 0.85rem;
             color: #7e96b9;
@@ -631,7 +636,7 @@
         .footer-copyright {
             margin-top: 14px;
             padding-top: 14px;
-            border-top: 1px solid #1f3045;
+            border-top: 1px solid rgba(31, 48, 69, 0.6);
             text-align: center;
             font-size: 0.75rem;
             color: #5a7a9a;
