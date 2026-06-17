@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Little306 Repo PRO</title>
+<title>Little306 App Store Repo</title>
 
 <style>
 :root{
-  --bg1:#00c6ff;
-  --bg2:#001533;
+  --bg1:#00d0ff;
+  --bg2:#00101f;
   --card:rgba(255,255,255,0.08);
   --text:#fff;
-  --btn:#00c8ff;
+  --main:#00c8ff;
 }
 
 body.light{
@@ -19,7 +19,7 @@ body.light{
   --bg2:#ffffff;
   --card:rgba(0,0,0,0.05);
   --text:#111;
-  --btn:#0077ff;
+  --main:#0077ff;
 }
 
 *{
@@ -30,26 +30,23 @@ font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 }
 
 body{
-min-height:100vh;
 background:linear-gradient(135deg,var(--bg1),var(--bg2));
 color:var(--text);
+min-height:100vh;
 overflow-x:hidden;
 }
 
-/* ANIMATION LOAD */
-body{
-animation:fadeIn .6s ease;
-}
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(10px);}
-to{opacity:1;transform:translateY(0);}
-}
-
+/* TOP NAV */
 header{
+position:sticky;
+top:0;
+z-index:10;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px;
+padding:14px;
+backdrop-filter:blur(14px);
+background:rgba(0,0,0,0.25);
 }
 
 .logo{
@@ -70,36 +67,18 @@ font-weight:bold;
 box-shadow:0 0 18px #00c8ff;
 }
 
-.toggle{
-padding:8px 12px;
-border:none;
-border-radius:10px;
-background:var(--btn);
-color:white;
-font-size:12px;
-}
-
-.banner{
-margin:10px;
-padding:18px;
-border-radius:18px;
-background:var(--card);
-backdrop-filter:blur(15px);
-text-align:center;
-box-shadow:0 0 25px rgba(0,0,0,0.2);
-}
-
+/* SEARCH */
 .search{
 display:flex;
-gap:8px;
 padding:10px;
+gap:8px;
 }
 
 .search input{
 flex:1;
 padding:12px;
-border-radius:12px;
 border:none;
+border-radius:12px;
 outline:none;
 }
 
@@ -107,60 +86,92 @@ outline:none;
 padding:12px;
 border:none;
 border-radius:12px;
-background:var(--btn);
-color:white;
+background:var(--main);
+color:#fff;
 font-weight:600;
 }
 
-/* GRID */
+/* FEATURE CARD (LIKE APP STORE BANNER) */
+.feature{
+margin:10px;
+padding:18px;
+border-radius:18px;
+background:var(--card);
+backdrop-filter:blur(15px);
+text-align:center;
+box-shadow:0 0 25px rgba(0,0,0,0.25);
+}
+
+/* APP LIST */
 .grid{
 display:grid;
 grid-template-columns:1fr;
 gap:12px;
 padding:10px;
+padding-bottom:90px;
 }
 
-.card{
+.app{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px;
+border-radius:18px;
 background:var(--card);
 backdrop-filter:blur(15px);
-border-radius:18px;
-padding:15px;
 border:1px solid rgba(255,255,255,0.1);
-text-align:center;
-position:relative;
-overflow:hidden;
 transition:.2s;
 }
 
-.card:hover{
-transform:scale(1.02);
-box-shadow:0 0 20px var(--btn);
+.app:active{
+transform:scale(0.98);
 }
 
-.card button{
-margin-top:10px;
-width:100%;
-padding:12px;
+.left{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.icon{
+width:42px;
+height:42px;
+border-radius:12px;
+background:linear-gradient(135deg,#00c8ff,#0050ff);
+box-shadow:0 0 12px #00c8ff;
+}
+
+.btn{
+padding:10px 14px;
 border:none;
 border-radius:12px;
-background:var(--btn);
-color:white;
+background:var(--main);
+color:#fff;
 font-weight:700;
-cursor:pointer;
-transition:.2s;
 }
 
-/* RIPPLE EFFECT */
-.card button:active{
-transform:scale(0.96);
+/* BOTTOM TAB BAR */
+.bottom{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+display:flex;
+justify-content:space-around;
+padding:10px;
+background:rgba(0,0,0,0.3);
+backdrop-filter:blur(12px);
 }
 
-/* FOOTER */
-.footer{
-text-align:center;
-padding:20px;
+.bottom div{
 font-size:12px;
-opacity:0.7;
+text-align:center;
+opacity:0.9;
+}
+
+/* BUTTON ANIM */
+button:active{
+transform:scale(0.95);
 }
 </style>
 </head>
@@ -170,81 +181,97 @@ opacity:0.7;
 <header>
 <div class="logo">
 <div class="logo-box">L306</div>
-<h3>Little306 Repo PRO</h3>
+<h3>App Store Repo</h3>
 </div>
 
-<button class="toggle" onclick="document.body.classList.toggle('light')">
+<button onclick="document.body.classList.toggle('light')" 
+style="padding:8px 10px;border:none;border-radius:10px;background:var(--main);color:#fff;">
 Mode
 </button>
 </header>
 
-<div class="banner">
-<h2>🔥 Little306 Repo</h2>
-<p>Kho IPA • Cài nhanh • Giao diện PRO</p>
+<div class="feature">
+<h2>🍎 iOS Repo Experience</h2>
+<p>Giao diện kiểu App Store • mượt • đẹp • tối ưu mobile</p>
 </div>
 
 <div class="search">
-<input placeholder="Tìm ứng dụng...">
+<input id="search" onkeyup="filter()" placeholder="Tìm ứng dụng...">
 <button>Tìm</button>
 </div>
 
-<div class="grid">
+<div class="grid" id="list">
 
-<div class="card">
-<h3>📦 Thêm Repo</h3>
-<button onclick="copyRepo()">Copy Repo</button>
+<div class="app">
+<div class="left">
+<div class="icon"></div>
+<div>
+<b>TrollStore</b><br>
+<small>Permanent install IPA</small>
+</div>
+</div>
+<button class="btn">Tải</button>
 </div>
 
-<div class="card">
-<h3>📱 Kho IPA</h3>
-<button>Xem</button>
+<div class="app">
+<div class="left">
+<div class="icon"></div>
+<div>
+<b>ESign</b><br>
+<small>Ký IPA dễ dàng</small>
+</div>
+</div>
+<button class="btn">Tải</button>
 </div>
 
-<div class="card">
-<h3>🚀 TrollStore</h3>
-<button>Tải</button>
+<div class="app">
+<div class="left">
+<div class="icon"></div>
+<div>
+<b>Scarlet</b><br>
+<small>Cài IPA miễn phí</small>
+</div>
+</div>
+<button class="btn">Tải</button>
 </div>
 
-<div class="card">
-<h3>✍️ ESign</h3>
-<button>Tải</button>
+<div class="app">
+<div class="left">
+<div class="icon"></div>
+<div>
+<b>Roothide</b><br>
+<small>Bypass / tweak tools</small>
+</div>
+</div>
+<button class="btn">Xem</button>
 </div>
 
-<div class="card">
-<h3>🔥 Scarlet</h3>
-<button>Tải</button>
+<div class="app">
+<div class="left">
+<div class="icon"></div>
+<div>
+<b>IPA Library</b><br>
+<small>Kho ứng dụng iOS</small>
 </div>
-
-<div class="card">
-<h3>🛠 Roothide</h3>
-<button>Xem</button>
 </div>
-
-<div class="card">
-<h3>📚 Hướng dẫn</h3>
-<button>Đọc</button>
-</div>
-
-<div class="card">
-<h3>💬 Telegram</h3>
-<button>Mở</button>
-</div>
-
-<div class="card">
-<h3>❤️ Donate</h3>
-<button>Ủng hộ</button>
+<button class="btn">Xem</button>
 </div>
 
 </div>
 
-<div class="footer">
-Little306 Repo PRO © 2026
+<div class="bottom">
+<div>🏠 Home</div>
+<div>📦 Repo</div>
+<div>📱 Apps</div>
+<div>⚙️ Settings</div>
 </div>
 
 <script>
-function copyRepo(){
-navigator.clipboard.writeText("https://little306.github.io/repo");
-alert("Đã copy link repo!");
+function filter(){
+let val=document.getElementById("search").value.toLowerCase();
+document.querySelectorAll(".app").forEach(a=>{
+a.style.display=a.innerText.toLowerCase().includes(val)?"flex":"none";
+});
 }
 </script>
 
