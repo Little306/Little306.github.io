@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BVN Repo</title>
+<title>NVH Repo</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 
@@ -45,13 +45,35 @@ body.dark .badge-item {
   background: rgba(255,255,255,.04);
 }
 
+body.dark .badge-item .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00ff88;
+  margin: 0 4px;
+  animation: blinkDot 1.2s ease-in-out infinite;
+  vertical-align: middle;
+}
+
+@keyframes blinkDot {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 5px rgba(0,255,136,0.5), 0 0 10px rgba(0,255,136,0.2);
+  }
+  50% {
+    opacity: 0.15;
+    box-shadow: 0 0 2px rgba(0,255,136,0.1);
+  }
+}
+
 body.dark .section h2 {
   color: #fff;
 }
 
 body.dark .repo {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
 }
 
 body.dark .repo span {
@@ -67,10 +89,25 @@ body.dark .card p {
   color: #d3dcee;
 }
 
+body.dark .card p .highlight {
+  color: #4de4ff;
+}
+
 body.dark .donate {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.06);
-  color: #fff;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  color: #ffffff;
+}
+
+body.dark .donate span {
+  color: #ffffff;
+}
+
+body.dark .donate-heart {
+  color: #ff6b8a;
+  background: transparent;
+  border: none;
+  padding: 10px 0;
 }
 
 body.dark footer {
@@ -83,9 +120,21 @@ body.dark .badge-mode {
   color: #c4d0e4;
 }
 
+/* === LINK ITEM - DARK MODE === */
 body.dark .link-item {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 14px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: rgba(0,0,0,0.3);
+  border: 1.5px solid rgba(255,255,255,.25);
+  margin-top: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
 }
 
 body.dark .link-item span {
@@ -93,10 +142,22 @@ body.dark .link-item span {
 }
 
 body.dark .link-item:hover {
-  background: rgba(255,255,255,.10);
-  border-color: rgba(255,255,255,.2);
+  background: rgba(0,0,0,0.45);
+  border-color: rgba(255,255,255,.4);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0,0,0,.3);
+  box-shadow: 0 8px 25px rgba(0,0,0,.4);
+}
+
+body.dark .donate .copy-donate {
+  background: linear-gradient(135deg, #00d8ff, #00cf9d);
+}
+
+body.dark .stats {
+  color: #a0b4d0;
+}
+
+body.dark .stats .number {
+  color: #4de4ff;
 }
 
 /* === LIGHT MODE === */
@@ -124,13 +185,35 @@ body.light .badge-item {
   background: rgba(0,0,0,.03);
 }
 
+body.light .badge-item .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00cc77;
+  margin: 0 4px;
+  animation: blinkDotLight 1.2s ease-in-out infinite;
+  vertical-align: middle;
+}
+
+@keyframes blinkDotLight {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 5px rgba(0,204,119,0.4), 0 0 10px rgba(0,204,119,0.15);
+  }
+  50% {
+    opacity: 0.15;
+    box-shadow: 0 0 2px rgba(0,204,119,0.05);
+  }
+}
+
 body.light .section h2 {
   color: #1a2a4a;
 }
 
 body.light .repo {
-  background: rgba(0,0,0,.03);
-  border: 1px solid rgba(0,0,0,.08);
+  background: rgba(0,0,0,.04);
+  border: 1px solid rgba(0,0,0,.12);
 }
 
 body.light .repo span {
@@ -146,10 +229,25 @@ body.light .card p {
   color: #2a3a5a;
 }
 
+body.light .card p .highlight {
+  color: #3560ff;
+}
+
 body.light .donate {
-  background: rgba(0,0,0,.03);
-  border: 1px solid rgba(0,0,0,.06);
-  color: #1a2a4a;
+  background: rgba(0,0,0,.04);
+  border: 1px solid rgba(0,0,0,.12);
+  color: #0a1a3a;
+}
+
+body.light .donate span {
+  color: #0a1a3a;
+}
+
+body.light .donate-heart {
+  color: #e83a5e;
+  background: transparent;
+  border: none;
+  padding: 10px 0;
 }
 
 body.light footer {
@@ -167,9 +265,21 @@ body.light .badge-mode:hover {
   background: rgba(0,0,0,.06);
 }
 
+/* === LINK ITEM - LIGHT MODE === */
 body.light .link-item {
-  background: rgba(0,0,0,.03);
-  border: 1px solid rgba(0,0,0,.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 14px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: rgba(0,0,0,0.04);
+  border: 1.5px solid rgba(0,0,0,.15);
+  margin-top: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
 }
 
 body.light .link-item span {
@@ -177,10 +287,22 @@ body.light .link-item span {
 }
 
 body.light .link-item:hover {
-  background: rgba(0,0,0,.06);
-  border-color: rgba(0,0,0,.15);
+  background: rgba(0,0,0,0.08);
+  border-color: rgba(0,0,0,.25);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0,0,0,.08);
+  box-shadow: 0 8px 25px rgba(0,0,0,.1);
+}
+
+body.light .donate .copy-donate {
+  background: linear-gradient(135deg, #00d8ff, #00cf9d);
+}
+
+body.light .stats {
+  color: #5a6a8a;
+}
+
+body.light .stats .number {
+  color: #3560ff;
 }
 
 /* === CHUNG === */
@@ -286,98 +408,95 @@ body.light .link-item:hover {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  padding: 12px 15px;
+  padding: 14px 18px;
   border-radius: 16px;
   transition: all 0.3s ease;
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
 }
 
 .repo:hover {
-  background: rgba(255,255,255,.08);
-  border-color: rgba(255,255,255,.15);
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.25);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0,0,0,.15);
 }
 
 .repo span {
-  font-size: 14px;
+  font-size: 15px;
   word-break: break-all;
   transition: color 0.3s ease;
+  font-weight: 500;
 }
 
 .copy {
   height: 40px;
-  padding: 0 14px;
+  padding: 0 20px;
   border: none;
   cursor: pointer;
   border-radius: 12px;
   color: #fff;
-  font-size: 12px;
-  font-weight: 500;
-  background: linear-gradient(90deg, #00d8ff, #00cf9d);
-  transition: all 0.2s ease;
+  font-size: 13px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #00d8ff, #00cf9d);
+  transition: all 0.25s ease;
   flex-shrink: 0;
   white-space: nowrap;
   position: relative;
   overflow: hidden;
-}
-
-.copy::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,.2) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.copy:hover {
-  transform: scale(1.05);
+  letter-spacing: 0.3px;
   box-shadow: 0 4px 20px rgba(0,216,255,.3);
 }
 
-.copy:hover::after {
-  opacity: 1;
+.copy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+  transition: left 0.6s ease;
+}
+
+.copy:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 35px rgba(0,216,255,.45);
+}
+
+.copy:hover::before {
+  left: 100%;
 }
 
 .copy:active {
-  transform: scale(0.92);
+  transform: scale(0.94);
+  box-shadow: 0 2px 10px rgba(0,216,255,.2);
 }
 
 body.light .repo {
-  background: rgba(0,0,0,.03);
-  border: 1px solid rgba(0,0,0,.08);
+  background: rgba(0,0,0,.05);
+  border: 1px solid rgba(0,0,0,.12);
 }
 
 body.light .repo:hover {
-  background: rgba(0,0,0,.06);
-  border-color: rgba(0,0,0,.15);
+  background: rgba(0,0,0,.08);
+  border-color: rgba(0,0,0,.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,.06);
 }
 
 body.light .repo span {
   color: #1a2a4a;
 }
 
-/* === LINK ITEM - HIỆU ỨNG XỊN === */
-.link-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 14px 15px;
-  border-radius: 16px;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-  margin-top: 10px;
-  cursor: pointer;
-  text-decoration: none;
-  position: relative;
-  overflow: hidden;
+body.light .copy {
+  box-shadow: 0 4px 20px rgba(0,216,255,.25);
 }
 
-/* Hiệu ứng gợn sóng khi bấm */
+body.light .copy:hover {
+  box-shadow: 0 8px 35px rgba(0,216,255,.4);
+}
+
+/* === LINK ITEM - CHUNG === */
 .link-item::before {
   content: '';
   position: absolute;
@@ -405,18 +524,11 @@ body.light .repo span {
   z-index: 1;
 }
 
-.link-item:hover {
-  transform: translateY(-3px) scale(1.02);
-  border-color: rgba(255,255,255,.25);
-  box-shadow: 0 8px 30px rgba(0,0,0,.25);
-}
-
 .link-item:active {
   transform: scale(0.96);
   transition-duration: 0.1s;
 }
 
-/* Hiệu ứng ánh sáng chạy qua */
 .link-item::after {
   content: '';
   position: absolute;
@@ -432,39 +544,34 @@ body.light .repo span {
   left: 100%;
 }
 
-/* Màu riêng cho từng ô khi hover */
 .link-item:nth-child(2):hover {
   border-color: #00d8ff;
-  box-shadow: 0 8px 30px rgba(0,216,255,.2);
+  box-shadow: 0 8px 25px rgba(0,216,255,.2);
 }
 
 .link-item:nth-child(3):hover {
   border-color: #6774ff;
-  box-shadow: 0 8px 30px rgba(103,116,255,.2);
+  box-shadow: 0 8px 25px rgba(103,116,255,.2);
 }
 
 .link-item:nth-child(4):hover {
   border-color: #ff6b6b;
-  box-shadow: 0 8px 30px rgba(255,107,107,.2);
+  box-shadow: 0 8px 25px rgba(255,107,107,.2);
 }
 
 .link-item:nth-child(5):hover {
   border-color: #ffd93d;
-  box-shadow: 0 8px 30px rgba(255,217,61,.2);
+  box-shadow: 0 8px 25px rgba(255,217,61,.2);
 }
 
 .link-item:nth-child(6):hover {
   border-color: #6bcb77;
-  box-shadow: 0 8px 30px rgba(107,203,119,.2);
+  box-shadow: 0 8px 25px rgba(107,203,119,.2);
 }
 
 .link-item:nth-child(7):hover {
   border-color: #a66cff;
-  box-shadow: 0 8px 30px rgba(166,108,255,.2);
-}
-
-body.light .link-item:hover {
-  box-shadow: 0 8px 30px rgba(0,0,0,.12);
+  box-shadow: 0 8px 25px rgba(166,108,255,.2);
 }
 
 body.light .link-item:active::before {
@@ -472,8 +579,8 @@ body.light .link-item:active::before {
 }
 
 .card {
-  padding: 18px;
-  border-radius: 18px;
+  padding: 16px;
+  border-radius: 16px;
   transition: all 0.3s ease;
 }
 
@@ -483,27 +590,31 @@ body.light .link-item:active::before {
 }
 
 .card p {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.8;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   transition: color 0.3s ease;
 }
 
+/* === DONATE - STK + COPY CHUNG 1 Ô === */
 .donate {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
-  padding: 12px 15px;
+  padding: 14px 18px;
   margin-bottom: 10px;
-  border-radius: 12px;
-  font-size: 14px;
+  border-radius: 14px;
+  font-size: 16px;
   transition: all 0.3s ease;
+  font-weight: 600;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
 }
 
 .donate:hover {
-  transform: translateX(5px);
-  background: rgba(255,255,255,.08);
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.25);
+  box-shadow: 0 4px 20px rgba(0,0,0,.1);
 }
 
 .donate:last-child {
@@ -512,37 +623,113 @@ body.light .link-item:active::before {
 
 .donate span {
   word-break: break-all;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
-.copy-small {
-  height: 34px;
-  padding: 0 12px;
+/* Nút Copy trong ô DONATE */
+.copy-donate {
+  height: 38px;
+  padding: 0 18px;
   border: none;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 12px;
   color: #fff;
-  font-size: 11px;
-  font-weight: 500;
-  background: linear-gradient(90deg, #00d8ff, #00cf9d);
-  transition: all 0.2s ease;
+  font-size: 12px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #00d8ff, #00cf9d);
+  transition: all 0.25s ease;
   flex-shrink: 0;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 20px rgba(0,216,255,.25);
 }
 
-.copy-small:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(0,216,255,.3);
+.copy-donate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+  transition: left 0.6s ease;
 }
 
-.copy-small:active {
-  transform: scale(0.92);
+.copy-donate:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 35px rgba(0,216,255,.4);
 }
 
-body.light .donate:hover {
+.copy-donate:hover::before {
+  left: 100%;
+}
+
+.copy-donate:active {
+  transform: scale(0.94);
+  box-shadow: 0 2px 10px rgba(0,216,255,.15);
+}
+
+/* === DÒNG TRÁI TIM - KHÔNG KHUNG === */
+.donate-heart {
+  text-align: center;
+  padding: 12px 0;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background: transparent;
+  border: none;
+}
+
+/* === STATS - THỐNG KÊ === */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 14px 18px;
+  margin-top: 10px;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 500;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  transition: all 0.3s ease;
+}
+
+.stats:hover {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.15);
+}
+
+.stats .stat-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stats .number {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.stats .label {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+body.light .stats {
+  background: rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+body.light .stats:hover {
   background: rgba(0,0,0,.06);
+  border-color: rgba(0,0,0,.15);
 }
 
+/* === FOOTER - 1 DÒNG === */
 footer {
   margin-top: 25px;
   text-align: center;
@@ -570,7 +757,7 @@ footer {
     flex-wrap: nowrap;
     justify-content: space-between;
     gap: 8px;
-    padding: 10px 12px;
+    padding: 12px 14px;
   }
 
   .repo span {
@@ -581,15 +768,15 @@ footer {
   }
 
   .copy {
-    width: auto;
-    height: 34px;
-    padding: 0 12px;
-    font-size: 11px;
+    height: 36px;
+    padding: 0 14px;
+    font-size: 12px;
     flex-shrink: 0;
   }
 
   .link-item {
-    padding: 12px 12px;
+    padding: 12px 14px;
+    margin-top: 8px;
   }
 
   .link-item span {
@@ -597,24 +784,38 @@ footer {
   }
 
   .donate {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: 6px;
-    padding: 10px 12px;
+    padding: 12px 14px;
+    font-size: 14px;
   }
 
   .donate span {
-    font-size: 13px;
-    flex: 1;
-    min-width: 0;
+    font-size: 14px;
   }
 
-  .copy-small {
-    height: 32px;
-    padding: 0 10px;
-    font-size: 10px;
-    flex-shrink: 0;
+  .copy-donate {
+    height: 34px;
+    padding: 0 14px;
+    font-size: 11px;
+  }
+
+  .donate-heart {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  .stats {
+    gap: 20px;
+    padding: 12px 14px;
+    font-size: 12px;
+    flex-wrap: wrap;
+  }
+
+  .stats .number {
+    font-size: 14px;
+  }
+
+  footer {
+    font-size: 11px;
   }
 }
 
@@ -652,22 +853,55 @@ footer {
   }
 
   .copy {
-    height: 30px;
+    height: 32px;
     padding: 0 10px;
-    font-size: 10px;
+    font-size: 11px;
+  }
+
+  .link-item {
+    padding: 10px 12px;
+    margin-top: 6px;
   }
 
   .link-item span {
     font-size: 12px;
   }
 
-  .donate span {
-    font-size: 12px;
+  .donate {
+    font-size: 13px;
+    padding: 10px 12px;
   }
 
-  .copy-small {
-    height: 28px;
-    padding: 0 8px;
+  .donate span {
+    font-size: 13px;
+  }
+
+  .copy-donate {
+    height: 30px;
+    padding: 0 10px;
+    font-size: 10px;
+  }
+
+  .donate-heart {
+    font-size: 13px;
+    padding: 8px 0;
+  }
+
+  .stats {
+    gap: 12px;
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+
+  .stats .number {
+    font-size: 13px;
+  }
+
+  .stats .label {
+    font-size: 10px;
+  }
+
+  footer {
     font-size: 10px;
   }
 }
@@ -679,12 +913,12 @@ footer {
 <div class="container">
 
   <div class="header">
-    <div class="logo">BVN</div>
+    <div class="logo">NVH</div>
     <div class="title">
-      <h1>BVN REPO</h1>
+      <h1>NVH REPO</h1>
       <div class="subtitle">Kho tweak Crack • Việt Hoá</div>
       <div class="badge-group">
-        <span class="badge-item">- JAILBREAK • CÔNG NGHỆ</span>
+        <span class="badge-item">JAILBREAK <span class="dot"></span> CÔNG NGHỆ</span>
         <span class="badge-mode" onclick="toggleMode()" id="modeToggle">🌙 Đang dùng Dark Mode</span>
       </div>
     </div>
@@ -693,32 +927,31 @@ footer {
   <div class="section">
     <h2>ĐƯỜNG DẪN REPO</h2>
     <div class="repo">
-      <span id="repoLink">https://bvnrepo.xyz</span>
+      <span id="repoLink">https://huanxyz.click</span>
       <button class="copy" onclick="copyRepo(this)">📋 Sao chép</button>
     </div>
 
-    <!-- Các ô có link demo -->
-    <a href="#" class="link-item" onclick="handleClick(event, '📦 Thêm vào Cydia')">
+    <a href="https://huanxyz.click" target="_blank" class="link-item" onclick="handleClick(this, '📦 Thêm vào Cydia')">
       <span>📦 Thêm vào Cydia</span>
     </a>
 
-    <a href="#" class="link-item" onclick="handleClick(event, '🌀 Thêm vào Sileo')">
+    <a href="https://huanxyz.click" target="_blank" class="link-item" onclick="handleClick(this, '🌀 Thêm vào Sileo')">
       <span>🌀 Thêm vào Sileo</span>
     </a>
 
-    <a href="#" class="link-item" onclick="handleClick(event, '🦓 Thêm vào Zebra')">
+    <a href="https://huanxyz.click" target="_blank" class="link-item" onclick="handleClick(this, '🦓 Thêm vào Zebra')">
       <span>🦓 Thêm vào Zebra</span>
     </a>
 
-    <a href="#" class="link-item" onclick="handleClick(event, '📦 Repo Roothide')">
+    <a href="https://huanxyz.click" target="_blank" class="link-item" onclick="handleClick(this, '📦 Repo Roothide')">
       <span>📦 Repo Roothide</span>
     </a>
 
-    <a href="#" class="link-item" onclick="handleClick(event, '📲 Kho iPA')">
+    <a href="https://huanxyz.click" target="_blank" class="link-item" onclick="handleClick(this, '📲 Kho iPA')">
       <span>📲 Kho iPA</span>
     </a>
 
-    <a href="#" class="link-item" onclick="handleClick(event, '🧪 File Tiêm – TrollFools')">
+    <a href="https://huanxyz.click" target="_blank" class="link-item" onclick="handleClick(this, '🧪 File Tiêm – TrollFools')">
       <span>🧪 File Tiêm – TrollFools</span>
     </a>
   </div>
@@ -726,26 +959,59 @@ footer {
   <div class="section">
     <h2>THÔNG TIN LIÊN HỆ</h2>
     <div class="card">
-      <p><b>Repo được phát triển bởi:</b> BVN 🇻🇳</p>
-      <p>Kho tweak Việt Hoá dành cho cộng đồng Jailbreak.</p>
-      <p>Email: support@bvnrepo.xyz</p>
-      <p>Telegram: Nhóm hỗ trợ BVN</p>
+      <p><b>Repo được phát triển bởi:</b> NVH 🇻🇳</p>
+      <p>Kho lưu trữ các Tweak Việt hoá cho cộng đồng Jailbreak.</p>
+      <p>Hỗ trợ: Bug, góp ý, yêu cầu tính năng mới.</p>
+      <p>Tình trạng: Đang cập nhật tweak cho iOS 15–16 (rootless).</p>
+      <p>Email: <span class="highlight">huanketamin2@gmail.com</span></p>
+      <p>Telegram: <span class="highlight">huanxyz</span></p>
     </div>
   </div>
 
   <div class="section">
     <h2>ỦNG HỘ (DONATE)</h2>
     <div class="card">
+      <!-- Ô STK + Copy chung 1 ô -->
       <div class="donate">
         <span id="stkText">STK: 900959999</span>
-        <button class="copy-small" onclick="copySTK(this)">📋 Sao chép</button>
+        <button class="copy-donate" onclick="copySTK(this)">📋 Sao chép</button>
       </div>
-      <div class="donate">Ngân hàng: MBBank</div>
-      <div class="donate">Chủ TK: BIEN VAN NHAT</div>
+
+      <div class="donate">
+        <span>Ngân hàng: MBBank</span>
+      </div>
+
+      <div class="donate">
+        <span>Chủ TK: BIEN VAN NHAT</span>
+      </div>
+
+      <!-- Dòng trái tim - không khung -->
+      <div class="donate-heart">
+        ❤️ Ứng hộ giúp Repo phát triển ❤️
+      </div>
     </div>
   </div>
 
-  <footer>© 2026 BVN Repo</footer>
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat-item">
+      <span class="number" id="statTweaks">128</span>
+      <span class="label">Tweaks</span>
+    </div>
+    <div class="stat-item">
+      <span class="number" id="statDownloads">24.7K</span>
+      <span class="label">Lượt tải</span>
+    </div>
+    <div class="stat-item">
+      <span class="number" id="statUsers">3.2K</span>
+      <span class="label">Người dùng</span>
+    </div>
+  </div>
+
+  <!-- FOOTER - 1 DÒNG -->
+  <footer>
+    © 2026 NVH Repo • Made for Jailbreak Community 🇻🇳
+  </footer>
 
 </div>
 
@@ -777,8 +1043,10 @@ function copyRepo(btn) {
   document.body.removeChild(input);
   
   btn.innerHTML = '✅ Đã sao chép!';
+  btn.style.background = 'linear-gradient(135deg, #00cfa0, #00b894)';
   setTimeout(() => {
     btn.innerHTML = originalText;
+    btn.style.background = '';
   }, 2000);
 }
 
@@ -795,62 +1063,33 @@ function copySTK(btn) {
   document.body.removeChild(input);
   
   btn.innerHTML = '✅ Đã sao chép!';
+  btn.style.background = 'linear-gradient(135deg, #00cfa0, #00b894)';
   setTimeout(() => {
     btn.innerHTML = originalText;
+    btn.style.background = '';
   }, 2000);
 }
 
-function handleClick(event, name) {
-  event.preventDefault();
-  
-  // Hiệu ứng thông báo
-  const item = event.currentTarget;
-  const originalBorder = item.style.borderColor;
-  
-  item.style.borderColor = '#00d8ff';
-  item.style.transition = 'border-color 0.1s ease';
-  
+function handleClick(el, name) {
+  el.style.borderColor = '#00d8ff';
   setTimeout(() => {
-    item.style.borderColor = originalBorder || '';
+    el.style.borderColor = '';
   }, 300);
-  
-  // Thông báo demo
-  const toast = document.createElement('div');
-  toast.textContent = `🔗 Đang mở: ${name}`;
-  toast.style.cssText = `
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    background: rgba(0,0,0,0.85);
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 14px;
-    font-size: 14px;
-    font-weight: 500;
-    z-index: 9999;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    opacity: 0;
-  `;
-  
-  document.body.appendChild(toast);
-  
-  setTimeout(() => {
-    toast.style.opacity = '1';
-    toast.style.transform = 'translateX(-50%) translateY(0)';
-  }, 50);
-  
-  setTimeout(() => {
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateX(-50%) translateY(100px)';
-    setTimeout(() => {
-      toast.remove();
-    }, 400);
-  }, 2000);
 }
+
+// Tự động tăng số lượt tải mỗi khi vào trang (hiệu ứng)
+document.addEventListener('DOMContentLoaded', function() {
+  const downloadEl = document.getElementById('statDownloads');
+  const current = downloadEl.textContent;
+  const num = parseFloat(current);
+  const suffix = current.includes('K') ? 'K' : '';
+  
+  if (suffix === 'K') {
+    const increase = (Math.random() * 0.4 + 0.1).toFixed(1);
+    const newNum = (num + parseFloat(increase)).toFixed(1);
+    downloadEl.textContent = newNum + 'K';
+  }
+});
 </script>
 
 </body>
