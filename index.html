@@ -1,895 +1,857 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>BVN Repo</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px;
-            background: #0a0e16;
-            position: relative;
-            overflow-x: hidden;
-            transition: background 0.3s ease;
-        }
-
-        /* ===== NỀN GIỐNG WEB BVN ===== */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(ellipse at 20% 50%, rgba(43, 127, 255, 0.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(26, 92, 219, 0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 80%, rgba(43, 127, 255, 0.04) 0%, transparent 50%);
-            z-index: 0;
-            pointer-events: none;
-            transition: background 0.3s ease;
-        }
-
-        /* ===== CHẾ ĐỘ SÁNG ===== */
-        body.light-mode {
-            background: #f0f4f8;
-        }
-
-        body.light-mode::before {
-            background: 
-                radial-gradient(ellipse at 20% 50%, rgba(43, 127, 255, 0.06) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(26, 92, 219, 0.04) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 80%, rgba(43, 127, 255, 0.03) 0%, transparent 50%);
-        }
-
-        body.light-mode .repo-card {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.3);
-        }
-
-        body.light-mode .repo-title {
-            background: linear-gradient(to right, #1a3a6a, #2b7fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        body.light-mode .repo-sub {
-            color: #4a6a8a;
-        }
-
-        body.light-mode .badge {
-            background: rgba(232, 237, 245, 0.8);
-            color: #1a3a6a;
-            border-color: rgba(192, 208, 229, 0.5);
-        }
-
-        body.light-mode .badge-dark {
-            background: rgba(220, 228, 239, 0.8);
-            border-color: rgba(176, 196, 216, 0.5);
-        }
-
-        body.light-mode .badge-mode {
-            cursor: pointer;
-        }
-
-        body.light-mode .badge-mode:hover {
-            background: rgba(208, 220, 238, 0.9);
-            transform: scale(1.05);
-        }
-
-        body.light-mode .section-label {
-            color: #4a6a8a;
-        }
-
-        body.light-mode .repo-url-box {
-            background: rgba(240, 244, 248, 0.8);
-            border-color: rgba(192, 208, 229, 0.5);
-        }
-
-        body.light-mode .repo-url-box .url {
-            color: #1a3a6a;
-        }
-
-        body.light-mode .copy-btn {
-            background: rgba(232, 237, 245, 0.8);
-            color: #1a3a6a;
-            border-color: rgba(176, 196, 216, 0.5);
-        }
-
-        body.light-mode .copy-btn:hover {
-            background: rgba(220, 228, 239, 0.9);
-        }
-
-        body.light-mode .copy-btn.copied {
-            background: #2a8a4a;
-            color: white;
-            border-color: #3aaa5a;
-        }
-
-        body.light-mode .action-btn {
-            background: rgba(240, 244, 248, 0.8);
-            border-color: rgba(192, 208, 229, 0.5);
-            color: #1a3a6a;
-        }
-
-        body.light-mode .action-btn i {
-            color: #2b7fff;
-        }
-
-        body.light-mode .repo-footer {
-            border-top-color: rgba(192, 208, 229, 0.5);
-            color: #4a6a8a;
-        }
-
-        body.light-mode .repo-footer .brand {
-            color: #1a3a6a;
-        }
-
-        body.light-mode .info-block {
-            background: rgba(240, 244, 248, 0.8);
-            border-color: rgba(192, 208, 229, 0.5);
-        }
-
-        body.light-mode .info-block p {
-            color: #2a4a6a;
-        }
-
-        body.light-mode .info-block .label {
-            color: #4a6a8a;
-        }
-
-        body.light-mode .info-block .value {
-            color: #0b1a2e;
-        }
-
-        body.light-mode .info-block .highlight {
-            color: #1a5bbf;
-        }
-
-        body.light-mode .divider {
-            border-top-color: rgba(192, 208, 229, 0.5);
-        }
-
-        body.light-mode .donate-box {
-            background: rgba(255, 255, 255, 0.6) !important;
-            backdrop-filter: blur(20px) !important;
-            -webkit-backdrop-filter: blur(20px) !important;
-            border-color: rgba(255, 255, 255, 0.3) !important;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06) !important;
-        }
-
-        body.light-mode .donate-heart {
-            color: #e74c6f;
-        }
-
-        body.light-mode .status .dot {
-            background: #2a8a4a !important;
-            box-shadow: 0 0 10px #2a8a4a66 !important;
-        }
-
-        body.light-mode .footer-copyright {
-            color: #4a6a8a;
-            border-top-color: rgba(192, 208, 229, 0.5);
-        }
-
-        body.light-mode .donate-box .donate-item .label-donate {
-            color: #4a6a8a;
-        }
-
-        body.light-mode .donate-box .donate-item .value-donate {
-            color: #0b1a2e;
-        }
-
-        body.light-mode .donate-box .donate-item .copy-small {
-            background: rgba(232, 237, 245, 0.8);
-            color: #1a3a6a;
-            border-color: rgba(176, 196, 216, 0.5);
-        }
-
-        body.light-mode .donate-box .donate-item .copy-small:hover {
-            background: rgba(220, 228, 239, 0.9);
-        }
-
-        body.light-mode .donate-box .donate-item .copy-small.copied {
-            background: #2a8a4a;
-            color: white;
-            border-color: #3aaa5a;
-        }
-
-        body.light-mode .donate-box .donate-item .copy-small.copied i {
-            color: white;
-        }
-
-        .repo-card {
-            max-width: 420px;
-            width: 100%;
-            background: rgba(18, 26, 38, 0.92);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 36px;
-            padding: 24px 22px 20px;
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.04);
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-        }
-
-        /* ===== HEADER ===== */
-        .repo-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 2px;
-        }
-
-        .icon-bvn {
-            background: linear-gradient(145deg, #2b7fff, #1a5cdb);
-            width: 44px;
-            height: 44px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            box-shadow: 0 6px 16px rgba(27, 92, 255, 0.3);
-            flex-shrink: 0;
-        }
-
-        .repo-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            background: linear-gradient(to right, #ffffff, #bfd6ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            transition: background 0.3s ease;
-        }
-
-        /* ===== SUB ===== */
-        .repo-sub {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 4px 10px;
-            margin: 2px 0 14px 0;
-            font-size: 0.85rem;
-            color: #96a9c7;
-            transition: color 0.3s ease;
-        }
-
-        .repo-sub .text-desc {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .repo-sub .text-desc i {
-            color: #4c8bff;
-            font-size: 0.65rem;
-        }
-
-        .badge-group {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 4px 8px;
-        }
-
-        .badge {
-            background: rgba(31, 49, 71, 0.8);
-            padding: 2px 12px;
-            border-radius: 40px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: #b6ccf0;
-            letter-spacing: 0.2px;
-            border: 1px solid rgba(46, 64, 91, 0.6);
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .badge i {
-            font-size: 0.5rem;
-            color: #5f9bff;
-        }
-
-        .badge-dark {
-            background: rgba(26, 38, 56, 0.8);
-            border-color: rgba(53, 74, 104, 0.6);
-        }
-
-        /* ===== BADGE DARK MODE CÓ THỂ BẤM ===== */
-        .badge-mode {
-            cursor: pointer;
-            user-select: none;
-            transition: all 0.3s ease;
-        }
-
-        .badge-mode:hover {
-            background: rgba(42, 64, 94, 0.9);
-            transform: scale(1.05);
-        }
-
-        /* ===== ĐƯỜNG DẪN REPO ===== */
-        .section-label {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #7e96b9;
-            letter-spacing: 0.5px;
-            margin: 16px 0 10px 0;
-            transition: color 0.3s ease;
-        }
-
-        .repo-url-box {
-            background: rgba(13, 19, 30, 0.8);
-            border-radius: 60px;
-            padding: 10px 14px 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            border: 1px solid rgba(41, 56, 79, 0.6);
-            transition: all 0.3s ease;
-        }
-
-        .repo-url-box .url {
-            font-size: 1.05rem;
-            font-weight: 500;
-            letter-spacing: 0.1px;
-            color: #b6d0ff;
-            word-break: break-all;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: color 0.3s ease;
-        }
-
-        .repo-url-box .url i {
-            color: #4c8bff;
-            font-size: 0.85rem;
-        }
-
-        .copy-btn {
-            background: rgba(31, 49, 71, 0.8);
-            border: none;
-            color: #d6e5ff;
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-weight: 500;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            border: 1px solid rgba(49, 74, 104, 0.6);
-            white-space: nowrap;
-            flex-shrink: 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .copy-btn:hover {
-            background: rgba(42, 64, 94, 0.9);
-            transform: scale(1.02);
-        }
-
-        .copy-btn.copied {
-            background: #1a6b3a;
-            border-color: #2a8a4a;
-            color: #8ddfa8;
-        }
-
-        .copy-btn.copied i {
-            transform: scale(1.1);
-        }
-
-        .copy-btn i {
-            font-size: 0.75rem;
-            transition: all 0.3s ease;
-        }
-
-        /* ===== CÁC NÚT ===== */
-        .repo-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin: 12px 0 16px 0;
-        }
-
-        .action-btn {
-            background: rgba(26, 35, 50, 0.8);
-            border: 1px solid rgba(44, 64, 90, 0.6);
-            border-radius: 40px;
-            padding: 10px 16px;
-            font-weight: 500;
-            font-size: 0.85rem;
-            color: #d3e2ff;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.15s;
-            cursor: default;
-        }
-
-        .action-btn i {
-            color: #5f9bff;
-            font-size: 0.85rem;
-            width: 20px;
-        }
-
-        /* ===== DIVIDER ===== */
-        .divider {
-            border: none;
-            border-top: 1px solid rgba(31, 48, 69, 0.6);
-            margin: 16px 0 18px 0;
-            transition: border-color 0.3s ease;
-        }
-
-        /* ===== THÔNG TIN LIÊN HỆ ===== */
-        .info-block {
-            background: rgba(13, 19, 30, 0.8);
-            border-radius: 20px;
-            padding: 16px 18px;
-            border: 1px solid rgba(31, 48, 69, 0.6);
-            margin-bottom: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .info-block p {
-            font-size: 0.85rem;
-            color: #b0c4e5;
-            line-height: 1.6;
-            margin-bottom: 4px;
-            transition: color 0.3s ease;
-        }
-
-        .info-block p:last-child {
-            margin-bottom: 0;
-        }
-
-        .info-block .highlight {
-            color: #8bb6ff;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .info-block .label {
-            color: #7e96b9;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: block;
-            margin-top: 8px;
-            transition: color 0.3s ease;
-        }
-
-        .info-block .label:first-of-type {
-            margin-top: 0;
-        }
-
-        .info-block .value {
-            color: #d6e5ff;
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            transition: color 0.3s ease;
-        }
-
-        /* ===== DONATE BOX - KHUNG KÍNH ===== */
-        .donate-box {
-            background: rgba(255, 255, 255, 0.04) !important;
-            backdrop-filter: blur(20px) !important;
-            -webkit-backdrop-filter: blur(20px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.06) !important;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
-        }
-
-        .donate-box .donate-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #d6e5ff;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .donate-box .donate-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 4px;
-            padding: 2px 0;
-        }
-
-        .donate-box .donate-item .label-donate {
-            color: #7e96b9;
-            font-size: 0.8rem;
-            min-width: 60px;
-        }
-
-        .donate-box .donate-item .value-donate {
-            color: #d6e5ff;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .donate-box .donate-item .copy-small {
-            background: rgba(31, 49, 71, 0.8);
-            border: 1px solid rgba(49, 74, 104, 0.6);
-            border-radius: 40px;
-            padding: 2px 12px;
-            font-size: 0.65rem;
-            color: #b6ccf0;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .donate-box .donate-item .copy-small:hover {
-            background: rgba(42, 64, 94, 0.9);
-            transform: scale(1.02);
-        }
-
-        .donate-box .donate-item .copy-small.copied {
-            background: #1a6b3a;
-            border-color: #2a8a4a;
-            color: #8ddfa8;
-        }
-
-        .donate-box .donate-item .copy-small.copied i {
-            color: #8ddfa8;
-        }
-
-        .donate-box .donate-item .copy-small i {
-            font-size: 0.55rem;
-            color: #5f9bff;
-            transition: all 0.3s ease;
-        }
-
-        .donate-heart {
-            color: #ff6b8a;
-            font-size: 0.9rem;
-            margin-top: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: color 0.3s ease;
-        }
-
-        .donate-heart i {
-            color: #ff4757;
-        }
-
-        /* ===== FOOTER ===== */
-        .repo-footer {
-            margin-top: 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 6px;
-            border-top: 1px solid rgba(31, 48, 69, 0.6);
-            padding-top: 14px;
-            font-size: 0.85rem;
-            color: #7e96b9;
-            transition: all 0.3s ease;
-        }
-
-        .repo-footer .brand {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 500;
-            color: #a8bddb;
-            transition: color 0.3s ease;
-        }
-
-        .repo-footer .brand i {
-            color: #4c8bff;
-            font-size: 0.8rem;
-        }
-
-        .repo-footer .status {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.75rem;
-            color: #7e96b9;
-        }
-
-        .repo-footer .status .dot {
-            display: inline-block;
-            width: 7px;
-            height: 7px;
-            background: #32d68a;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #32d68a66;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        /* ===== FOOTER COPYRIGHT MỚI ===== */
-        .footer-copyright {
-            margin-top: 14px;
-            padding-top: 14px;
-            border-top: 1px solid rgba(31, 48, 69, 0.6);
-            text-align: center;
-            font-size: 0.75rem;
-            color: #5a7a9a;
-            transition: all 0.3s ease;
-            line-height: 1.6;
-        }
-
-        .footer-copyright .heart-icon {
-            color: #ff4757;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 380px) {
-            .repo-card {
-                padding: 18px 14px 16px;
-                border-radius: 28px;
-            }
-            .repo-title {
-                font-size: 1.4rem;
-            }
-            .repo-url-box .url {
-                font-size: 0.85rem;
-            }
-            .copy-btn {
-                font-size: 0.7rem;
-                padding: 4px 12px;
-            }
-            .action-btn {
-                font-size: 0.75rem;
-                padding: 8px 12px;
-            }
-            .info-block {
-                padding: 12px 14px;
-            }
-            .donate-box .donate-item .label-donate {
-                min-width: 50px;
-                font-size: 0.7rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BVN Repo</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  padding: 15px;
+  transition: background 0.3s ease;
+}
+
+/* === DARK MODE (mặc định) === */
+body.dark {
+  background: radial-gradient(circle at top, #21d4fd 0%, #0b87d0 25%, #03132d 100%);
+}
+
+body.dark .container {
+  background: linear-gradient(135deg, rgba(15,45,88,.98), rgba(4,18,42,.98));
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+body.dark .title h1 {
+  color: #fff;
+}
+
+body.dark .subtitle {
+  color: #c4d0e4;
+}
+
+body.dark .badge-item {
+  color: #c4d0e4;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+}
+
+body.dark .section h2 {
+  color: #fff;
+}
+
+body.dark .repo {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+body.dark .repo span {
+  color: #fff;
+}
+
+body.dark .card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+body.dark .card p {
+  color: #d3dcee;
+}
+
+body.dark .donate {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.06);
+  color: #fff;
+}
+
+body.dark footer {
+  color: #93a3bf;
+}
+
+body.dark .badge-mode {
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  color: #c4d0e4;
+}
+
+body.dark .link-item {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+body.dark .link-item span {
+  color: #fff;
+}
+
+body.dark .link-item:hover {
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,.3);
+}
+
+/* === LIGHT MODE === */
+body.light {
+  background: radial-gradient(circle at top, #f5f7fa 0%, #e8ecf1 50%, #d5dbe3 100%);
+}
+
+body.light .container {
+  background: linear-gradient(135deg, rgba(255,255,255,.98), rgba(240,243,248,.98));
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,.1), inset 0 1px 0 rgba(255,255,255,.5);
+}
+
+body.light .title h1 {
+  color: #1a2a4a;
+}
+
+body.light .subtitle {
+  color: #4a5a7a;
+}
+
+body.light .badge-item {
+  color: #4a5a7a;
+  border: 1px solid rgba(0,0,0,.1);
+  background: rgba(0,0,0,.03);
+}
+
+body.light .section h2 {
+  color: #1a2a4a;
+}
+
+body.light .repo {
+  background: rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+body.light .repo span {
+  color: #1a2a4a;
+}
+
+body.light .card {
+  background: rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+body.light .card p {
+  color: #2a3a5a;
+}
+
+body.light .donate {
+  background: rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.06);
+  color: #1a2a4a;
+}
+
+body.light footer {
+  color: #6a7a9a;
+}
+
+body.light .badge-mode {
+  border: 1px solid rgba(0,0,0,.1);
+  background: rgba(0,0,0,.03);
+  color: #4a5a7a;
+  cursor: pointer;
+}
+
+body.light .badge-mode:hover {
+  background: rgba(0,0,0,.06);
+}
+
+body.light .link-item {
+  background: rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+body.light .link-item span {
+  color: #1a2a4a;
+}
+
+body.light .link-item:hover {
+  background: rgba(0,0,0,.06);
+  border-color: rgba(0,0,0,.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,.08);
+}
+
+/* === CHUNG === */
+.container {
+  max-width: 850px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 35px;
+  transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 65px;
+  height: 65px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #4de4ff, #3560ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: rotate(10deg) scale(1.05);
+}
+
+.title h1 {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  transition: color 0.3s ease;
+}
+
+.subtitle {
+  font-size: 14px;
+  margin-top: 2px;
+  transition: color 0.3s ease;
+}
+
+.badge-item {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-top: 5px;
+  margin-right: 6px;
+  transition: all 0.3s ease;
+}
+
+.badge-mode {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-top: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.badge-mode:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.badge-mode:active {
+  transform: scale(0.95);
+}
+
+.badge-group {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.section {
+  margin-top: 25px;
+}
+
+.section h2 {
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+/* === REPO === */
+.repo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.repo:hover {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.15);
+}
+
+.repo span {
+  font-size: 14px;
+  word-break: break-all;
+  transition: color 0.3s ease;
+}
+
+.copy {
+  height: 40px;
+  padding: 0 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  background: linear-gradient(90deg, #00d8ff, #00cf9d);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.copy::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,.2) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.copy:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0,216,255,.3);
+}
+
+.copy:hover::after {
+  opacity: 1;
+}
+
+.copy:active {
+  transform: scale(0.92);
+}
+
+body.light .repo {
+  background: rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+body.light .repo:hover {
+  background: rgba(0,0,0,.06);
+  border-color: rgba(0,0,0,.15);
+}
+
+body.light .repo span {
+  color: #1a2a4a;
+}
+
+/* === LINK ITEM - HIỆU ỨNG XỊN === */
+.link-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 15px;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  margin-top: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hiệu ứng gợn sóng khi bấm */
+.link-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.link-item:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+.link-item span {
+  font-size: 14px;
+  word-break: break-all;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.link-item:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(255,255,255,.25);
+  box-shadow: 0 8px 30px rgba(0,0,0,.25);
+}
+
+.link-item:active {
+  transform: scale(0.96);
+  transition-duration: 0.1s;
+}
+
+/* Hiệu ứng ánh sáng chạy qua */
+.link-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.05), transparent);
+  transition: left 0.5s ease;
+}
+
+.link-item:hover::after {
+  left: 100%;
+}
+
+/* Màu riêng cho từng ô khi hover */
+.link-item:nth-child(2):hover {
+  border-color: #00d8ff;
+  box-shadow: 0 8px 30px rgba(0,216,255,.2);
+}
+
+.link-item:nth-child(3):hover {
+  border-color: #6774ff;
+  box-shadow: 0 8px 30px rgba(103,116,255,.2);
+}
+
+.link-item:nth-child(4):hover {
+  border-color: #ff6b6b;
+  box-shadow: 0 8px 30px rgba(255,107,107,.2);
+}
+
+.link-item:nth-child(5):hover {
+  border-color: #ffd93d;
+  box-shadow: 0 8px 30px rgba(255,217,61,.2);
+}
+
+.link-item:nth-child(6):hover {
+  border-color: #6bcb77;
+  box-shadow: 0 8px 30px rgba(107,203,119,.2);
+}
+
+.link-item:nth-child(7):hover {
+  border-color: #a66cff;
+  box-shadow: 0 8px 30px rgba(166,108,255,.2);
+}
+
+body.light .link-item:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,.12);
+}
+
+body.light .link-item:active::before {
+  background: rgba(0,0,0,.08);
+}
+
+.card {
+  padding: 18px;
+  border-radius: 18px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,.15);
+}
+
+.card p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.donate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.donate:hover {
+  transform: translateX(5px);
+  background: rgba(255,255,255,.08);
+}
+
+.donate:last-child {
+  margin-bottom: 0;
+}
+
+.donate span {
+  word-break: break-all;
+  font-size: 14px;
+}
+
+.copy-small {
+  height: 34px;
+  padding: 0 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  background: linear-gradient(90deg, #00d8ff, #00cf9d);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.copy-small:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,216,255,.3);
+}
+
+.copy-small:active {
+  transform: scale(0.92);
+}
+
+body.light .donate:hover {
+  background: rgba(0,0,0,.06);
+}
+
+footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 12px;
+  transition: color 0.3s ease;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .title h1 {
+    font-size: 30px;
+  }
+
+  .badge-group {
+    justify-content: center;
+  }
+
+  .repo {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .repo span {
+    font-size: 13px;
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+  }
+
+  .copy {
+    width: auto;
+    height: 34px;
+    padding: 0 12px;
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+
+  .link-item {
+    padding: 12px 12px;
+  }
+
+  .link-item span {
+    font-size: 13px;
+  }
+
+  .donate {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 10px 12px;
+  }
+
+  .donate span {
+    font-size: 13px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .copy-small {
+    height: 32px;
+    padding: 0 10px;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  .title h1 {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .badge-item {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+
+  .badge-mode {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+
+  .repo span {
+    font-size: 12px;
+  }
+
+  .copy {
+    height: 30px;
+    padding: 0 10px;
+    font-size: 10px;
+  }
+
+  .link-item span {
+    font-size: 12px;
+  }
+
+  .donate span {
+    font-size: 12px;
+  }
+
+  .copy-small {
+    height: 28px;
+    padding: 0 8px;
+    font-size: 10px;
+  }
+}
+
+</style>
 </head>
-<body>
+<body class="dark">
 
-    <div class="repo-card" id="app">
+<div class="container">
 
-        <!-- ===== HEADER ===== -->
-        <div class="repo-header">
-            <div class="icon-bvn">B</div>
-            <span class="repo-title">BVN REPO</span>
-        </div>
+  <div class="header">
+    <div class="logo">BVN</div>
+    <div class="title">
+      <h1>BVN REPO</h1>
+      <div class="subtitle">Kho tweak Crack • Việt Hoá</div>
+      <div class="badge-group">
+        <span class="badge-item">- JAILBREAK • CÔNG NGHỆ</span>
+        <span class="badge-mode" onclick="toggleMode()" id="modeToggle">🌙 Đang dùng Dark Mode</span>
+      </div>
+    </div>
+  </div>
 
-        <!-- ===== Kho tweak Crack – Việt Hoá ===== -->
-        <div class="repo-sub">
-            <span class="text-desc">
-                <i class="fas fa-lock-open"></i> Kho tweak Crack – Việt Hoá
-            </span>
-            <span class="badge-group">
-                <span class="badge"><i class="fas fa-bolt"></i> JAILBREAK • CÔNG NGHỆ</span>
-                <span class="badge badge-dark badge-mode" id="themeToggle">
-                    <i class="fas fa-moon" id="themeIcon"></i> <span id="themeText">Dark mode</span>
-                </span>
-            </span>
-        </div>
-
-        <!-- ===== ĐƯỜNG DẪN REPO ===== -->
-        <div class="section-label">ĐƯỜNG DẪN REPO</div>
-        <div class="repo-url-box">
-            <span class="url">
-                <i class="fas fa-link"></i> https://bvnrepo.xyz
-            </span>
-            <button class="copy-btn" id="copyRepoUrl" data-copy="https://bvnrepo.xyz">
-                <i class="fas fa-copy"></i> <span id="copyRepoText">Sao chép</span>
-            </button>
-        </div>
-
-        <!-- ===== CÁC NÚT ===== -->
-        <div class="repo-actions">
-            <div class="action-btn"><i class="fas fa-plus-circle"></i> Thêm vào Cydia</div>
-            <div class="action-btn"><i class="fas fa-plus-circle"></i> Thêm vào Sileo</div>
-            <div class="action-btn"><i class="fas fa-plus-circle"></i> Thêm vào Zebra</div>
-            <div class="action-btn"><i class="fas fa-code-branch"></i> Repo Roothide</div>
-            <div class="action-btn"><i class="fas fa-archive"></i> Kho iPA</div>
-        </div>
-
-        <hr class="divider" />
-
-        <!-- ===== PHẦN THÔNG TIN LIÊN HỆ ===== -->
-        <div class="info-section">
-
-            <!-- THÔNG TIN LIÊN HỆ -->
-            <div class="info-block">
-                <span class="label"><i class="fas fa-user" style="margin-right: 4px;"></i> Repo được phát triển bởi:</span>
-                <div class="value" style="margin-top: 2px; margin-bottom: 8px;">BVN</div>
-                <p>Kho lưu trữ các Tweak Việt hoá cho cộng đồng Jailbreak.</p>
-                <p><span class="highlight">Hỗ trợ:</span> Bug, góp ý, yêu cầu tính năng mới.</p>
-                <p><span class="highlight">Tình trạng:</span> Đang cập nhật tweak cho iOS 15–16 (rootless).</p>
-            </div>
-
-            <!-- Email + Telegram -->
-            <div class="info-block">
-                <div style="display: flex; flex-direction: column; gap: 6px;">
-                    <div>
-                        <span class="label">Email</span>
-                        <div class="value">bvnrepo@gmail.com</div>
-                    </div>
-                    <div>
-                        <span class="label">Telegram</span>
-                        <div class="value">Nhóm hỗ trợ</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DONATE - KHUNG KÍNH (theo ảnh mới) -->
-            <div class="info-block donate-box">
-                <span class="donate-title">ỨNG HỘ (DONATE)</span>
-
-                <div class="donate-item">
-                    <span class="label-donate">STK:</span>
-                    <span class="value-donate">900959999</span>
-                    <button class="copy-small" id="copyBankAccount" data-copy="900959999">
-                        <i class="fas fa-copy"></i> <span id="copyBankText">Sao chép</span>
-                    </button>
-                </div>
-
-                <div class="donate-item">
-                    <span class="label-donate">Ngân hàng:</span>
-                    <span class="value-donate">MBBank</span>
-                </div>
-
-                <div class="donate-item">
-                    <span class="label-donate">Chủ TK:</span>
-                    <span class="value-donate">BIEN VAN NHAT</span>
-                </div>
-
-                <div class="donate-heart">
-                    <i class="fas fa-heart"></i> Ứng hộ giúp Repo phát triển <i class="fas fa-heart" style="color: #ff4757;"></i>
-                </div>
-            </div>
-
-        </div>
-
-        <hr class="divider" />
-
-        <!-- ===== FOOTER ===== -->
-        <div class="repo-footer">
-            <div class="brand">
-                <i class="fas fa-bolt"></i> bvnrepo.xyz
-            </div>
-            <div class="status">
-                <span class="dot"></span>
-                <span>Online · 2026</span>
-            </div>
-        </div>
-
-        <!-- ===== FOOTER COPYRIGHT MỚI ===== -->
-        <div class="footer-copyright">
-            © 2026 BVN Repo<br />
-            Made for <span class="heart-icon">❤️</span> Jailbreak Community
-        </div>
-
+  <div class="section">
+    <h2>ĐƯỜNG DẪN REPO</h2>
+    <div class="repo">
+      <span id="repoLink">https://bvnrepo.xyz</span>
+      <button class="copy" onclick="copyRepo(this)">📋 Sao chép</button>
     </div>
 
-    <script>
-        // ===== CHỨC NĂNG SAO CHÉP =====
-        function setupCopy(buttonId, textId, defaultText, copiedText) {
-            const btn = document.getElementById(buttonId);
-            const textSpan = document.getElementById(textId);
-            if (!btn || !textSpan) return;
+    <!-- Các ô có link demo -->
+    <a href="#" class="link-item" onclick="handleClick(event, '📦 Thêm vào Cydia')">
+      <span>📦 Thêm vào Cydia</span>
+    </a>
 
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const textToCopy = this.dataset.copy || '';
+    <a href="#" class="link-item" onclick="handleClick(event, '🌀 Thêm vào Sileo')">
+      <span>🌀 Thêm vào Sileo</span>
+    </a>
 
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(textToCopy).then(() => {
-                        showCopied(this, textSpan, defaultText, copiedText);
-                    }).catch(() => {
-                        fallbackCopy(textToCopy, this, textSpan, defaultText, copiedText);
-                    });
-                } else {
-                    fallbackCopy(textToCopy, this, textSpan, defaultText, copiedText);
-                }
-            });
-        }
+    <a href="#" class="link-item" onclick="handleClick(event, '🦓 Thêm vào Zebra')">
+      <span>🦓 Thêm vào Zebra</span>
+    </a>
 
-        function fallbackCopy(text, btn, textSpan, defaultText, copiedText) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.style.position = 'fixed';
-            textarea.style.opacity = '0';
-            textarea.style.left = '-9999px';
-            document.body.appendChild(textarea);
-            textarea.select();
-            try {
-                document.execCommand('copy');
-                showCopied(btn, textSpan, defaultText, copiedText);
-            } catch (err) {
-                console.warn('Không thể sao chép:', err);
-            }
-            document.body.removeChild(textarea);
-        }
+    <a href="#" class="link-item" onclick="handleClick(event, '📦 Repo Roothide')">
+      <span>📦 Repo Roothide</span>
+    </a>
 
-        function showCopied(btn, textSpan, defaultText, copiedText) {
-            btn.classList.add('copied');
-            textSpan.textContent = copiedText;
+    <a href="#" class="link-item" onclick="handleClick(event, '📲 Kho iPA')">
+      <span>📲 Kho iPA</span>
+    </a>
 
-            const icon = btn.querySelector('i');
-            if (icon) {
-                icon.className = 'fas fa-check';
-            }
+    <a href="#" class="link-item" onclick="handleClick(event, '🧪 File Tiêm – TrollFools')">
+      <span>🧪 File Tiêm – TrollFools</span>
+    </a>
+  </div>
 
-            setTimeout(() => {
-                btn.classList.remove('copied');
-                textSpan.textContent = defaultText;
-                if (icon) {
-                    icon.className = 'fas fa-copy';
-                }
-            }, 2000);
-        }
+  <div class="section">
+    <h2>THÔNG TIN LIÊN HỆ</h2>
+    <div class="card">
+      <p><b>Repo được phát triển bởi:</b> BVN 🇻🇳</p>
+      <p>Kho tweak Việt Hoá dành cho cộng đồng Jailbreak.</p>
+      <p>Email: support@bvnrepo.xyz</p>
+      <p>Telegram: Nhóm hỗ trợ BVN</p>
+    </div>
+  </div>
 
-        // ===== KHỞI TẠO CÁC NÚT SAO CHÉP =====
-        setupCopy('copyRepoUrl', 'copyRepoText', 'Sao chép', 'Đã sao chép!');
-        setupCopy('copyBankAccount', 'copyBankText', 'Sao chép', 'Đã sao chép!');
+  <div class="section">
+    <h2>ỦNG HỘ (DONATE)</h2>
+    <div class="card">
+      <div class="donate">
+        <span id="stkText">STK: 900959999</span>
+        <button class="copy-small" onclick="copySTK(this)">📋 Sao chép</button>
+      </div>
+      <div class="donate">Ngân hàng: MBBank</div>
+      <div class="donate">Chủ TK: BIEN VAN NHAT</div>
+    </div>
+  </div>
 
-        // ===== CHỨC NĂNG SÁNG/TỐI BẤM VÀO BADGE DARK MODE =====
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const themeText = document.getElementById('themeText');
-        const body = document.body;
+  <footer>© 2026 BVN Repo</footer>
 
-        let isDark = localStorage.getItem('bvnTheme') !== 'light';
+</div>
 
-        function applyTheme(dark) {
-            if (dark) {
-                body.classList.remove('light-mode');
-                themeIcon.className = 'fas fa-moon';
-                themeText.textContent = 'Dark mode';
-                localStorage.setItem('bvnTheme', 'dark');
-            } else {
-                body.classList.add('light-mode');
-                themeIcon.className = 'fas fa-sun';
-                themeText.textContent = 'Light mode';
-                localStorage.setItem('bvnTheme', 'light');
-            }
-        }
+<script>
+function toggleMode() {
+  const body = document.body;
+  const toggle = document.getElementById('modeToggle');
+  
+  if (body.classList.contains('dark')) {
+    body.classList.remove('dark');
+    body.classList.add('light');
+    toggle.innerHTML = '☀️ Đang dùng Light Mode';
+  } else {
+    body.classList.remove('light');
+    body.classList.add('dark');
+    toggle.innerHTML = '🌙 Đang dùng Dark Mode';
+  }
+}
 
-        applyTheme(isDark);
+function copyRepo(btn) {
+  const link = document.getElementById('repoLink').textContent;
+  const originalText = btn.innerHTML;
+  
+  const input = document.createElement('input');
+  input.value = link;
+  document.body.appendChild(input);
+  input.select();
+  document.execCommand('copy');
+  document.body.removeChild(input);
+  
+  btn.innerHTML = '✅ Đã sao chép!';
+  setTimeout(() => {
+    btn.innerHTML = originalText;
+  }, 2000);
+}
 
-        themeToggle.addEventListener('click', function() {
-            isDark = !isDark;
-            applyTheme(isDark);
-        });
-    </script>
+function copySTK(btn) {
+  const text = document.getElementById('stkText').textContent;
+  const stkNumber = text.replace('STK: ', '');
+  const originalText = btn.innerHTML;
+  
+  const input = document.createElement('input');
+  input.value = stkNumber;
+  document.body.appendChild(input);
+  input.select();
+  document.execCommand('copy');
+  document.body.removeChild(input);
+  
+  btn.innerHTML = '✅ Đã sao chép!';
+  setTimeout(() => {
+    btn.innerHTML = originalText;
+  }, 2000);
+}
+
+function handleClick(event, name) {
+  event.preventDefault();
+  
+  // Hiệu ứng thông báo
+  const item = event.currentTarget;
+  const originalBorder = item.style.borderColor;
+  
+  item.style.borderColor = '#00d8ff';
+  item.style.transition = 'border-color 0.1s ease';
+  
+  setTimeout(() => {
+    item.style.borderColor = originalBorder || '';
+  }, 300);
+  
+  // Thông báo demo
+  const toast = document.createElement('div');
+  toast.textContent = `🔗 Đang mở: ${name}`;
+  toast.style.cssText = `
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    opacity: 0;
+  `;
+  
+  document.body.appendChild(toast);
+  
+  setTimeout(() => {
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateX(-50%) translateY(0)';
+  }, 50);
+  
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(-50%) translateY(100px)';
+    setTimeout(() => {
+      toast.remove();
+    }, 400);
+  }, 2000);
+}
+</script>
 
 </body>
 </html>
