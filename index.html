@@ -1,1096 +1,1101 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="google-site-verification" content="jwSWaNc1GSsYeE8J0r8RGeBQfeRAaxBj302gk8mI0PI">
-<title>litle306</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-body {
-  min-height: 100vh;
-  padding: 15px;
-  transition: background 0.3s ease;
-}
-
-/* === DARK MODE (mặc định) === */
-body.dark {
-  background: radial-gradient(circle at top, #21d4fd 0%, #0b87d0 25%, #03132d 100%);
-}
-
-body.dark .container {
-  background: linear-gradient(135deg, rgba(15,45,88,.98), rgba(4,18,42,.98));
-  border: 1px solid rgba(255,255,255,.08);
-  box-shadow: 0 20px 60px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.05);
-}
-
-body.dark .title h1 {
-  color: #fff;
-}
-
-body.dark .subtitle {
-  color: #c4d0e4;
-}
-
-body.dark .badge-item {
-  color: #c4d0e4;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.04);
-}
-
-body.dark .badge-item .dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #00ff88;
-  margin: 0 4px;
-  animation: blinkDot 1.2s ease-in-out infinite;
-  vertical-align: middle;
-}
-
-@keyframes blinkDot {
-  0%, 100% {
-    opacity: 1;
-    box-shadow: 0 0 5px rgba(0,255,136,0.5), 0 0 10px rgba(0,255,136,0.2);
-  }
-  50% {
-    opacity: 0.15;
-    box-shadow: 0 0 2px rgba(0,255,136,0.1);
-  }
-}
-
-body.dark .section h2 {
-  color: #fff;
-}
-
-body.dark .repo {
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
-}
-
-body.dark .repo span {
-  color: #fff;
-}
-
-body.dark .card {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-}
-
-body.dark .card p {
-  color: #d3dcee;
-}
-
-body.dark .card p .highlight {
-  color: #4de4ff;
-}
-
-body.dark .donate {
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
-  color: #ffffff;
-}
-
-body.dark .donate span {
-  color: #ffffff;
-}
-
-body.dark .donate-heart {
-  color: #ff6b8a;
-  background: transparent;
-  border: none;
-  padding: 10px 0;
-}
-
-body.dark footer {
-  color: #93a3bf;
-}
-
-body.dark .badge-mode {
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.04);
-  color: #c4d0e4;
-}
-
-/* === LINK ITEM - DARK MODE === */
-body.dark .link-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 14px 16px;
-  border-radius: 14px;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  background: rgba(0,0,0,0.3);
-  border: 1.5px solid rgba(255,255,255,.25);
-  margin-top: 10px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-}
-
-body.dark .link-item span {
-  color: #fff;
-}
-
-body.dark .link-item:hover {
-  background: rgba(0,0,0,0.45);
-  border-color: rgba(255,255,255,.4);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0,0,0,.4);
-}
-
-body.dark .donate .copy-donate {
-  background: linear-gradient(135deg, #00d8ff, #00cf9d);
-}
-
-body.dark .stats {
-  color: #a0b4d0;
-}
-
-body.dark .stats .number {
-  color: #4de4ff;
-}
-
-/* === LIGHT MODE === */
-body.light {
-  background: radial-gradient(circle at top, #f5f7fa 0%, #e8ecf1 50%, #d5dbe3 100%);
-}
-
-body.light .container {
-  background: linear-gradient(135deg, rgba(255,255,255,.98), rgba(240,243,248,.98));
-  border: 1px solid rgba(0,0,0,.08);
-  box-shadow: 0 20px 60px rgba(0,0,0,.1), inset 0 1px 0 rgba(255,255,255,.5);
-}
-
-body.light .title h1 {
-  color: #1a2a4a;
-}
-
-body.light .subtitle {
-  color: #4a5a7a;
-}
-
-body.light .badge-item {
-  color: #4a5a7a;
-  border: 1px solid rgba(0,0,0,.1);
-  background: rgba(0,0,0,.03);
-}
-
-body.light .badge-item .dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #00cc77;
-  margin: 0 4px;
-  animation: blinkDotLight 1.2s ease-in-out infinite;
-  vertical-align: middle;
-}
-
-@keyframes blinkDotLight {
-  0%, 100% {
-    opacity: 1;
-    box-shadow: 0 0 5px rgba(0,204,119,0.4), 0 0 10px rgba(0,204,119,0.15);
-  }
-  50% {
-    opacity: 0.15;
-    box-shadow: 0 0 2px rgba(0,204,119,0.05);
-  }
-}
-
-body.light .section h2 {
-  color: #1a2a4a;
-}
-
-body.light .repo {
-  background: rgba(0,0,0,.04);
-  border: 1px solid rgba(0,0,0,.12);
-}
-
-body.light .repo span {
-  color: #1a2a4a;
-}
-
-body.light .card {
-  background: rgba(0,0,0,.03);
-  border: 1px solid rgba(0,0,0,.08);
-}
-
-body.light .card p {
-  color: #2a3a5a;
-}
-
-body.light .card p .highlight {
-  color: #3560ff;
-}
-
-body.light .donate {
-  background: rgba(0,0,0,.04);
-  border: 1px solid rgba(0,0,0,.12);
-  color: #0a1a3a;
-}
-
-body.light .donate span {
-  color: #0a1a3a;
-}
-
-body.light .donate-heart {
-  color: #e83a5e;
-  background: transparent;
-  border: none;
-  padding: 10px 0;
-}
-
-body.light footer {
-  color: #6a7a9a;
-}
-
-body.light .badge-mode {
-  border: 1px solid rgba(0,0,0,.1);
-  background: rgba(0,0,0,.03);
-  color: #4a5a7a;
-  cursor: pointer;
-}
-
-body.light .badge-mode:hover {
-  background: rgba(0,0,0,.06);
-}
-
-/* === LINK ITEM - LIGHT MODE === */
-body.light .link-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 14px 16px;
-  border-radius: 14px;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  background: rgba(0,0,0,0.04);
-  border: 1.5px solid rgba(0,0,0,.15);
-  margin-top: 10px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-}
-
-body.light .link-item span {
-  color: #1a2a4a;
-}
-
-body.light .link-item:hover {
-  background: rgba(0,0,0,0.08);
-  border-color: rgba(0,0,0,.25);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0,0,0,.1);
-}
-
-body.light .donate .copy-donate {
-  background: linear-gradient(135deg, #00d8ff, #00cf9d);
-}
-
-body.light .stats {
-  color: #5a6a8a;
-}
-
-body.light .stats .number {
-  color: #3560ff;
-}
-
-/* === CHUNG === */
-.container {
-  max-width: 850px;
-  margin: auto;
-  padding: 25px;
-  border-radius: 35px;
-  transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.logo {
-  width: 65px;
-  height: 65px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #4de4ff, #3560ff);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 22px;
-  font-weight: 800;
-  color: #fff;
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-}
-
-.logo:hover {
-  transform: rotate(10deg) scale(1.05);
-}
-
-.title h1 {
-  font-size: 38px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  line-height: 1.1;
-  transition: color 0.3s ease;
-}
-
-.subtitle {
-  font-size: 14px;
-  margin-top: 2px;
-  transition: color 0.3s ease;
-}
-
-.badge-item {
-  display: inline-block;
-  font-size: 12px;
-  padding: 4px 14px;
-  border-radius: 999px;
-  margin-top: 5px;
-  margin-right: 6px;
-  transition: all 0.3s ease;
-}
-
-.badge-mode {
-  display: inline-block;
-  font-size: 12px;
-  padding: 4px 14px;
-  border-radius: 999px;
-  margin-top: 5px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.badge-mode:hover {
-  opacity: 0.8;
-  transform: scale(1.05);
-}
-
-.badge-mode:active {
-  transform: scale(0.95);
-}
-
-.badge-group {
-  margin-top: 6px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  align-items: center;
-}
-
-.section {
-  margin-top: 25px;
-}
-
-.section h2 {
-  font-size: 16px;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
-  transition: color 0.3s ease;
-}
-
-/* === REPO === */
-.repo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 18px;
-  border-radius: 16px;
-  transition: all 0.3s ease;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.15);
-}
-
-.repo:hover {
-  background: rgba(255,255,255,.12);
-  border-color: rgba(255,255,255,.25);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(0,0,0,.15);
-}
-
-.repo span {
-  font-size: 15px;
-  word-break: break-all;
-  transition: color 0.3s ease;
-  font-weight: 500;
-}
-
-.copy {
-  height: 40px;
-  padding: 0 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 12px;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  background: linear-gradient(135deg, #00d8ff, #00cf9d);
-  transition: all 0.25s ease;
-  flex-shrink: 0;
-  white-space: nowrap;
-  position: relative;
-  overflow: hidden;
-  letter-spacing: 0.3px;
-  box-shadow: 0 4px 20px rgba(0,216,255,.3);
-}
-
-.copy::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
-  transition: left 0.6s ease;
-}
-
-.copy:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 8px 35px rgba(0,216,255,.45);
-}
-
-.copy:hover::before {
-  left: 100%;
-}
-
-.copy:active {
-  transform: scale(0.94);
-  box-shadow: 0 2px 10px rgba(0,216,255,.2);
-}
-
-body.light .repo {
-  background: rgba(0,0,0,.05);
-  border: 1px solid rgba(0,0,0,.12);
-}
-
-body.light .repo:hover {
-  background: rgba(0,0,0,.08);
-  border-color: rgba(0,0,0,.2);
-  box-shadow: 0 4px 20px rgba(0,0,0,.06);
-}
-
-body.light .repo span {
-  color: #1a2a4a;
-}
-
-body.light .copy {
-  box-shadow: 0 4px 20px rgba(0,216,255,.25);
-}
-
-body.light .copy:hover {
-  box-shadow: 0 8px 35px rgba(0,216,255,.4);
-}
-
-/* === LINK ITEM - CHUNG === */
-.link-item::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255,255,255,.15);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease;
-}
-
-.link-item:active::before {
-  width: 300px;
-  height: 300px;
-}
-
-.link-item span {
-  font-size: 14px;
-  word-break: break-all;
-  transition: all 0.3s ease;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.link-item:active {
-  transform: scale(0.96);
-  transition-duration: 0.1s;
-}
-
-.link-item::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.05), transparent);
-  transition: left 0.5s ease;
-}
-
-.link-item:hover::after {
-  left: 100%;
-}
-
-.link-item:nth-child(2):hover {
-  border-color: #00d8ff;
-  box-shadow: 0 8px 25px rgba(0,216,255,.2);
-}
-
-.link-item:nth-child(3):hover {
-  border-color: #6774ff;
-  box-shadow: 0 8px 25px rgba(103,116,255,.2);
-}
-
-.link-item:nth-child(4):hover {
-  border-color: #ff6b6b;
-  box-shadow: 0 8px 25px rgba(255,107,107,.2);
-}
-
-.link-item:nth-child(5):hover {
-  border-color: #ffd93d;
-  box-shadow: 0 8px 25px rgba(255,217,61,.2);
-}
-
-.link-item:nth-child(6):hover {
-  border-color: #6bcb77;
-  box-shadow: 0 8px 25px rgba(107,203,119,.2);
-}
-
-.link-item:nth-child(7):hover {
-  border-color: #a66cff;
-  box-shadow: 0 8px 25px rgba(166,108,255,.2);
-}
-
-body.light .link-item:active::before {
-  background: rgba(0,0,0,.08);
-}
-
-.card {
-  padding: 16px;
-  border-radius: 16px;
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0,0,0,.15);
-}
-
-.card p {
-  font-size: 13px;
-  line-height: 1.8;
-  margin-bottom: 6px;
-  transition: color 0.3s ease;
-}
-
-/* === DONATE - STK + COPY CHUNG 1 Ô === */
-.donate {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 18px;
-  margin-bottom: 10px;
-  border-radius: 14px;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  font-weight: 600;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.15);
-}
-
-.donate:hover {
-  background: rgba(255,255,255,.12);
-  border-color: rgba(255,255,255,.25);
-  box-shadow: 0 4px 20px rgba(0,0,0,.1);
-}
-
-.donate:last-child {
-  margin-bottom: 0;
-}
-
-.donate span {
-  word-break: break-all;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-/* Nút Copy trong ô DONATE */
-.copy-donate {
-  height: 38px;
-  padding: 0 18px;
-  border: none;
-  cursor: pointer;
-  border-radius: 12px;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 600;
-  background: linear-gradient(135deg, #00d8ff, #00cf9d);
-  transition: all 0.25s ease;
-  flex-shrink: 0;
-  white-space: nowrap;
-  position: relative;
-  overflow: hidden;
-  letter-spacing: 0.3px;
-  box-shadow: 0 4px 20px rgba(0,216,255,.25);
-}
-
-.copy-donate::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
-  transition: left 0.6s ease;
-}
-
-.copy-donate:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 8px 35px rgba(0,216,255,.4);
-}
-
-.copy-donate:hover::before {
-  left: 100%;
-}
-
-.copy-donate:active {
-  transform: scale(0.94);
-  box-shadow: 0 2px 10px rgba(0,216,255,.15);
-}
-
-/* === DÒNG TRÁI TIM - KHÔNG KHUNG === */
-.donate-heart {
-  text-align: center;
-  padding: 12px 0;
-  font-size: 15px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  background: transparent;
-  border: none;
-}
-
-/* === STATS - THỐNG KÊ === */
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 14px 18px;
-  margin-top: 10px;
-  border-radius: 14px;
-  font-size: 13px;
-  font-weight: 500;
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-  transition: all 0.3s ease;
-}
-
-.stats:hover {
-  background: rgba(255,255,255,.08);
-  border-color: rgba(255,255,255,.15);
-}
-
-.stats .stat-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.stats .number {
-  font-weight: 700;
-  font-size: 15px;
-}
-
-.stats .label {
-  font-size: 12px;
-  opacity: 0.7;
-}
-
-body.light .stats {
-  background: rgba(0,0,0,.03);
-  border: 1px solid rgba(0,0,0,.08);
-}
-
-body.light .stats:hover {
-  background: rgba(0,0,0,.06);
-  border-color: rgba(0,0,0,.15);
-}
-
-/* === FOOTER - 1 DÒNG === */
-footer {
-  margin-top: 25px;
-  text-align: center;
-  font-size: 12px;
-  transition: color 0.3s ease;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .title h1 {
-    font-size: 30px;
-  }
-
-  .badge-group {
-    justify-content: center;
-  }
-
-  .repo {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: 8px;
-    padding: 12px 14px;
-  }
-
-  .repo span {
-    font-size: 13px;
-    flex: 1;
-    min-width: 0;
-    text-align: left;
-  }
-
-  .copy {
-    height: 36px;
-    padding: 0 14px;
-    font-size: 12px;
-    flex-shrink: 0;
-  }
-
-  .link-item {
-    padding: 12px 14px;
-    margin-top: 8px;
-  }
-
-  .link-item span {
-    font-size: 13px;
-  }
-
-  .donate {
-    padding: 12px 14px;
-    font-size: 14px;
-  }
-
-  .donate span {
-    font-size: 14px;
-  }
-
-  .copy-donate {
-    height: 34px;
-    padding: 0 14px;
-    font-size: 11px;
-  }
-
-  .donate-heart {
-    font-size: 14px;
-    padding: 10px 0;
-  }
-
-  .stats {
-    gap: 20px;
-    padding: 12px 14px;
-    font-size: 12px;
-    flex-wrap: wrap;
-  }
-
-  .stats .number {
-    font-size: 14px;
-  }
-
-  footer {
-    font-size: 11px;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 15px;
-  }
-
-  .logo {
-    width: 50px;
-    height: 50px;
-    font-size: 18px;
-  }
-
-  .title h1 {
-    font-size: 24px;
-  }
-
-  .subtitle {
-    font-size: 13px;
-  }
-
-  .badge-item {
-    font-size: 11px;
-    padding: 3px 10px;
-  }
-
-  .badge-mode {
-    font-size: 11px;
-    padding: 3px 10px;
-  }
-
-  .repo span {
-    font-size: 12px;
-  }
-
-  .copy {
-    height: 32px;
-    padding: 0 10px;
-    font-size: 11px;
-  }
-
-  .link-item {
-    padding: 10px 12px;
-    margin-top: 6px;
-  }
-
-  .link-item span {
-    font-size: 12px;
-  }
-
-  .donate {
-    font-size: 13px;
-    padding: 10px 12px;
-  }
-
-  .donate span {
-    font-size: 13px;
-  }
-
-  .copy-donate {
-    height: 30px;
-    padding: 0 10px;
-    font-size: 10px;
-  }
-
-  .donate-heart {
-    font-size: 13px;
-    padding: 8px 0;
-  }
-
-  .stats {
-    gap: 12px;
-    padding: 10px 12px;
-    font-size: 11px;
-  }
-
-  .stats .number {
-    font-size: 13px;
-  }
-
-  .stats .label {
-    font-size: 10px;
-  }
-
-  footer {
-    font-size: 10px;
-  }
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="jwSWaNc1GSsYeE8J0r8RGeBQfeRAaxBj302gk8mI0PI">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="NVH Repo - Kho tweak jailbreak iOS, Việt hoá, Roothide, Sileo, Cydia">
+    <title>litle306 - NVH Repo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 15px;
+            transition: background 0.3s ease;
+        }
+
+        /* === DARK MODE (mặc định) === */
+        body.dark {
+            background: radial-gradient(circle at top, #21d4fd 0%, #0b87d0 25%, #03132d 100%);
+        }
+
+        body.dark .container {
+            background: linear-gradient(135deg, rgba(15,45,88,.98), rgba(4,18,42,.98));
+            border: 1px solid rgba(255,255,255,.08);
+            box-shadow: 0 20px 60px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.05);
+        }
+
+        body.dark .title h1 {
+            color: #fff;
+        }
+
+        body.dark .subtitle {
+            color: #c4d0e4;
+        }
+
+        body.dark .badge-item {
+            color: #c4d0e4;
+            border: 1px solid rgba(255,255,255,.12);
+            background: rgba(255,255,255,.04);
+        }
+
+        body.dark .badge-item .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #00ff88;
+            margin: 0 4px;
+            animation: blinkDot 1.2s ease-in-out infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blinkDot {
+            0%, 100% {
+                opacity: 1;
+                box-shadow: 0 0 5px rgba(0,255,136,0.5), 0 0 10px rgba(0,255,136,0.2);
+            }
+            50% {
+                opacity: 0.15;
+                box-shadow: 0 0 2px rgba(0,255,136,0.1);
+            }
+        }
+
+        body.dark .section h2 {
+            color: #fff;
+        }
+
+        body.dark .repo {
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.12);
+        }
+
+        body.dark .repo span {
+            color: #fff;
+        }
+
+        body.dark .card {
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
+        }
+
+        body.dark .card p {
+            color: #d3dcee;
+        }
+
+        body.dark .card p .highlight {
+            color: #4de4ff;
+        }
+
+        body.dark .donate {
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.12);
+            color: #ffffff;
+        }
+
+        body.dark .donate span {
+            color: #ffffff;
+        }
+
+        body.dark .donate-heart {
+            color: #ff6b8a;
+            background: transparent;
+            border: none;
+            padding: 10px 0;
+        }
+
+        body.dark footer {
+            color: #93a3bf;
+        }
+
+        body.dark .badge-mode {
+            border: 1px solid rgba(255,255,255,.12);
+            background: rgba(255,255,255,.04);
+            color: #c4d0e4;
+        }
+
+        /* === LINK ITEM - DARK MODE === */
+        body.dark .link-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 14px 16px;
+            border-radius: 14px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            background: rgba(0,0,0,0.3);
+            border: 1.5px solid rgba(255,255,255,.25);
+            margin-top: 10px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        body.dark .link-item span {
+            color: #fff;
+        }
+
+        body.dark .link-item:hover {
+            background: rgba(0,0,0,0.45);
+            border-color: rgba(255,255,255,.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,.4);
+        }
+
+        body.dark .donate .copy-donate {
+            background: linear-gradient(135deg, #00d8ff, #00cf9d);
+        }
+
+        body.dark .stats {
+            color: #a0b4d0;
+        }
+
+        body.dark .stats .number {
+            color: #4de4ff;
+        }
+
+        /* === LIGHT MODE === */
+        body.light {
+            background: radial-gradient(circle at top, #f5f7fa 0%, #e8ecf1 50%, #d5dbe3 100%);
+        }
+
+        body.light .container {
+            background: linear-gradient(135deg, rgba(255,255,255,.98), rgba(240,243,248,.98));
+            border: 1px solid rgba(0,0,0,.08);
+            box-shadow: 0 20px 60px rgba(0,0,0,.1), inset 0 1px 0 rgba(255,255,255,.5);
+        }
+
+        body.light .title h1 {
+            color: #1a2a4a;
+        }
+
+        body.light .subtitle {
+            color: #4a5a7a;
+        }
+
+        body.light .badge-item {
+            color: #4a5a7a;
+            border: 1px solid rgba(0,0,0,.1);
+            background: rgba(0,0,0,.03);
+        }
+
+        body.light .badge-item .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #00cc77;
+            margin: 0 4px;
+            animation: blinkDotLight 1.2s ease-in-out infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blinkDotLight {
+            0%, 100% {
+                opacity: 1;
+                box-shadow: 0 0 5px rgba(0,204,119,0.4), 0 0 10px rgba(0,204,119,0.15);
+            }
+            50% {
+                opacity: 0.15;
+                box-shadow: 0 0 2px rgba(0,204,119,0.05);
+            }
+        }
+
+        body.light .section h2 {
+            color: #1a2a4a;
+        }
+
+        body.light .repo {
+            background: rgba(0,0,0,.04);
+            border: 1px solid rgba(0,0,0,.12);
+        }
+
+        body.light .repo span {
+            color: #1a2a4a;
+        }
+
+        body.light .card {
+            background: rgba(0,0,0,.03);
+            border: 1px solid rgba(0,0,0,.08);
+        }
+
+        body.light .card p {
+            color: #2a3a5a;
+        }
+
+        body.light .card p .highlight {
+            color: #3560ff;
+        }
+
+        body.light .donate {
+            background: rgba(0,0,0,.04);
+            border: 1px solid rgba(0,0,0,.12);
+            color: #0a1a3a;
+        }
+
+        body.light .donate span {
+            color: #0a1a3a;
+        }
+
+        body.light .donate-heart {
+            color: #e83a5e;
+            background: transparent;
+            border: none;
+            padding: 10px 0;
+        }
+
+        body.light footer {
+            color: #6a7a9a;
+        }
+
+        body.light .badge-mode {
+            border: 1px solid rgba(0,0,0,.1);
+            background: rgba(0,0,0,.03);
+            color: #4a5a7a;
+            cursor: pointer;
+        }
+
+        body.light .badge-mode:hover {
+            background: rgba(0,0,0,.06);
+        }
+
+        /* === LINK ITEM - LIGHT MODE === */
+        body.light .link-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 14px 16px;
+            border-radius: 14px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            background: rgba(0,0,0,0.04);
+            border: 1.5px solid rgba(0,0,0,.15);
+            margin-top: 10px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        body.light .link-item span {
+            color: #1a2a4a;
+        }
+
+        body.light .link-item:hover {
+            background: rgba(0,0,0,0.08);
+            border-color: rgba(0,0,0,.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,.1);
+        }
+
+        body.light .donate .copy-donate {
+            background: linear-gradient(135deg, #00d8ff, #00cf9d);
+        }
+
+        body.light .stats {
+            color: #5a6a8a;
+        }
+
+        body.light .stats .number {
+            color: #3560ff;
+        }
+
+        /* === CHUNG === */
+        .container {
+            max-width: 850px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 35px;
+            transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 65px;
+            height: 65px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #4de4ff, #3560ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: rotate(10deg) scale(1.05);
+        }
+
+        .title h1 {
+            font-size: 38px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            transition: color 0.3s ease;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            margin-top: 2px;
+            transition: color 0.3s ease;
+        }
+
+        .badge-item {
+            display: inline-block;
+            font-size: 12px;
+            padding: 4px 14px;
+            border-radius: 999px;
+            margin-top: 5px;
+            margin-right: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .badge-mode {
+            display: inline-block;
+            font-size: 12px;
+            padding: 4px 14px;
+            border-radius: 999px;
+            margin-top: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .badge-mode:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        .badge-mode:active {
+            transform: scale(0.95);
+        }
+
+        .badge-group {
+            margin-top: 6px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .section {
+            margin-top: 25px;
+        }
+
+        .section h2 {
+            font-size: 16px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        /* === REPO === */
+        .repo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.15);
+        }
+
+        .repo:hover {
+            background: rgba(255,255,255,.12);
+            border-color: rgba(255,255,255,.25);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(0,0,0,.15);
+        }
+
+        .repo span {
+            font-size: 15px;
+            word-break: break-all;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .copy {
+            height: 40px;
+            padding: 0 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #00d8ff, #00cf9d);
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 20px rgba(0,216,255,.3);
+        }
+
+        .copy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .copy:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 35px rgba(0,216,255,.45);
+        }
+
+        .copy:hover::before {
+            left: 100%;
+        }
+
+        .copy:active {
+            transform: scale(0.94);
+            box-shadow: 0 2px 10px rgba(0,216,255,.2);
+        }
+
+        body.light .repo {
+            background: rgba(0,0,0,.05);
+            border: 1px solid rgba(0,0,0,.12);
+        }
+
+        body.light .repo:hover {
+            background: rgba(0,0,0,.08);
+            border-color: rgba(0,0,0,.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,.06);
+        }
+
+        body.light .repo span {
+            color: #1a2a4a;
+        }
+
+        body.light .copy {
+            box-shadow: 0 4px 20px rgba(0,216,255,.25);
+        }
+
+        body.light .copy:hover {
+            box-shadow: 0 8px 35px rgba(0,216,255,.4);
+        }
+
+        /* === LINK ITEM - CHUNG === */
+        .link-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,.15);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .link-item:active::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .link-item span {
+            font-size: 14px;
+            word-break: break-all;
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .link-item:active {
+            transform: scale(0.96);
+            transition-duration: 0.1s;
+        }
+
+        .link-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .link-item:hover::after {
+            left: 100%;
+        }
+
+        .link-item:nth-child(2):hover {
+            border-color: #00d8ff;
+            box-shadow: 0 8px 25px rgba(0,216,255,.2);
+        }
+
+        .link-item:nth-child(3):hover {
+            border-color: #6774ff;
+            box-shadow: 0 8px 25px rgba(103,116,255,.2);
+        }
+
+        .link-item:nth-child(4):hover {
+            border-color: #ff6b6b;
+            box-shadow: 0 8px 25px rgba(255,107,107,.2);
+        }
+
+        .link-item:nth-child(5):hover {
+            border-color: #ffd93d;
+            box-shadow: 0 8px 25px rgba(255,217,61,.2);
+        }
+
+        .link-item:nth-child(6):hover {
+            border-color: #6bcb77;
+            box-shadow: 0 8px 25px rgba(107,203,119,.2);
+        }
+
+        .link-item:nth-child(7):hover {
+            border-color: #a66cff;
+            box-shadow: 0 8px 25px rgba(166,108,255,.2);
+        }
+
+        body.light .link-item:active::before {
+            background: rgba(0,0,0,.08);
+        }
+
+        .card {
+            padding: 16px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,.15);
+        }
+
+        .card p {
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 6px;
+            transition: color 0.3s ease;
+        }
+
+        /* === DONATE - STK + COPY CHUNG 1 Ô === */
+        .donate {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 18px;
+            margin-bottom: 10px;
+            border-radius: 14px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.15);
+        }
+
+        .donate:hover {
+            background: rgba(255,255,255,.12);
+            border-color: rgba(255,255,255,.25);
+            box-shadow: 0 4px 20px rgba(0,0,0,.1);
+        }
+
+        .donate:last-child {
+            margin-bottom: 0;
+        }
+
+        .donate span {
+            word-break: break-all;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Nút Copy trong ô DONATE */
+        .copy-donate {
+            height: 38px;
+            padding: 0 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #00d8ff, #00cf9d);
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 20px rgba(0,216,255,.25);
+        }
+
+        .copy-donate::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .copy-donate:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 35px rgba(0,216,255,.4);
+        }
+
+        .copy-donate:hover::before {
+            left: 100%;
+        }
+
+        .copy-donate:active {
+            transform: scale(0.94);
+            box-shadow: 0 2px 10px rgba(0,216,255,.15);
+        }
+
+        /* === DÒNG TRÁI TIM - KHÔNG KHUNG === */
+        .donate-heart {
+            text-align: center;
+            padding: 12px 0;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background: transparent;
+            border: none;
+        }
+
+        /* === STATS - THỐNG KÊ === */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 14px 18px;
+            margin-top: 10px;
+            border-radius: 14px;
+            font-size: 13px;
+            font-weight: 500;
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
+            transition: all 0.3s ease;
+        }
+
+        .stats:hover {
+            background: rgba(255,255,255,.08);
+            border-color: rgba(255,255,255,.15);
+        }
+
+        .stats .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stats .number {
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .stats .label {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        body.light .stats {
+            background: rgba(0,0,0,.03);
+            border: 1px solid rgba(0,0,0,.08);
+        }
+
+        body.light .stats:hover {
+            background: rgba(0,0,0,.06);
+            border-color: rgba(0,0,0,.15);
+        }
+
+        /* === FOOTER - 1 DÒNG === */
+        footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 12px;
+            transition: color 0.3s ease;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .title h1 {
+                font-size: 30px;
+            }
+
+            .badge-group {
+                justify-content: center;
+            }
+
+            .repo {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                gap: 8px;
+                padding: 12px 14px;
+            }
+
+            .repo span {
+                font-size: 13px;
+                flex: 1;
+                min-width: 0;
+                text-align: left;
+            }
+
+            .copy {
+                height: 36px;
+                padding: 0 14px;
+                font-size: 12px;
+                flex-shrink: 0;
+            }
+
+            .link-item {
+                padding: 12px 14px;
+                margin-top: 8px;
+            }
+
+            .link-item span {
+                font-size: 13px;
+            }
+
+            .donate {
+                padding: 12px 14px;
+                font-size: 14px;
+            }
+
+            .donate span {
+                font-size: 14px;
+            }
+
+            .copy-donate {
+                height: 34px;
+                padding: 0 14px;
+                font-size: 11px;
+            }
+
+            .donate-heart {
+                font-size: 14px;
+                padding: 10px 0;
+            }
+
+            .stats {
+                gap: 20px;
+                padding: 12px 14px;
+                font-size: 12px;
+                flex-wrap: wrap;
+            }
+
+            .stats .number {
+                font-size: 14px;
+            }
+
+            footer {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            .logo {
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+            }
+
+            .title h1 {
+                font-size: 24px;
+            }
+
+            .subtitle {
+                font-size: 13px;
+            }
+
+            .badge-item {
+                font-size: 11px;
+                padding: 3px 10px;
+            }
+
+            .badge-mode {
+                font-size: 11px;
+                padding: 3px 10px;
+            }
+
+            .repo span {
+                font-size: 12px;
+            }
+
+            .copy {
+                height: 32px;
+                padding: 0 10px;
+                font-size: 11px;
+            }
+
+            .link-item {
+                padding: 10px 12px;
+                margin-top: 6px;
+            }
+
+            .link-item span {
+                font-size: 12px;
+            }
+
+            .donate {
+                font-size: 13px;
+                padding: 10px 12px;
+            }
+
+            .donate span {
+                font-size: 13px;
+            }
+
+            .copy-donate {
+                height: 30px;
+                padding: 0 10px;
+                font-size: 10px;
+            }
+
+            .donate-heart {
+                font-size: 13px;
+                padding: 8px 0;
+            }
+
+            .stats {
+                gap: 12px;
+                padding: 10px 12px;
+                font-size: 11px;
+            }
+
+            .stats .number {
+                font-size: 13px;
+            }
+
+            .stats .label {
+                font-size: 10px;
+            }
+
+            footer {
+                font-size: 10px;
+            }
+        }
+
+    </style>
 </head>
 <body class="dark">
 
 <div class="container">
 
-  <div class="header">
-    <div class="logo">NVH</div>
-    <div class="title">
-      <h1>NVH REPO</h1>
-      <div class="subtitle">Kho tweak Crack • Việt Hoá</div>
-      <div class="badge-group">
-        <span class="badge-item">JAILBREAK <span class="dot"></span> CÔNG NGHỆ</span>
-        <span class="badge-mode" onclick="toggleMode()" id="modeToggle">🌙 Đang dùng Dark Mode</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>ĐƯỜNG DẪN REPO</h2>
-    <div class="repo">
-      <span id="repoLink">https://huanxyz.click</span>
-      <button class="copy" onclick="copyRepo(this)">📋 Sao chép</button>
+    <div class="header">
+        <div class="logo">NVH</div>
+        <div class="title">
+            <h1>NVH REPO</h1>
+            <div class="subtitle">Kho tweak Crack • Việt Hoá</div>
+            <div class="badge-group">
+                <span class="badge-item">JAILBREAK <span class="dot"></span> CÔNG NGHỆ</span>
+                <span class="badge-mode" onclick="toggleMode()" id="modeToggle">🌙 Đang dùng Dark Mode</span>
+            </div>
+        </div>
     </div>
 
-    <div class="link-item" onclick="handleClick(this, '📦 Thêm vào Cydia')">
-      <span>📦 Thêm vào Cydia</span>
+    <div class="section">
+        <h2>ĐƯỜNG DẪN REPO</h2>
+        <div class="repo">
+            <span id="repoLink">https://huanxyz.click</span>
+            <button class="copy" onclick="copyRepo(this)">📋 Sao chép</button>
+        </div>
+
+        <div class="link-item" onclick="handleClick(this, '📦 Thêm vào Cydia')">
+            <span>📦 Thêm vào Cydia</span>
+        </div>
+
+        <a href="https://www.facebook.com/share/1961R3GJ3G/?mibextid=wwXIfr" target="_blank" class="link-item" onclick="handleClick(this, '🌀 Thêm vào Sileo')">
+            <span>🌀 Thêm vào Sileo</span>
+        </a>
+
+        <div class="link-item" onclick="handleClick(this, '🦓 Thêm vào Zebra')">
+            <span>🦓 Thêm vào Zebra</span>
+        </div>
+
+        <div class="link-item" onclick="handleClick(this, '📦 Repo Roothide')">
+            <span>📦 Repo Roothide</span>
+        </div>
+
+        <div class="link-item" onclick="handleClick(this, '📲 Kho iPA')">
+            <span>📲 Kho iPA</span>
+        </div>
+
+        <div class="link-item" onclick="handleClick(this, '🧪 File Tiêm – TrollFools')">
+            <span>🧪 File Tiêm – TrollFools</span>
+        </div>
     </div>
 
-    <a href="https://www.facebook.com/share/1961R3GJ3G/?mibextid=wwXIfr" target="_blank" class="link-item" onclick="handleClick(this, '🌀 Thêm vào Sileo')">
-      <span>🌀 Thêm vào Sileo</span>
-    </a>
-
-    <div class="link-item" onclick="handleClick(this, '🦓 Thêm vào Zebra')">
-      <span>🦓 Thêm vào Zebra</span>
+    <div class="section">
+        <h2>THÔNG TIN LIÊN HỆ</h2>
+        <div class="card">
+            <p><b>Repo được phát triển bởi:</b> NVH 🇻🇳</p>
+            <p>Kho lưu trữ các Tweak Việt hoá cho cộng đồng Jailbreak.</p>
+            <p>Hỗ trợ: Bug, góp ý, yêu cầu tính năng mới.</p>
+            <p>Tình trạng: Đang cập nhật tweak cho iOS 15–16 (rootless).</p>
+            <p>Email: <span class="highlight">huanketamin2@gmail.com</span></p>
+            <p>Telegram: <span class="highlight">rhuanxyz</span></p>
+        </div>
     </div>
 
-    <div class="link-item" onclick="handleClick(this, '📦 Repo Roothide')">
-      <span>📦 Repo Roothide</span>
+    <div class="section">
+        <h2>ỦNG HỘ (DONATE)</h2>
+        <div class="card">
+            <!-- Ô STK + Copy chung 1 ô -->
+            <div class="donate">
+                <span id="stkText">STK: 900959999</span>
+                <button class="copy-donate" onclick="copySTK(this)">📋 Sao chép</button>
+            </div>
+
+            <div class="donate">
+                <span>Ngân hàng: MBBank</span>
+            </div>
+
+            <div class="donate">
+                <span>Chủ TK: TAO NGHÈO LẮM</span>
+            </div>
+
+            <!-- Dòng trái tim - không khung -->
+            <div class="donate-heart">
+                ❤️ Ứng hộ giúp Repo phát triển ❤️
+            </div>
+        </div>
     </div>
 
-    <div class="link-item" onclick="handleClick(this, '📲 Kho iPA')">
-      <span>📲 Kho iPA</span>
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat-item">
+            <span class="number" id="statTweaks">128</span>
+            <span class="label">Tweaks</span>
+        </div>
+        <div class="stat-item">
+            <span class="number" id="statDownloads">24.7K</span>
+            <span class="label">Lượt tải</span>
+        </div>
+        <div class="stat-item">
+            <span class="number" id="statUsers">3.2K</span>
+            <span class="label">Người dùng</span>
+        </div>
     </div>
 
-    <div class="link-item" onclick="handleClick(this, '🧪 File Tiêm – TrollFools')">
-      <span>🧪 File Tiêm – TrollFools</span>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>THÔNG TIN LIÊN HỆ</h2>
-    <div class="card">
-      <p><b>Repo được phát triển bởi:</b> NVH 🇻🇳</p>
-      <p>Kho lưu trữ các Tweak Việt hoá cho cộng đồng Jailbreak.</p>
-      <p>Hỗ trợ: Bug, góp ý, yêu cầu tính năng mới.</p>
-      <p>Tình trạng: Đang cập nhật tweak cho iOS 15–16 (rootless).</p>
-      <p>Email: <span class="highlight">huanketamin2@gmail.com</span></p>
-      <p>Telegram: <span class="highlight">rhuanxyz</span></p>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>ỦNG HỘ (DONATE)</h2>
-    <div class="card">
-      <!-- Ô STK + Copy chung 1 ô -->
-      <div class="donate">
-        <span id="stkText">STK: 900959999</span>
-        <button class="copy-donate" onclick="copySTK(this)">📋 Sao chép</button>
-      </div>
-
-      <div class="donate">
-        <span>Ngân hàng: MBBank</span>
-      </div>
-
-      <div class="donate">
-        <span>Chủ TK: TAO NGHÈO LẮM</span>
-      </div>
-
-      <!-- Dòng trái tim - không khung -->
-      <div class="donate-heart">
-        ❤️ Ứng hộ giúp Repo phát triển ❤️
-      </div>
-    </div>
-  </div>
-
-  <!-- STATS -->
-  <div class="stats">
-    <div class="stat-item">
-      <span class="number" id="statTweaks">128</span>
-      <span class="label">Tweaks</span>
-    </div>
-    <div class="stat-item">
-      <span class="number" id="statDownloads">24.7K</span>
-      <span class="label">Lượt tải</span>
-    </div>
-    <div class="stat-item">
-      <span class="number" id="statUsers">3.2K</span>
-      <span class="label">Người dùng</span>
-    </div>
-  </div>
-
-  <!-- FOOTER - 1 DÒNG -->
-  <footer>
-    © 2026 NVH Repo • Made for Jailbreak Community 🇻🇳
-  </footer>
+    <!-- FOOTER - 1 DÒNG -->
+    <footer>
+        © 2026 NVH Repo • Made for Jailbreak Community 🇻🇳
+    </footer>
 
 </div>
 
 <script>
-function toggleMode() {
-  const body = document.body;
-  const toggle = document.getElementById('modeToggle');
-  
-  if (body.classList.contains('dark')) {
-    body.classList.remove('dark');
-    body.classList.add('light');
-    toggle.innerHTML = '☀️ Đang dùng Light Mode';
-  } else {
-    body.classList.remove('light');
-    body.classList.add('dark');
-    toggle.innerHTML = '🌙 Đang dùng Dark Mode';
-  }
-}
+    function toggleMode() {
+        const body = document.body;
+        const toggle = document.getElementById('modeToggle');
 
-function copyRepo(btn) {
-  const link = document.getElementById('repoLink').textContent;
-  const originalText = btn.innerHTML;
-  
-  const input = document.createElement('input');
-  input.value = link;
-  document.body.appendChild(input);
-  input.select();
-  document.execCommand('copy');
-  document.body.removeChild(input);
-  
-  btn.innerHTML = '✅ Đã sao chép!';
-  btn.style.background = 'linear-gradient(135deg, #00cfa0, #00b894)';
-  setTimeout(() => {
-    btn.innerHTML = originalText;
-    btn.style.background = '';
-  }, 2000);
-}
+        if (body.classList.contains('dark')) {
+            body.classList.remove('dark');
+            body.classList.add('light');
+            toggle.innerHTML = '☀️ Đang dùng Light Mode';
+        } else {
+            body.classList.remove('light');
+            body.classList.add('dark');
+            toggle.innerHTML = '🌙 Đang dùng Dark Mode';
+        }
+    }
 
-function copySTK(btn) {
-  const text = document.getElementById('stkText').textContent;
-  const stkNumber = text.replace('STK: ', '');
-  const originalText = btn.innerHTML;
-  
-  const input = document.createElement('input');
-  input.value = stkNumber;
-  document.body.appendChild(input);
-  input.select();
-  document.execCommand('copy');
-  document.body.removeChild(input);
-  
-  btn.innerHTML = '✅ Đã sao chép!';
-  btn.style.background = 'linear-gradient(135deg, #00cfa0, #00b894)';
-  setTimeout(() => {
-    btn.innerHTML = originalText;
-    btn.style.background = '';
-  }, 2000);
-}
+    function copyRepo(btn) {
+        const link = document.getElementById('repoLink').textContent;
+        const originalText = btn.innerHTML;
 
-function handleClick(el, name) {
-  el.style.borderColor = '#00d8ff';
-  setTimeout(() => {
-    el.style.borderColor = '';
-  }, 300);
-}
+        const input = document.createElement('input');
+        input.value = link;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
 
-// Tự động tăng số lượt tải mỗi khi vào trang (hiệu ứng)
-document.addEventListener('DOMContentLoaded', function() {
-  const downloadEl = document.getElementById('statDownloads');
-  const current = downloadEl.textContent;
-  const num = parseFloat(current);
-  const suffix = current.includes('K') ? 'K' : '';
-  
-  if (suffix === 'K') {
-    const increase = (Math.random() * 0.4 + 0.1).toFixed(1);
-    const newNum = (num + parseFloat(increase)).toFixed(1);
-    downloadEl.textContent = newNum + 'K';
-  }
-});
+        btn.innerHTML = '✅ Đã sao chép!';
+        btn.style.background = 'linear-gradient(135deg, #00cfa0, #00b894)';
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+        }, 2000);
+    }
+
+    function copySTK(btn) {
+        const text = document.getElementById('stkText').textContent;
+        const stkNumber = text.replace('STK: ', '');
+        const originalText = btn.innerHTML;
+
+        const input = document.createElement('input');
+        input.value = stkNumber;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
+
+        btn.innerHTML = '✅ Đã sao chép!';
+        btn.style.background = 'linear-gradient(135deg, #00cfa0, #00b894)';
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+        }, 2000);
+    }
+
+    function handleClick(el, name) {
+        el.style.borderColor = '#00d8ff';
+        setTimeout(() => {
+            el.style.borderColor = '';
+        }, 300);
+    }
+
+    // Tự động tăng số lượt tải mỗi khi vào trang (hiệu ứng)
+    document.addEventListener('DOMContentLoaded', function() {
+        const downloadEl = document.getElementById('statDownloads');
+        const current = downloadEl.textContent;
+        const num = parseFloat(current);
+        const suffix = current.includes('K') ? 'K' : '';
+
+        if (suffix === 'K') {
+            const increase = (Math.random() * 0.4 + 0.1).toFixed(1);
+            const newNum = (num + parseFloat(increase)).toFixed(1);
+            downloadEl.textContent = newNum + 'K';
+        }
+    });
 </script>
 
 </body>
 </html>
+```
