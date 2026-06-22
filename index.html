@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -340,8 +339,21 @@
             transition: transform 0.3s ease;
         }
 
-        .logo:hover {
-            transform: rotate(10deg) scale(1.05);
+        /* === TÙY CHỈNH DI CHUYỂN KHUNG LOGO (KHÔNG HOVER) === */
+        .logo.move-up {
+            transform: translateY(-30px);
+        }
+
+        .logo.move-down {
+            transform: translateY(30px);
+        }
+
+        .logo.move-left {
+            transform: translateX(-30px);
+        }
+
+        .logo.move-right {
+            transform: translateX(30px);
         }
 
         .title h1 {
@@ -917,7 +929,8 @@
 <div class="container">
 
     <div class="header">
-        <div class="logo">NVH</div>
+        <!-- THAY ĐỔI CLASS Ở ĐÂY: move-left, move-right, move-up, move-down -->
+        <div class="logo move-left">NVH</div>
         <div class="title">
             <h1>NVH REPO</h1>
             <div class="subtitle">Kho tweak Crack • Việt Hoá</div>
@@ -1097,5 +1110,3 @@
 </script>
 
 </body>
-</html>
-``` ok chưa
